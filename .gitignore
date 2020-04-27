@@ -1,0 +1,64 @@
+#cuda
+*.i
+*.ii
+*.gpu
+*.ptx
+*.cubin
+*.fatbin
+# Prerequisites
+*.d
+
+# Compiled Object files
+*.slo
+*.lo
+*.o
+*.obj
+
+# Precompiled Headers
+*.gch
+*.pch
+
+# Compiled Dynamic libraries
+*.so
+*.dylib
+*.dll
+
+# Fortran module files
+*.mod
+*.smod
+
+# Compiled Static libraries
+*.lai
+*.la
+*.a
+*.lib
+
+# Executables
+*.exe
+*.out
+*.app
+
+# vscode
+.vscode/
+cpp-module/.vscode/
+
+# vscode
+.history/
+
+# python
+__pycache__/
+*.pyc
+
+# vtk
+*.vtk
+*.vtp
+*.vtu
+
+# vscode
+cpp-module/build/* 
+
+# exception to the rule
+!cpp-module/build/.gitkeep 
+
+#ipython
+.ipynb_checkpoints
