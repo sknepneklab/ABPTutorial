@@ -55,7 +55,6 @@ namespace host
     using vector = std::vector<T>;
 } // namespace host
 
-
 /**
  * @brief to_string_scientific converts any number to scientific notation
  * 
