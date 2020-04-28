@@ -9,7 +9,7 @@ struct ParticlesClass
      * @brief Create an empty particles list
      * @param void
     */
-    ParticlesClass() : Numparticles(0) {}
+    ParticlesClass() : Numparticles(0) {particles.clear();}
     /**
      * Create a particles from given vectors
     */

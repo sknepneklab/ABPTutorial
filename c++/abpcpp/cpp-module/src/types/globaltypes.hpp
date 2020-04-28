@@ -53,6 +53,9 @@ namespace host
     using namespace std;
     template <typename T>
     using vector = std::vector<T>;
+
+    template <typename T>
+    const std::vector<T> copy(std::vector<T>& vec){return vec;}
 } // namespace host
 
 /**

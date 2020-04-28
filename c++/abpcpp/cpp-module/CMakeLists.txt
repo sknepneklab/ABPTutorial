@@ -40,6 +40,11 @@ file(GLOB particle_HDRS ${INCLUDE_DIRS}/particle/*.hpp)
 file(GLOB particle_SRCS ${INCLUDE_DIRS}/particle/*.cpp)
 list(APPEND INCLUDE_DIRS_HDRS ${particle_HDRS})
 list(APPEND INCLUDE_DIRS_SRCS ${particle_SRCS})
+## box ##
+file(GLOB box_HDRS ${INCLUDE_DIRS}/box/*.hpp)
+file(GLOB box_SRCS ${INCLUDE_DIRS}/box/*.cpp)
+list(APPEND INCLUDE_DIRS_HDRS ${box_HDRS})
+list(APPEND INCLUDE_DIRS_SRCS ${box_SRCS})
 ############################################
 
 set_directory_properties( PROPERTIES COMPILE_DEFINITIONS "" )
