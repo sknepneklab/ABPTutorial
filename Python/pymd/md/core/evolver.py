@@ -28,7 +28,7 @@ class Evelover:
         sys : System
           Object containt the simulate system
     """
-    self.system = sys 
+    self.sys = sys 
     self.integrators = []
     self.force_computes = []
     self.torque_computes = []
@@ -42,13 +42,19 @@ class Evelover:
           Time step
     """
     # Check is neighbour list needs rebuilding
-    if not self.system.has_nl or self.system.neighbour_list.needs_rebuild():
-      self.system.neighbour_list.build()
+    if self.sys.neighbour_list.needs_rebuild():
+      self.sys.neighbour_list.build()
 
     # Perform the preintegration step, i.e., step before forces and torques are computed
     for integ in self.integrators:
       integ.prestep(dt)
+
+    # Apply period boundary conditions
+    self.sys.apply_periodic()
     
+    # Reset all forces and toques
+    self.sys.reset_forces()
+
     # Compute all forces and torques
     for fc in self.force_computes:
       fc.compute()
@@ -59,6 +65,9 @@ class Evelover:
     # Perform the second step of integration
     for integ in self.integrators:
       integ.poststep(dt)
+    
+    # Apply period boundary conditions
+    self.sys.apply_periodic()
 
   def add_integrator(self, integ):
     """

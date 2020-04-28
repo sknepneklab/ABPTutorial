@@ -19,7 +19,6 @@
 from copy import deepcopy
 from .cell import Cell
     
-  
 class CellList:
   """ Class that handles creation and mainenance of the cell list."""
   

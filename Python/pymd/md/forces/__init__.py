@@ -16,3 +16,7 @@
 
 # Init file
 
+from .harmonic_force import HarmonicForce
+from .self_propulsion import SelfPropulsion
+
+

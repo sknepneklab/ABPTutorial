@@ -14,36 +14,61 @@
 # CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER 
 # DEALINGS IN THE SOFTWARE.
 
-# Class for handling polar alignment
-class PolarAlign:
+# Class handling Brownian integrator for rotation of particle directors
+
+from random import gauss
+from math import sqrt
+
+class BrownianRotIntegrator:
   """
-    Computes torque between pairs of particles in order to achieve polar alignment.
+    Class that implements first order Brownian integrator for rotating direction 
+    of each particle.
   """
-  def __init__(self, sys, J = 1.0, a = 2.0):
+  def __init__(self, sys, T = 0.0, gamma = 1.0):
     """
-      Create an object that handles polar alignment between pairs of partiles.
-      Parameters
-      ----------
+      Construct a BrownianRotIntegrator object
+      Parameter
+      ---------
         sys : System
           Simulation system
-        J : float
-          Alignment strength 
-        a : float
-          Cutoff distance
+        T : float
+          Temperature 
+        gamma : float
+          Friction coefficient 
+      Note
+      ----
+        Rotation diffusion constant is Dr = T/gamma
     """
-    self.system = sys
-    self.J = J 
-    self.a = a
+    self.sys = sys 
+    self.T = T 
+    self.gamma = gamma
+
+  def prestep(self, dt):
+    """
+      Performs step before force is computed.
+      Parameter
+      ---------
+        dt : float
+          step size
+    """
+    pass 
   
-  def compute(self):
-    for pi in self.system.particles:
-      ri = pi.r 
-      for n in self.system.neighbour_list.neighbours[pi.id]:
-        pj = self.system.particles[n]
-        rj = pj.r 
-        dr = rj - ri 
-        lendr = dr.length()
-        if lendr <= self.a:
-          tau_z = self.J*(pi.n.x*pj.n.y - pi.n.y*pj.n.x)
-          pi.tau += tau_z 
-          pj.tau -= tau_z
+  def poststep(self, dt):
+    """
+      Perform actual integration step
+      Parameter
+      ---------
+        dt : float
+          step size
+    """
+    Dr = self.T/self.gamma 
+    B = sqrt(2*Dr*dt)
+    for p in self.sys.particles:
+      theta = (dt/self.gamma)*p.tau 
+      if self.T > 0:
+        theta += B*gauss(0,1)
+      p.n.rotate(theta)
+
+
+    
+

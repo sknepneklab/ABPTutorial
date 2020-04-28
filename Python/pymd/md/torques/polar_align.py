@@ -14,61 +14,37 @@
 # CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER 
 # DEALINGS IN THE SOFTWARE.
 
-# Class handling Brownian integrator for rotation of particle directors
-
-from random import gauss
-from math import sqrt
-
-class BrownianRotIntegrator:
+# Class for handling polar alignment
+class PolarAlign:
   """
-    Class that implements first order Brownian integrator for rotating direction 
-    of each particle.
+    Computes torque between pairs of particles in order to achieve polar alignment.
   """
-  def __init__(self, sys, T = 0.0, gamma = 1.0):
+  def __init__(self, sys, J = 1.0, a = 2.0):
     """
-      Construct a BrownianRotIntegrator object
-      Parameter
-      ---------
+      Create an object that handles polar alignment between pairs of partiles.
+      Parameters
+      ----------
         sys : System
           Simulation system
-        T : float
-          Temperature 
-        gamma : float
-          Friction coefficient 
-      Note
-      ----
-        Rotation diffusion constant is Dr = T/gamma
+        J : float
+          Alignment strength 
+        a : float
+          Cutoff distance
     """
-    self.system = sys 
-    self.T = T 
-    self.gamma = gamma
-
-  def prestep(self, dt):
-    """
-      Performs step before force is computed.
-      Parameter
-      ---------
-        dt : float
-          step size
-    """
-    pass 
+    self.sys = sys
+    self.J = J 
+    self.a = a
   
-  def poststep(self, dt):
-    """
-      Perform actual integration step
-      Parameter
-      ---------
-        dt : float
-          step size
-    """
-    Dr = self.T/self.gamma 
-    B = sqrt(2*Dr*dt)
-    for p in self.system.particles:
-      theta = (dt/self.gamma)*p.tau 
-      if self.T > 0:
-        theta += B*gauss(0,1)
-      p.n.rotate(theta)
-
-
-    
-
+  def compute(self):
+    for pi in self.sys.particles:
+      ri = pi.r 
+      for n in self.sys.neighbour_list.neighbours[pi.id]:
+        pj = self.sys.particles[n]
+        rj = pj.r 
+        dr = rj - ri 
+        dr.apply_periodic(self.sys.box)
+        lendr = dr.length()
+        if lendr <= self.a:
+          tau_z = self.J*(pi.n.x*pj.n.y - pi.n.y*pj.n.x)
+          pi.tau += tau_z 
+          pj.tau -= tau_z

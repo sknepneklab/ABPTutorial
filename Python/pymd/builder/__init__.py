@@ -16,3 +16,5 @@
 
 # Init file
 
+from .make_random import *
+

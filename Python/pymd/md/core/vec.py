@@ -16,13 +16,12 @@
 
 # Class handling 2d vector algebra in periodic boundaries
 
-from .box import Box
 from math import sqrt, sin, cos
 
 class Vec:
   """Class that handles 2D vector algebra in periodic boundaries."""
 
-  def __init__(self, x, y, box = None):
+  def __init__(self, x, y):
     """
       Construct a vector in 2d.
       Parameters
@@ -31,27 +30,10 @@ class Vec:
           x coorsiante of the vector
         y : float
           y coordinate of the vector
-        box : simulation box object. If None (default) no periodic boundary conditions will be imposed
     """
     self.x = x 
     self.y = y 
-    self.box = box
-    self.apply_periodic()
-  
-  def apply_periodic(self):
-    """
-      Apply periodic boundary conditions to the vector.
-      Note
-      ----
-        We only check if the vector is within first periodic neighbours. For a vector with components 
-        far outside the simulation box the result of this function will be incorrect.     
-    """
-    if self.box != None:
-      self.x = self.x + self.box.Lx if self.x <= self.box.xmin else self.x
-      self.x = self.x - self.box.Lx if self.x >  self.box.xmax else self.x 
-      self.y = self.y + self.box.Ly if self.y <= self.box.ymin else self.y
-      self.y = self.y - self.box.Ly if self.y >  self.box.ymax else self.y
-    
+      
   def __add__(self, r):
     """
       Define vector addition.
@@ -60,7 +42,7 @@ class Vec:
         r : Vec
           Vector to add to self
     """
-    return Vec(self.x + r.x, self.y + r.y, self.box)
+    return Vec(self.x + r.x, self.y + r.y)
 
   def __sub__(self, r):
     """
@@ -70,7 +52,7 @@ class Vec:
         r : Vec
           Vector to subtract from self
     """
-    return Vec(self.x - r.x, self.y - r.y, self.box)
+    return Vec(self.x - r.x, self.y - r.y)
 
   def __mul__(self, s):
     """
@@ -80,7 +62,7 @@ class Vec:
         s : float
           Scaling factor
     """
-    return Vec(s*self.x, s*self.y, self.box)
+    return Vec(s*self.x, s*self.y)
 
   def __rmul__(self, s):
     """
@@ -90,7 +72,7 @@ class Vec:
         s : float
           Scaling factor
     """
-    return Vec(s*self.x, s*self.y, self.box)
+    return Vec(s*self.x, s*self.y)
 
   def __iadd__(self, r):
     """
@@ -102,7 +84,6 @@ class Vec:
     """
     self.x += r.x 
     self.y += r.y 
-    self.apply_periodic()
     return self
 
   def __isub__(self, r):
@@ -115,8 +96,19 @@ class Vec:
     """
     self.x -= r.x 
     self.y -= r.y 
-    self.apply_periodic()
     return self
+
+  def __repr__(self):
+    """
+      Return vector components as a tuple
+    """
+    return (self.x, self.y) 
+  
+  def __str__(self):
+    """
+      Return vector components as a string for printing.
+    """
+    return "({:.6f}, {:.6f})".format(self.x, self.y)
 
   def dot(self, r):
     """
@@ -162,3 +154,15 @@ class Vec:
     """
     return [self.x, self.y]
   
+  def apply_periodic(self, box):
+    """
+      Apply periodic boundary conditions to a vector.
+    """
+    if self.x < box.xmin:
+        self.x += box.Lx
+    elif self.x > box.xmax:
+        self.x -= box.Lx
+    if self.y < box.ymin:
+        self.y += box.Ly
+    elif self.y > box.ymax:
+        self.y -= box.Ly

@@ -14,37 +14,11 @@
 # CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER 
 # DEALINGS IN THE SOFTWARE.
 
-# Class for handling harmonic potential
+# Init file
 
-class HarmonicForce:
-  """
-    Computes pairwire interaction between two particle what is a simple linear force proportional to the overlap.
-  """
-  def __init__(self, sys, k = 1.0, a = 2.0):
-    """
-      Create an object that computes harmonic pairwise force.
-      Parameters
-      ----------
-        sys : System
-          Simulation system
-        k : float
-          Harmonic spring constant
-        a : float
-          Cutoff distance
-    """
-    self.system = sys
-    self.k = k 
-    self.a = a 
-  
-  def compute(self):
-    for pi in self.system.particles:
-      ri = pi.r 
-      for n in self.system.neighbour_list.neighbours[pi.id]:
-        pj = self.system.particles[n]
-        rj = pj.r 
-        dr = rj - ri 
-        lendr = dr.length()
-        if lendr <= self.a:
-          factor = -self.k*(self.a - lendr)/lendr
-          pi.f += factor*dr 
-          pj.f -= factor*dr
+from .box import Box
+from .system import System 
+from .evolver import Evelover
+from .dump import Dump
+
+

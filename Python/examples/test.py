@@ -14,5 +14,37 @@
 # CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER 
 # DEALINGS IN THE SOFTWARE.
 
-# Init file
+# Example of running a simple simulation
+
+from pymd.md import * 
+
+
+s = System(rcut = 3.0, pad = 0.5)
+s.read_init('test.json')
+
+e = Evelover(s)
+d = Dump(s)
+
+hf = HarmonicForce(s, 10.0, 2.0)
+sp = SelfPropulsion(s, 1.0)
+pa = PolarAlign(s, 1.0, 2.0)
+
+pos_integ = BrownianIntegrator(s, T = 0.0, gamma = 1.0)
+rot_integ = BrownianRotIntegrator(s, T = 0.1, gamma = 1.0)
+
+e.add_force(hf)
+e.add_force(sp)
+e.add_torque(pa)
+e.add_integrator(pos_integ)
+e.add_integrator(rot_integ)
+
+dt = 0.01
+for t in range(1000):
+  print("Time step : ", t)
+  e.evolve(dt)
+  if t % 10 == 0:
+    d.dump_vtp('test_{:05d}.vtp'.format(t))
+
+
+
 

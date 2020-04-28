@@ -14,26 +14,9 @@
 # CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER 
 # DEALINGS IN THE SOFTWARE.
 
-# Class for handling self propulsion 
+# Init file
 
-class SelfPropulsion:
-  """
-    Applies self-propulsion to each particle along its director
-  """
-  def __init__(self, sys, alpha = 1.0):
-    """
-      Create an object that handles self-propulsion.
-      Parameters
-      ----------
-        sys : System
-          Simulation system
-        alpha : float
-          Magnitude of the self-propulsion force
-    """
-    self.system = sys
-    self.alpha = alpha
-  
-  def compute(self):
-    for pi in self.system.particles:
-      pi.f += self.alpha*pi.n 
-      
+from .brownian_integrator import BrownianIntegrator
+from .brownian_rot_integrator import BrownianRotIntegrator
+
+

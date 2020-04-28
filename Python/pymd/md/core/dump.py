@@ -32,7 +32,7 @@ class Dump:
         sys : System
           Simulated system
     """
-    self.system = sys
+    self.sys = sys
 
   def dump_data(self, outfile):
     """
@@ -45,7 +45,7 @@ class Dump:
     """
     with open(outfile, 'w') as out:
       out.write("#  id  x  y  nx  ny  vx  vy  fx  fy\n")
-      for p in self.system.particles:
+      for p in self.sys.particles:
         idx = p.id
         x, y = p.r.to_list()
         nx, ny = p.n.to_list()
@@ -103,7 +103,7 @@ class Dump:
     n.SetName("director")
     v.SetName("velocity")
     f.SetName("force")
-    for p in self.system.particles:
+    for p in self.sys.particles:
       points.InsertNextPoint([p.r.x, p.r.y, 0.0])
       ids.InsertNextValue(p.id)
       n.InsertNextTuple([p.n.x, p.n.y, 0.0])

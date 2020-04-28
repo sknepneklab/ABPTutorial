@@ -14,56 +14,15 @@
 # CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER 
 # DEALINGS IN THE SOFTWARE.
 
-# Class handling Brownian integrator
+# Init file
 
-from random import gauss
-from math import sqrt
+from .core import *
 
-class BrownianIntegrator:
-  """
-    Class that implements first order Brownian integrator.
-  """
-  def __init__(self, sys, T = 0.0, gamma = 1.0):
-    """
-      Construct a BrownianIntegrator object
-      Parameter
-      ---------
-        sys : System
-          Simulation system
-        T : float
-          Temperature 
-        gamma : float
-          Friction coefficient 
-    """
-    self.system = sys 
-    self.T = T
-    self.gamma = gamma
+# Import all integrator
+from .integrators import *
 
-  def prestep(self, dt):
-    """
-      Performs step before force is computed.
-      Parameter
-      ---------
-        dt : float
-          step size
-    """
-    pass 
-  
-  def poststep(self, dt):
-    """
-      Perform actual integration step
-      Parameter
-      ---------
-        dt : float
-          step size
-    """
-    D = self.T/self.gamma
-    B = sqrt(2*D*dt)
-    for p in self.system.particles:
-      p.r += (dt/self.gamma)*p.f 
-      if self.T != 0.0:
-        fr = Vec(B*gauss(0,1), B*gauss(0,1))
-        p.r += fr
+# Import all forces
+from .forces import *
 
-    
-
+# Import all torques
+from .torques import *

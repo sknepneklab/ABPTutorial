@@ -17,6 +17,7 @@
 # Class handling neighbour list
 
 from .cell_list import CellList
+from copy import copy
 
 class NeighbourList:
   """
@@ -28,17 +29,17 @@ class NeighbourList:
       Initialise the neighbour list object.
       Parameter
       ---------
-        sys : System
+        sys : Particles
           Simulation system
         rcut : float
           Cutoff distance for the neighbours
         pad : float
           Padding distance for the neighbour list
     """
-    self.system = sys 
+    self.sys = sys 
     self.rcut = rcut 
     self.pad = pad
-    self.cell_list = CellList(self.system.box, self.rcut + self.pad)
+    self.cell_list = CellList(self.sys.box, self.rcut + self.pad)
 
   def build(self):
     """
@@ -46,27 +47,28 @@ class NeighbourList:
     """
     # Store current positions of all particles
     self.old_pos = []
-    for p in self.system.particles:
-      self.old_pos.append(p.r)
+    for p in self.sys.particles:
+      self.old_pos.append(copy(p.r))
     
     # Set up the cell list
     self.cell_list.wipe()
-    for p in self.system.particles:
+    for p in self.sys.particles:
       self.cell_list.add_particle(p)
 
     # Build the list 
     self.neighbours = []
-    for p in self.system.particles:
+    for p in self.sys.particles:
       neighbours = []
       for n in self.cell_list.get_neighbours(p):
-        pn = self.system.particles[n]
+        pn = self.sys.particles[n]
         if pn.id > p.id:
           dr = pn.r - p.r 
+          dr.apply_periodic(self.sys.box)
           if dr.length() < self.rcut + self.pad:
             neighbours.append(n)
       self.neighbours.append(neighbours)
     
-    self.system.has_nl = True
+    self.sys.has_nl = True
 
   def needs_rebuild(self):
     """
@@ -75,8 +77,9 @@ class NeighbourList:
       ----
         A rebuild is done if one of the particles has moved more than 0.5*pad
     """
-    for p in self.system.particles:
+    for p in self.sys.particles:
       dr = p.r - self.old_pos[p.id]
+      dr.apply_periodic(self.sys.box)
       if dr.length() >= 0.5*self.pad:
         return True 
     return False

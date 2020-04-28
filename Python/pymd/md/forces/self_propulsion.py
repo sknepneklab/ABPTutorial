@@ -14,5 +14,26 @@
 # CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER 
 # DEALINGS IN THE SOFTWARE.
 
-# Init file
+# Class for handling self propulsion 
 
+class SelfPropulsion:
+  """
+    Applies self-propulsion to each particle along its director
+  """
+  def __init__(self, sys, alpha = 1.0):
+    """
+      Create an object that handles self-propulsion.
+      Parameters
+      ----------
+        sys : System
+          Simulation system
+        alpha : float
+          Magnitude of the self-propulsion force
+    """
+    self.sys = sys
+    self.alpha = alpha
+  
+  def compute(self):
+    for pi in self.sys.particles:
+      pi.f += self.alpha*pi.n 
+      
