@@ -17,7 +17,7 @@ class SystemClass
     */
     SystemClass(const host::vector<ParticleType> &_particles, const BoxType &box): _box(box)
     {
-        this->set(_particles);
+        this->add_particle(_particles);
     }
     ~SystemClass() {}
 
@@ -40,7 +40,7 @@ class SystemClass
      * @param const host::vector<ParticleType>& _particles 
      * @return void
      */
-    void set(const host::vector<ParticleType> &_particles)
+    void add_particle(const host::vector<ParticleType> &_particles)
     {
         particles = _particles;
         Numparticles = _particles.size();

@@ -706,6 +706,10 @@ computetorqueclass.hpp
 ../neighbourlist/neighbourlistclass.hpp
 /home/daniel/Documents/ABPTutorial/c++/abpcpp/cpp-module/src/neighbourlist/neighbourlistclass.hpp
 
+/home/daniel/Documents/ABPTutorial/c++/abpcpp/cpp-module/src/potentials/pybind_export_compute.hpp
+computeclass.hpp
+/home/daniel/Documents/ABPTutorial/c++/abpcpp/cpp-module/src/potentials/computeclass.hpp
+
 /home/daniel/Documents/ABPTutorial/c++/abpcpp/cpp-module/src/pybindexport.cpp
 pybind11/stl.h
 -
@@ -721,6 +725,8 @@ box/pybind_export_box.hpp
 /home/daniel/Documents/ABPTutorial/c++/abpcpp/cpp-module/src/box/pybind_export_box.hpp
 system/pybind_export_system.hpp
 /home/daniel/Documents/ABPTutorial/c++/abpcpp/cpp-module/src/system/pybind_export_system.hpp
+potentials/pybind_export_compute.hpp
+/home/daniel/Documents/ABPTutorial/c++/abpcpp/cpp-module/src/potentials/pybind_export_compute.hpp
 
 /home/daniel/Documents/ABPTutorial/c++/abpcpp/cpp-module/src/system/particleoperators.hpp
 particletype.hpp

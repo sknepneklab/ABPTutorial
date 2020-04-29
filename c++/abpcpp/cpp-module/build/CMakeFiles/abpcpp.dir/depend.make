@@ -146,7 +146,14 @@ CMakeFiles/abpcpp.dir/src/pybindexport.cpp.o: /home/daniel/.miniconda3/envs/py37
 CMakeFiles/abpcpp.dir/src/pybindexport.cpp.o: /home/daniel/.miniconda3/envs/py37/include/python3.7m/warnings.h
 CMakeFiles/abpcpp.dir/src/pybindexport.cpp.o: /home/daniel/.miniconda3/envs/py37/include/python3.7m/weakrefobject.h
 CMakeFiles/abpcpp.dir/src/pybindexport.cpp.o: ../src/box/box.hpp
+CMakeFiles/abpcpp.dir/src/pybindexport.cpp.o: ../src/box/pbc.hpp
 CMakeFiles/abpcpp.dir/src/pybindexport.cpp.o: ../src/box/pybind_export_box.hpp
+CMakeFiles/abpcpp.dir/src/pybindexport.cpp.o: ../src/neighbourlist/linkedlistclass.hpp
+CMakeFiles/abpcpp.dir/src/pybindexport.cpp.o: ../src/neighbourlist/neighbourlistclass.hpp
+CMakeFiles/abpcpp.dir/src/pybindexport.cpp.o: ../src/potentials/computeclass.hpp
+CMakeFiles/abpcpp.dir/src/pybindexport.cpp.o: ../src/potentials/computeforceclass.hpp
+CMakeFiles/abpcpp.dir/src/pybindexport.cpp.o: ../src/potentials/computetorqueclass.hpp
+CMakeFiles/abpcpp.dir/src/pybindexport.cpp.o: ../src/potentials/pybind_export_compute.hpp
 CMakeFiles/abpcpp.dir/src/pybindexport.cpp.o: ../src/pybindexport.cpp
 CMakeFiles/abpcpp.dir/src/pybindexport.cpp.o: ../src/system/particletype.hpp
 CMakeFiles/abpcpp.dir/src/pybindexport.cpp.o: ../src/system/pybind_export_system.hpp

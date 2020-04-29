@@ -1,5 +1,5 @@
-#ifndef __pybind_export_particles_hpp__
-#define __pybind_export_particles_hpp__
+#ifndef __pybind_export_system_hpp__
+#define __pybind_export_system_hpp__
 
 #include "particletype.hpp"
 #include "systemclass.hpp"
@@ -39,11 +39,9 @@ void export_SytemClass(py::module &m)
     py::class_<SystemClass>(m, "System")
         .def(py::init<const BoxType &>())
         .def(py::init<const host::vector<ParticleType> &, const BoxType &>())
-
         .def("get_particles", &SystemClass::get)
-        .def("add_particle", &SystemClass::set)
-        .def("add_particle", &SystemClass::add_particle)
-
+        .def("add", (void (SystemClass::*)(ParticleType &)) &SystemClass::add_particle)
+        .def("add", (void (SystemClass::*)(const host::vector<ParticleType> &)) &SystemClass::add_particle)
         ;
 }
 

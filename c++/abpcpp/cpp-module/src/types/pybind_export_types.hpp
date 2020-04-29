@@ -3,6 +3,13 @@
 
 #include "globaltypes.hpp"
 
+/*  @Note In the same way that we define operators in c++ 
+    (see system/particleoperators.hpp), in python is possible to define what is call
+    magic methods https://rszalski.github.io/magicmethods/
+    this methods are used to perfom operations in classes
+    a trival example is given here for the real3 class
+    (see types/pybind_export_types.hpp)
+*/
 void export_real3(py::module &m)
 {
     py::class_<real3>(m, "real3")
@@ -13,6 +20,7 @@ void export_real3(py::module &m)
             instance.y = y;
             instance.z = z;
         })
+
         .def("__repr__",[](const real3 &a) {
             return( "<real3 x = " + to_string(a.x) + " y = " + to_string(a.y) + " z = " + to_string(a.z) + " >");
         })
