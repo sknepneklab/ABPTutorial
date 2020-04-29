@@ -40,7 +40,7 @@ void export_SytemClass(py::module &m)
         .def(py::init<const BoxType &>())
         .def(py::init<const host::vector<ParticleType> &, const BoxType &>())
         .def("get_particles", &SystemClass::get)
-        .def("add", (void (SystemClass::*)(ParticleType &)) &SystemClass::add_particle)
+        .def("add", (void (SystemClass::*)(const ParticleType &)) &SystemClass::add_particle)
         .def("add", (void (SystemClass::*)(const host::vector<ParticleType> &)) &SystemClass::add_particle)
         ;
 }

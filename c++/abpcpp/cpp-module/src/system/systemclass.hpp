@@ -50,10 +50,10 @@ class SystemClass
      * @param ParticleType&
      * @return void
      */
-    void add_particle(ParticleType &_particle)
+    void add_particle(const ParticleType &_particle)
     {
-        _particle.id = Numparticles;
         particles.push_back(_particle);
+        particles[Numparticles].id = Numparticles;
         Numparticles = particles.size();
     }
 
