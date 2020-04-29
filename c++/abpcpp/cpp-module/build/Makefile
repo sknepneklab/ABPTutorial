@@ -177,6 +177,33 @@ src/neighbourlist/neighbourlistclass.cpp.s:
 	$(MAKE) -f CMakeFiles/abpcpp.dir/build.make CMakeFiles/abpcpp.dir/src/neighbourlist/neighbourlistclass.cpp.s
 .PHONY : src/neighbourlist/neighbourlistclass.cpp.s
 
+src/potentials/computeclass.o: src/potentials/computeclass.cpp.o
+
+.PHONY : src/potentials/computeclass.o
+
+# target to build an object file
+src/potentials/computeclass.cpp.o:
+	$(MAKE) -f CMakeFiles/abpcpp.dir/build.make CMakeFiles/abpcpp.dir/src/potentials/computeclass.cpp.o
+.PHONY : src/potentials/computeclass.cpp.o
+
+src/potentials/computeclass.i: src/potentials/computeclass.cpp.i
+
+.PHONY : src/potentials/computeclass.i
+
+# target to preprocess a source file
+src/potentials/computeclass.cpp.i:
+	$(MAKE) -f CMakeFiles/abpcpp.dir/build.make CMakeFiles/abpcpp.dir/src/potentials/computeclass.cpp.i
+.PHONY : src/potentials/computeclass.cpp.i
+
+src/potentials/computeclass.s: src/potentials/computeclass.cpp.s
+
+.PHONY : src/potentials/computeclass.s
+
+# target to generate assembly for a file
+src/potentials/computeclass.cpp.s:
+	$(MAKE) -f CMakeFiles/abpcpp.dir/build.make CMakeFiles/abpcpp.dir/src/potentials/computeclass.cpp.s
+.PHONY : src/potentials/computeclass.cpp.s
+
 src/potentials/harmonicforce.o: src/potentials/harmonicforce.cpp.o
 
 .PHONY : src/potentials/harmonicforce.o
@@ -273,6 +300,9 @@ help:
 	@echo "... src/neighbourlist/neighbourlistclass.o"
 	@echo "... src/neighbourlist/neighbourlistclass.i"
 	@echo "... src/neighbourlist/neighbourlistclass.s"
+	@echo "... src/potentials/computeclass.o"
+	@echo "... src/potentials/computeclass.i"
+	@echo "... src/potentials/computeclass.s"
 	@echo "... src/potentials/harmonicforce.o"
 	@echo "... src/potentials/harmonicforce.i"
 	@echo "... src/potentials/harmonicforce.s"

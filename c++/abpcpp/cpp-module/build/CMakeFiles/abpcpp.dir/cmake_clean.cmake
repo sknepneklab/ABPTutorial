@@ -2,6 +2,7 @@ file(REMOVE_RECURSE
   "CMakeFiles/abpcpp.dir/src/pybindexport.cpp.o"
   "CMakeFiles/abpcpp.dir/src/neighbourlist/linkedlistclass.cpp.o"
   "CMakeFiles/abpcpp.dir/src/neighbourlist/neighbourlistclass.cpp.o"
+  "CMakeFiles/abpcpp.dir/src/potentials/computeclass.cpp.o"
   "CMakeFiles/abpcpp.dir/src/potentials/harmonicforce.cpp.o"
   "CMakeFiles/abpcpp.dir/src/potentials/polar_align.cpp.o"
   "abpcpp.pdb"

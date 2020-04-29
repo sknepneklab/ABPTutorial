@@ -8,7 +8,7 @@
 #include "computeforceclass.hpp"
 #include "../neighbourlist/neighbourlistclass.hpp"
 
-class ComputeHarmonicForce : ComputeForceClass
+class ComputeHarmonicForce : public ComputeForceClass
 {
 public:
     ComputeHarmonicForce(SystemClass &system, NeighbourListType &neighbourslist) : _neighbourslist(neighbourslist), ComputeForceClass(system)

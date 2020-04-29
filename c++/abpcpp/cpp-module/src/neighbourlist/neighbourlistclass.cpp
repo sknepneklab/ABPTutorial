@@ -72,6 +72,25 @@ void NeighbourListType::fill_neighbourlist(void)
     }
 }
 
+void NeighbourListType::automatic_update(void)
+{
+    //loop over all the particles and check if the neibourlist need to be updated
+    bool need_update = false;
+    //retrieve the box from system
+    auto box = _system.get_box();
+    for (int pindex_i = 0; pindex_i < _system.Numparticles; pindex_i ++)
+    {
+        ParticleType pi = _system.particles[pindex_i];
+        real3 rij = host::minimum_image(_system.particles[pindex_i].r, old_positions[pindex_i], box);
+        real rij2 = vdot(rij, rij);
+        if(rij2>=0.25*skin2)
+        {
+            need_update= true;
+            break;
+        }
+    }
+    if(need_update) this->fill_neighbourlist();
+}
 host::vector<int> NeighbourListType::get_neighbourlist(void)
 {
 }

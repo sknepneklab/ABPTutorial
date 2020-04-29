@@ -28,28 +28,28 @@ The CXX compiler identification is GNU, found in "/home/daniel/Documents/ABPTuto
 Determining if the C compiler works passed with the following output:
 Change Dir: /home/daniel/Documents/ABPTutorial/c++/abpcpp/cpp-module/build/CMakeFiles/CMakeTmp
 
-Run Build Command:"/usr/bin/gmake" "cmTC_aa251/fast"
-/usr/bin/gmake -f CMakeFiles/cmTC_aa251.dir/build.make CMakeFiles/cmTC_aa251.dir/build
+Run Build Command:"/usr/bin/gmake" "cmTC_c2646/fast"
+/usr/bin/gmake -f CMakeFiles/cmTC_c2646.dir/build.make CMakeFiles/cmTC_c2646.dir/build
 gmake[1]: Entering directory '/home/daniel/Documents/ABPTutorial/c++/abpcpp/cpp-module/build/CMakeFiles/CMakeTmp'
-Building C object CMakeFiles/cmTC_aa251.dir/testCCompiler.c.o
-/usr/bin/cc    -o CMakeFiles/cmTC_aa251.dir/testCCompiler.c.o   -c /home/daniel/Documents/ABPTutorial/c++/abpcpp/cpp-module/build/CMakeFiles/CMakeTmp/testCCompiler.c
-Linking C executable cmTC_aa251
-/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_aa251.dir/link.txt --verbose=1
-/usr/bin/cc      CMakeFiles/cmTC_aa251.dir/testCCompiler.c.o  -o cmTC_aa251 
+Building C object CMakeFiles/cmTC_c2646.dir/testCCompiler.c.o
+/usr/bin/cc    -o CMakeFiles/cmTC_c2646.dir/testCCompiler.c.o   -c /home/daniel/Documents/ABPTutorial/c++/abpcpp/cpp-module/build/CMakeFiles/CMakeTmp/testCCompiler.c
+Linking C executable cmTC_c2646
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_c2646.dir/link.txt --verbose=1
+/usr/bin/cc      CMakeFiles/cmTC_c2646.dir/testCCompiler.c.o  -o cmTC_c2646 
 gmake[1]: Leaving directory '/home/daniel/Documents/ABPTutorial/c++/abpcpp/cpp-module/build/CMakeFiles/CMakeTmp'
 
 
 Detecting C compiler ABI info compiled with the following output:
 Change Dir: /home/daniel/Documents/ABPTutorial/c++/abpcpp/cpp-module/build/CMakeFiles/CMakeTmp
 
-Run Build Command:"/usr/bin/gmake" "cmTC_11ee7/fast"
-/usr/bin/gmake -f CMakeFiles/cmTC_11ee7.dir/build.make CMakeFiles/cmTC_11ee7.dir/build
+Run Build Command:"/usr/bin/gmake" "cmTC_536ef/fast"
+/usr/bin/gmake -f CMakeFiles/cmTC_536ef.dir/build.make CMakeFiles/cmTC_536ef.dir/build
 gmake[1]: Entering directory '/home/daniel/Documents/ABPTutorial/c++/abpcpp/cpp-module/build/CMakeFiles/CMakeTmp'
-Building C object CMakeFiles/cmTC_11ee7.dir/CMakeCCompilerABI.c.o
-/usr/bin/cc    -o CMakeFiles/cmTC_11ee7.dir/CMakeCCompilerABI.c.o   -c /usr/share/cmake/Modules/CMakeCCompilerABI.c
-Linking C executable cmTC_11ee7
-/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_11ee7.dir/link.txt --verbose=1
-/usr/bin/cc     -v CMakeFiles/cmTC_11ee7.dir/CMakeCCompilerABI.c.o  -o cmTC_11ee7 
+Building C object CMakeFiles/cmTC_536ef.dir/CMakeCCompilerABI.c.o
+/usr/bin/cc    -o CMakeFiles/cmTC_536ef.dir/CMakeCCompilerABI.c.o   -c /usr/share/cmake/Modules/CMakeCCompilerABI.c
+Linking C executable cmTC_536ef
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_536ef.dir/link.txt --verbose=1
+/usr/bin/cc     -v CMakeFiles/cmTC_536ef.dir/CMakeCCompilerABI.c.o  -o cmTC_536ef 
 Using built-in specs.
 COLLECT_GCC=/usr/bin/cc
 COLLECT_LTO_WRAPPER=/usr/lib64/gcc/x86_64-suse-linux/7/lto-wrapper
@@ -60,9 +60,9 @@ Thread model: posix
 gcc version 7.5.0 (SUSE Linux) 
 COMPILER_PATH=/usr/lib64/gcc/x86_64-suse-linux/7/:/usr/lib64/gcc/x86_64-suse-linux/7/:/usr/lib64/gcc/x86_64-suse-linux/:/usr/lib64/gcc/x86_64-suse-linux/7/:/usr/lib64/gcc/x86_64-suse-linux/:/usr/lib64/gcc/x86_64-suse-linux/7/../../../../x86_64-suse-linux/bin/
 LIBRARY_PATH=/usr/lib64/gcc/x86_64-suse-linux/7/:/usr/lib64/gcc/x86_64-suse-linux/7/../../../../lib64/:/lib/../lib64/:/usr/lib/../lib64/:/usr/lib64/gcc/x86_64-suse-linux/7/../../../../x86_64-suse-linux/lib/:/usr/lib64/gcc/x86_64-suse-linux/7/../../../:/lib/:/usr/lib/
-COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_11ee7' '-mtune=generic' '-march=x86-64'
- /usr/lib64/gcc/x86_64-suse-linux/7/collect2 -plugin /usr/lib64/gcc/x86_64-suse-linux/7/liblto_plugin.so -plugin-opt=/usr/lib64/gcc/x86_64-suse-linux/7/lto-wrapper -plugin-opt=-fresolution=/tmp/cchCR1g0.res -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s --build-id --eh-frame-hdr -m elf_x86_64 -dynamic-linker /lib64/ld-linux-x86-64.so.2 -o cmTC_11ee7 /usr/lib64/gcc/x86_64-suse-linux/7/../../../../lib64/crt1.o /usr/lib64/gcc/x86_64-suse-linux/7/../../../../lib64/crti.o /usr/lib64/gcc/x86_64-suse-linux/7/crtbegin.o -L/usr/lib64/gcc/x86_64-suse-linux/7 -L/usr/lib64/gcc/x86_64-suse-linux/7/../../../../lib64 -L/lib/../lib64 -L/usr/lib/../lib64 -L/usr/lib64/gcc/x86_64-suse-linux/7/../../../../x86_64-suse-linux/lib -L/usr/lib64/gcc/x86_64-suse-linux/7/../../.. CMakeFiles/cmTC_11ee7.dir/CMakeCCompilerABI.c.o -lgcc --as-needed -lgcc_s --no-as-needed -lc -lgcc --as-needed -lgcc_s --no-as-needed /usr/lib64/gcc/x86_64-suse-linux/7/crtend.o /usr/lib64/gcc/x86_64-suse-linux/7/../../../../lib64/crtn.o
-COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_11ee7' '-mtune=generic' '-march=x86-64'
+COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_536ef' '-mtune=generic' '-march=x86-64'
+ /usr/lib64/gcc/x86_64-suse-linux/7/collect2 -plugin /usr/lib64/gcc/x86_64-suse-linux/7/liblto_plugin.so -plugin-opt=/usr/lib64/gcc/x86_64-suse-linux/7/lto-wrapper -plugin-opt=-fresolution=/tmp/cc06UhV2.res -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s --build-id --eh-frame-hdr -m elf_x86_64 -dynamic-linker /lib64/ld-linux-x86-64.so.2 -o cmTC_536ef /usr/lib64/gcc/x86_64-suse-linux/7/../../../../lib64/crt1.o /usr/lib64/gcc/x86_64-suse-linux/7/../../../../lib64/crti.o /usr/lib64/gcc/x86_64-suse-linux/7/crtbegin.o -L/usr/lib64/gcc/x86_64-suse-linux/7 -L/usr/lib64/gcc/x86_64-suse-linux/7/../../../../lib64 -L/lib/../lib64 -L/usr/lib/../lib64 -L/usr/lib64/gcc/x86_64-suse-linux/7/../../../../x86_64-suse-linux/lib -L/usr/lib64/gcc/x86_64-suse-linux/7/../../.. CMakeFiles/cmTC_536ef.dir/CMakeCCompilerABI.c.o -lgcc --as-needed -lgcc_s --no-as-needed -lc -lgcc --as-needed -lgcc_s --no-as-needed /usr/lib64/gcc/x86_64-suse-linux/7/crtend.o /usr/lib64/gcc/x86_64-suse-linux/7/../../../../lib64/crtn.o
+COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_536ef' '-mtune=generic' '-march=x86-64'
 gmake[1]: Leaving directory '/home/daniel/Documents/ABPTutorial/c++/abpcpp/cpp-module/build/CMakeFiles/CMakeTmp'
 
 
@@ -70,14 +70,14 @@ Parsed C implicit link information from above output:
   link line regex: [^( *|.*[/\])(ld|CMAKE_LINK_STARTFILE-NOTFOUND|([^/\]+-)?ld|collect2)[^/\]*( |$)]
   ignore line: [Change Dir: /home/daniel/Documents/ABPTutorial/c++/abpcpp/cpp-module/build/CMakeFiles/CMakeTmp]
   ignore line: []
-  ignore line: [Run Build Command:"/usr/bin/gmake" "cmTC_11ee7/fast"]
-  ignore line: [/usr/bin/gmake -f CMakeFiles/cmTC_11ee7.dir/build.make CMakeFiles/cmTC_11ee7.dir/build]
+  ignore line: [Run Build Command:"/usr/bin/gmake" "cmTC_536ef/fast"]
+  ignore line: [/usr/bin/gmake -f CMakeFiles/cmTC_536ef.dir/build.make CMakeFiles/cmTC_536ef.dir/build]
   ignore line: [gmake[1]: Entering directory '/home/daniel/Documents/ABPTutorial/c++/abpcpp/cpp-module/build/CMakeFiles/CMakeTmp']
-  ignore line: [Building C object CMakeFiles/cmTC_11ee7.dir/CMakeCCompilerABI.c.o]
-  ignore line: [/usr/bin/cc    -o CMakeFiles/cmTC_11ee7.dir/CMakeCCompilerABI.c.o   -c /usr/share/cmake/Modules/CMakeCCompilerABI.c]
-  ignore line: [Linking C executable cmTC_11ee7]
-  ignore line: [/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_11ee7.dir/link.txt --verbose=1]
-  ignore line: [/usr/bin/cc     -v CMakeFiles/cmTC_11ee7.dir/CMakeCCompilerABI.c.o  -o cmTC_11ee7 ]
+  ignore line: [Building C object CMakeFiles/cmTC_536ef.dir/CMakeCCompilerABI.c.o]
+  ignore line: [/usr/bin/cc    -o CMakeFiles/cmTC_536ef.dir/CMakeCCompilerABI.c.o   -c /usr/share/cmake/Modules/CMakeCCompilerABI.c]
+  ignore line: [Linking C executable cmTC_536ef]
+  ignore line: [/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_536ef.dir/link.txt --verbose=1]
+  ignore line: [/usr/bin/cc     -v CMakeFiles/cmTC_536ef.dir/CMakeCCompilerABI.c.o  -o cmTC_536ef ]
   ignore line: [Using built-in specs.]
   ignore line: [COLLECT_GCC=/usr/bin/cc]
   ignore line: [COLLECT_LTO_WRAPPER=/usr/lib64/gcc/x86_64-suse-linux/7/lto-wrapper]
@@ -88,13 +88,13 @@ Parsed C implicit link information from above output:
   ignore line: [gcc version 7.5.0 (SUSE Linux) ]
   ignore line: [COMPILER_PATH=/usr/lib64/gcc/x86_64-suse-linux/7/:/usr/lib64/gcc/x86_64-suse-linux/7/:/usr/lib64/gcc/x86_64-suse-linux/:/usr/lib64/gcc/x86_64-suse-linux/7/:/usr/lib64/gcc/x86_64-suse-linux/:/usr/lib64/gcc/x86_64-suse-linux/7/../../../../x86_64-suse-linux/bin/]
   ignore line: [LIBRARY_PATH=/usr/lib64/gcc/x86_64-suse-linux/7/:/usr/lib64/gcc/x86_64-suse-linux/7/../../../../lib64/:/lib/../lib64/:/usr/lib/../lib64/:/usr/lib64/gcc/x86_64-suse-linux/7/../../../../x86_64-suse-linux/lib/:/usr/lib64/gcc/x86_64-suse-linux/7/../../../:/lib/:/usr/lib/]
-  ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_11ee7' '-mtune=generic' '-march=x86-64']
-  link line: [ /usr/lib64/gcc/x86_64-suse-linux/7/collect2 -plugin /usr/lib64/gcc/x86_64-suse-linux/7/liblto_plugin.so -plugin-opt=/usr/lib64/gcc/x86_64-suse-linux/7/lto-wrapper -plugin-opt=-fresolution=/tmp/cchCR1g0.res -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s --build-id --eh-frame-hdr -m elf_x86_64 -dynamic-linker /lib64/ld-linux-x86-64.so.2 -o cmTC_11ee7 /usr/lib64/gcc/x86_64-suse-linux/7/../../../../lib64/crt1.o /usr/lib64/gcc/x86_64-suse-linux/7/../../../../lib64/crti.o /usr/lib64/gcc/x86_64-suse-linux/7/crtbegin.o -L/usr/lib64/gcc/x86_64-suse-linux/7 -L/usr/lib64/gcc/x86_64-suse-linux/7/../../../../lib64 -L/lib/../lib64 -L/usr/lib/../lib64 -L/usr/lib64/gcc/x86_64-suse-linux/7/../../../../x86_64-suse-linux/lib -L/usr/lib64/gcc/x86_64-suse-linux/7/../../.. CMakeFiles/cmTC_11ee7.dir/CMakeCCompilerABI.c.o -lgcc --as-needed -lgcc_s --no-as-needed -lc -lgcc --as-needed -lgcc_s --no-as-needed /usr/lib64/gcc/x86_64-suse-linux/7/crtend.o /usr/lib64/gcc/x86_64-suse-linux/7/../../../../lib64/crtn.o]
+  ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_536ef' '-mtune=generic' '-march=x86-64']
+  link line: [ /usr/lib64/gcc/x86_64-suse-linux/7/collect2 -plugin /usr/lib64/gcc/x86_64-suse-linux/7/liblto_plugin.so -plugin-opt=/usr/lib64/gcc/x86_64-suse-linux/7/lto-wrapper -plugin-opt=-fresolution=/tmp/cc06UhV2.res -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s --build-id --eh-frame-hdr -m elf_x86_64 -dynamic-linker /lib64/ld-linux-x86-64.so.2 -o cmTC_536ef /usr/lib64/gcc/x86_64-suse-linux/7/../../../../lib64/crt1.o /usr/lib64/gcc/x86_64-suse-linux/7/../../../../lib64/crti.o /usr/lib64/gcc/x86_64-suse-linux/7/crtbegin.o -L/usr/lib64/gcc/x86_64-suse-linux/7 -L/usr/lib64/gcc/x86_64-suse-linux/7/../../../../lib64 -L/lib/../lib64 -L/usr/lib/../lib64 -L/usr/lib64/gcc/x86_64-suse-linux/7/../../../../x86_64-suse-linux/lib -L/usr/lib64/gcc/x86_64-suse-linux/7/../../.. CMakeFiles/cmTC_536ef.dir/CMakeCCompilerABI.c.o -lgcc --as-needed -lgcc_s --no-as-needed -lc -lgcc --as-needed -lgcc_s --no-as-needed /usr/lib64/gcc/x86_64-suse-linux/7/crtend.o /usr/lib64/gcc/x86_64-suse-linux/7/../../../../lib64/crtn.o]
     arg [/usr/lib64/gcc/x86_64-suse-linux/7/collect2] ==> ignore
     arg [-plugin] ==> ignore
     arg [/usr/lib64/gcc/x86_64-suse-linux/7/liblto_plugin.so] ==> ignore
     arg [-plugin-opt=/usr/lib64/gcc/x86_64-suse-linux/7/lto-wrapper] ==> ignore
-    arg [-plugin-opt=-fresolution=/tmp/cchCR1g0.res] ==> ignore
+    arg [-plugin-opt=-fresolution=/tmp/cc06UhV2.res] ==> ignore
     arg [-plugin-opt=-pass-through=-lgcc] ==> ignore
     arg [-plugin-opt=-pass-through=-lgcc_s] ==> ignore
     arg [-plugin-opt=-pass-through=-lc] ==> ignore
@@ -107,7 +107,7 @@ Parsed C implicit link information from above output:
     arg [-dynamic-linker] ==> ignore
     arg [/lib64/ld-linux-x86-64.so.2] ==> ignore
     arg [-o] ==> ignore
-    arg [cmTC_11ee7] ==> ignore
+    arg [cmTC_536ef] ==> ignore
     arg [/usr/lib64/gcc/x86_64-suse-linux/7/../../../../lib64/crt1.o] ==> ignore
     arg [/usr/lib64/gcc/x86_64-suse-linux/7/../../../../lib64/crti.o] ==> ignore
     arg [/usr/lib64/gcc/x86_64-suse-linux/7/crtbegin.o] ==> ignore
@@ -117,7 +117,7 @@ Parsed C implicit link information from above output:
     arg [-L/usr/lib/../lib64] ==> dir [/usr/lib/../lib64]
     arg [-L/usr/lib64/gcc/x86_64-suse-linux/7/../../../../x86_64-suse-linux/lib] ==> dir [/usr/lib64/gcc/x86_64-suse-linux/7/../../../../x86_64-suse-linux/lib]
     arg [-L/usr/lib64/gcc/x86_64-suse-linux/7/../../..] ==> dir [/usr/lib64/gcc/x86_64-suse-linux/7/../../..]
-    arg [CMakeFiles/cmTC_11ee7.dir/CMakeCCompilerABI.c.o] ==> ignore
+    arg [CMakeFiles/cmTC_536ef.dir/CMakeCCompilerABI.c.o] ==> ignore
     arg [-lgcc] ==> lib [gcc]
     arg [--as-needed] ==> ignore
     arg [-lgcc_s] ==> lib [gcc_s]
@@ -145,14 +145,14 @@ Parsed C implicit link information from above output:
 Detecting C [-std=c11] compiler features compiled with the following output:
 Change Dir: /home/daniel/Documents/ABPTutorial/c++/abpcpp/cpp-module/build/CMakeFiles/CMakeTmp
 
-Run Build Command:"/usr/bin/gmake" "cmTC_c9712/fast"
-/usr/bin/gmake -f CMakeFiles/cmTC_c9712.dir/build.make CMakeFiles/cmTC_c9712.dir/build
+Run Build Command:"/usr/bin/gmake" "cmTC_97588/fast"
+/usr/bin/gmake -f CMakeFiles/cmTC_97588.dir/build.make CMakeFiles/cmTC_97588.dir/build
 gmake[1]: Entering directory '/home/daniel/Documents/ABPTutorial/c++/abpcpp/cpp-module/build/CMakeFiles/CMakeTmp'
-Building C object CMakeFiles/cmTC_c9712.dir/feature_tests.c.o
-/usr/bin/cc   -std=c11 -o CMakeFiles/cmTC_c9712.dir/feature_tests.c.o   -c /home/daniel/Documents/ABPTutorial/c++/abpcpp/cpp-module/build/CMakeFiles/feature_tests.c
-Linking C executable cmTC_c9712
-/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_c9712.dir/link.txt --verbose=1
-/usr/bin/cc      CMakeFiles/cmTC_c9712.dir/feature_tests.c.o  -o cmTC_c9712 
+Building C object CMakeFiles/cmTC_97588.dir/feature_tests.c.o
+/usr/bin/cc   -std=c11 -o CMakeFiles/cmTC_97588.dir/feature_tests.c.o   -c /home/daniel/Documents/ABPTutorial/c++/abpcpp/cpp-module/build/CMakeFiles/feature_tests.c
+Linking C executable cmTC_97588
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_97588.dir/link.txt --verbose=1
+/usr/bin/cc      CMakeFiles/cmTC_97588.dir/feature_tests.c.o  -o cmTC_97588 
 gmake[1]: Leaving directory '/home/daniel/Documents/ABPTutorial/c++/abpcpp/cpp-module/build/CMakeFiles/CMakeTmp'
 
 
@@ -165,14 +165,14 @@ gmake[1]: Leaving directory '/home/daniel/Documents/ABPTutorial/c++/abpcpp/cpp-m
 Detecting C [-std=c99] compiler features compiled with the following output:
 Change Dir: /home/daniel/Documents/ABPTutorial/c++/abpcpp/cpp-module/build/CMakeFiles/CMakeTmp
 
-Run Build Command:"/usr/bin/gmake" "cmTC_19242/fast"
-/usr/bin/gmake -f CMakeFiles/cmTC_19242.dir/build.make CMakeFiles/cmTC_19242.dir/build
+Run Build Command:"/usr/bin/gmake" "cmTC_812dc/fast"
+/usr/bin/gmake -f CMakeFiles/cmTC_812dc.dir/build.make CMakeFiles/cmTC_812dc.dir/build
 gmake[1]: Entering directory '/home/daniel/Documents/ABPTutorial/c++/abpcpp/cpp-module/build/CMakeFiles/CMakeTmp'
-Building C object CMakeFiles/cmTC_19242.dir/feature_tests.c.o
-/usr/bin/cc   -std=c99 -o CMakeFiles/cmTC_19242.dir/feature_tests.c.o   -c /home/daniel/Documents/ABPTutorial/c++/abpcpp/cpp-module/build/CMakeFiles/feature_tests.c
-Linking C executable cmTC_19242
-/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_19242.dir/link.txt --verbose=1
-/usr/bin/cc      CMakeFiles/cmTC_19242.dir/feature_tests.c.o  -o cmTC_19242 
+Building C object CMakeFiles/cmTC_812dc.dir/feature_tests.c.o
+/usr/bin/cc   -std=c99 -o CMakeFiles/cmTC_812dc.dir/feature_tests.c.o   -c /home/daniel/Documents/ABPTutorial/c++/abpcpp/cpp-module/build/CMakeFiles/feature_tests.c
+Linking C executable cmTC_812dc
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_812dc.dir/link.txt --verbose=1
+/usr/bin/cc      CMakeFiles/cmTC_812dc.dir/feature_tests.c.o  -o cmTC_812dc 
 gmake[1]: Leaving directory '/home/daniel/Documents/ABPTutorial/c++/abpcpp/cpp-module/build/CMakeFiles/CMakeTmp'
 
 
@@ -185,14 +185,14 @@ gmake[1]: Leaving directory '/home/daniel/Documents/ABPTutorial/c++/abpcpp/cpp-m
 Detecting C [-std=c90] compiler features compiled with the following output:
 Change Dir: /home/daniel/Documents/ABPTutorial/c++/abpcpp/cpp-module/build/CMakeFiles/CMakeTmp
 
-Run Build Command:"/usr/bin/gmake" "cmTC_9193e/fast"
-/usr/bin/gmake -f CMakeFiles/cmTC_9193e.dir/build.make CMakeFiles/cmTC_9193e.dir/build
+Run Build Command:"/usr/bin/gmake" "cmTC_99a8b/fast"
+/usr/bin/gmake -f CMakeFiles/cmTC_99a8b.dir/build.make CMakeFiles/cmTC_99a8b.dir/build
 gmake[1]: Entering directory '/home/daniel/Documents/ABPTutorial/c++/abpcpp/cpp-module/build/CMakeFiles/CMakeTmp'
-Building C object CMakeFiles/cmTC_9193e.dir/feature_tests.c.o
-/usr/bin/cc   -std=c90 -o CMakeFiles/cmTC_9193e.dir/feature_tests.c.o   -c /home/daniel/Documents/ABPTutorial/c++/abpcpp/cpp-module/build/CMakeFiles/feature_tests.c
-Linking C executable cmTC_9193e
-/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_9193e.dir/link.txt --verbose=1
-/usr/bin/cc      CMakeFiles/cmTC_9193e.dir/feature_tests.c.o  -o cmTC_9193e 
+Building C object CMakeFiles/cmTC_99a8b.dir/feature_tests.c.o
+/usr/bin/cc   -std=c90 -o CMakeFiles/cmTC_99a8b.dir/feature_tests.c.o   -c /home/daniel/Documents/ABPTutorial/c++/abpcpp/cpp-module/build/CMakeFiles/feature_tests.c
+Linking C executable cmTC_99a8b
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_99a8b.dir/link.txt --verbose=1
+/usr/bin/cc      CMakeFiles/cmTC_99a8b.dir/feature_tests.c.o  -o cmTC_99a8b 
 gmake[1]: Leaving directory '/home/daniel/Documents/ABPTutorial/c++/abpcpp/cpp-module/build/CMakeFiles/CMakeTmp'
 
 
@@ -203,28 +203,28 @@ gmake[1]: Leaving directory '/home/daniel/Documents/ABPTutorial/c++/abpcpp/cpp-m
 Determining if the CXX compiler works passed with the following output:
 Change Dir: /home/daniel/Documents/ABPTutorial/c++/abpcpp/cpp-module/build/CMakeFiles/CMakeTmp
 
-Run Build Command:"/usr/bin/gmake" "cmTC_cebf3/fast"
-/usr/bin/gmake -f CMakeFiles/cmTC_cebf3.dir/build.make CMakeFiles/cmTC_cebf3.dir/build
+Run Build Command:"/usr/bin/gmake" "cmTC_fd19c/fast"
+/usr/bin/gmake -f CMakeFiles/cmTC_fd19c.dir/build.make CMakeFiles/cmTC_fd19c.dir/build
 gmake[1]: Entering directory '/home/daniel/Documents/ABPTutorial/c++/abpcpp/cpp-module/build/CMakeFiles/CMakeTmp'
-Building CXX object CMakeFiles/cmTC_cebf3.dir/testCXXCompiler.cxx.o
-/usr/bin/c++     -o CMakeFiles/cmTC_cebf3.dir/testCXXCompiler.cxx.o -c /home/daniel/Documents/ABPTutorial/c++/abpcpp/cpp-module/build/CMakeFiles/CMakeTmp/testCXXCompiler.cxx
-Linking CXX executable cmTC_cebf3
-/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_cebf3.dir/link.txt --verbose=1
-/usr/bin/c++       CMakeFiles/cmTC_cebf3.dir/testCXXCompiler.cxx.o  -o cmTC_cebf3 
+Building CXX object CMakeFiles/cmTC_fd19c.dir/testCXXCompiler.cxx.o
+/usr/bin/c++     -o CMakeFiles/cmTC_fd19c.dir/testCXXCompiler.cxx.o -c /home/daniel/Documents/ABPTutorial/c++/abpcpp/cpp-module/build/CMakeFiles/CMakeTmp/testCXXCompiler.cxx
+Linking CXX executable cmTC_fd19c
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_fd19c.dir/link.txt --verbose=1
+/usr/bin/c++       CMakeFiles/cmTC_fd19c.dir/testCXXCompiler.cxx.o  -o cmTC_fd19c 
 gmake[1]: Leaving directory '/home/daniel/Documents/ABPTutorial/c++/abpcpp/cpp-module/build/CMakeFiles/CMakeTmp'
 
 
 Detecting CXX compiler ABI info compiled with the following output:
 Change Dir: /home/daniel/Documents/ABPTutorial/c++/abpcpp/cpp-module/build/CMakeFiles/CMakeTmp
 
-Run Build Command:"/usr/bin/gmake" "cmTC_53297/fast"
-/usr/bin/gmake -f CMakeFiles/cmTC_53297.dir/build.make CMakeFiles/cmTC_53297.dir/build
+Run Build Command:"/usr/bin/gmake" "cmTC_db4ca/fast"
+/usr/bin/gmake -f CMakeFiles/cmTC_db4ca.dir/build.make CMakeFiles/cmTC_db4ca.dir/build
 gmake[1]: Entering directory '/home/daniel/Documents/ABPTutorial/c++/abpcpp/cpp-module/build/CMakeFiles/CMakeTmp'
-Building CXX object CMakeFiles/cmTC_53297.dir/CMakeCXXCompilerABI.cpp.o
-/usr/bin/c++     -o CMakeFiles/cmTC_53297.dir/CMakeCXXCompilerABI.cpp.o -c /usr/share/cmake/Modules/CMakeCXXCompilerABI.cpp
-Linking CXX executable cmTC_53297
-/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_53297.dir/link.txt --verbose=1
-/usr/bin/c++      -v CMakeFiles/cmTC_53297.dir/CMakeCXXCompilerABI.cpp.o  -o cmTC_53297 
+Building CXX object CMakeFiles/cmTC_db4ca.dir/CMakeCXXCompilerABI.cpp.o
+/usr/bin/c++     -o CMakeFiles/cmTC_db4ca.dir/CMakeCXXCompilerABI.cpp.o -c /usr/share/cmake/Modules/CMakeCXXCompilerABI.cpp
+Linking CXX executable cmTC_db4ca
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_db4ca.dir/link.txt --verbose=1
+/usr/bin/c++      -v CMakeFiles/cmTC_db4ca.dir/CMakeCXXCompilerABI.cpp.o  -o cmTC_db4ca 
 Using built-in specs.
 COLLECT_GCC=/usr/bin/c++
 COLLECT_LTO_WRAPPER=/usr/lib64/gcc/x86_64-suse-linux/7/lto-wrapper
@@ -235,9 +235,9 @@ Thread model: posix
 gcc version 7.5.0 (SUSE Linux) 
 COMPILER_PATH=/usr/lib64/gcc/x86_64-suse-linux/7/:/usr/lib64/gcc/x86_64-suse-linux/7/:/usr/lib64/gcc/x86_64-suse-linux/:/usr/lib64/gcc/x86_64-suse-linux/7/:/usr/lib64/gcc/x86_64-suse-linux/:/usr/lib64/gcc/x86_64-suse-linux/7/../../../../x86_64-suse-linux/bin/
 LIBRARY_PATH=/usr/lib64/gcc/x86_64-suse-linux/7/:/usr/lib64/gcc/x86_64-suse-linux/7/../../../../lib64/:/lib/../lib64/:/usr/lib/../lib64/:/usr/lib64/gcc/x86_64-suse-linux/7/../../../../x86_64-suse-linux/lib/:/usr/lib64/gcc/x86_64-suse-linux/7/../../../:/lib/:/usr/lib/
-COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_53297' '-shared-libgcc' '-mtune=generic' '-march=x86-64'
- /usr/lib64/gcc/x86_64-suse-linux/7/collect2 -plugin /usr/lib64/gcc/x86_64-suse-linux/7/liblto_plugin.so -plugin-opt=/usr/lib64/gcc/x86_64-suse-linux/7/lto-wrapper -plugin-opt=-fresolution=/tmp/ccg6OXpq.res -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc --build-id --eh-frame-hdr -m elf_x86_64 -dynamic-linker /lib64/ld-linux-x86-64.so.2 -o cmTC_53297 /usr/lib64/gcc/x86_64-suse-linux/7/../../../../lib64/crt1.o /usr/lib64/gcc/x86_64-suse-linux/7/../../../../lib64/crti.o /usr/lib64/gcc/x86_64-suse-linux/7/crtbegin.o -L/usr/lib64/gcc/x86_64-suse-linux/7 -L/usr/lib64/gcc/x86_64-suse-linux/7/../../../../lib64 -L/lib/../lib64 -L/usr/lib/../lib64 -L/usr/lib64/gcc/x86_64-suse-linux/7/../../../../x86_64-suse-linux/lib -L/usr/lib64/gcc/x86_64-suse-linux/7/../../.. CMakeFiles/cmTC_53297.dir/CMakeCXXCompilerABI.cpp.o -lstdc++ -lm -lgcc_s -lgcc -lc -lgcc_s -lgcc /usr/lib64/gcc/x86_64-suse-linux/7/crtend.o /usr/lib64/gcc/x86_64-suse-linux/7/../../../../lib64/crtn.o
-COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_53297' '-shared-libgcc' '-mtune=generic' '-march=x86-64'
+COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_db4ca' '-shared-libgcc' '-mtune=generic' '-march=x86-64'
+ /usr/lib64/gcc/x86_64-suse-linux/7/collect2 -plugin /usr/lib64/gcc/x86_64-suse-linux/7/liblto_plugin.so -plugin-opt=/usr/lib64/gcc/x86_64-suse-linux/7/lto-wrapper -plugin-opt=-fresolution=/tmp/ccHtWn0s.res -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc --build-id --eh-frame-hdr -m elf_x86_64 -dynamic-linker /lib64/ld-linux-x86-64.so.2 -o cmTC_db4ca /usr/lib64/gcc/x86_64-suse-linux/7/../../../../lib64/crt1.o /usr/lib64/gcc/x86_64-suse-linux/7/../../../../lib64/crti.o /usr/lib64/gcc/x86_64-suse-linux/7/crtbegin.o -L/usr/lib64/gcc/x86_64-suse-linux/7 -L/usr/lib64/gcc/x86_64-suse-linux/7/../../../../lib64 -L/lib/../lib64 -L/usr/lib/../lib64 -L/usr/lib64/gcc/x86_64-suse-linux/7/../../../../x86_64-suse-linux/lib -L/usr/lib64/gcc/x86_64-suse-linux/7/../../.. CMakeFiles/cmTC_db4ca.dir/CMakeCXXCompilerABI.cpp.o -lstdc++ -lm -lgcc_s -lgcc -lc -lgcc_s -lgcc /usr/lib64/gcc/x86_64-suse-linux/7/crtend.o /usr/lib64/gcc/x86_64-suse-linux/7/../../../../lib64/crtn.o
+COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_db4ca' '-shared-libgcc' '-mtune=generic' '-march=x86-64'
 gmake[1]: Leaving directory '/home/daniel/Documents/ABPTutorial/c++/abpcpp/cpp-module/build/CMakeFiles/CMakeTmp'
 
 
@@ -245,14 +245,14 @@ Parsed CXX implicit link information from above output:
   link line regex: [^( *|.*[/\])(ld|CMAKE_LINK_STARTFILE-NOTFOUND|([^/\]+-)?ld|collect2)[^/\]*( |$)]
   ignore line: [Change Dir: /home/daniel/Documents/ABPTutorial/c++/abpcpp/cpp-module/build/CMakeFiles/CMakeTmp]
   ignore line: []
-  ignore line: [Run Build Command:"/usr/bin/gmake" "cmTC_53297/fast"]
-  ignore line: [/usr/bin/gmake -f CMakeFiles/cmTC_53297.dir/build.make CMakeFiles/cmTC_53297.dir/build]
+  ignore line: [Run Build Command:"/usr/bin/gmake" "cmTC_db4ca/fast"]
+  ignore line: [/usr/bin/gmake -f CMakeFiles/cmTC_db4ca.dir/build.make CMakeFiles/cmTC_db4ca.dir/build]
   ignore line: [gmake[1]: Entering directory '/home/daniel/Documents/ABPTutorial/c++/abpcpp/cpp-module/build/CMakeFiles/CMakeTmp']
-  ignore line: [Building CXX object CMakeFiles/cmTC_53297.dir/CMakeCXXCompilerABI.cpp.o]
-  ignore line: [/usr/bin/c++     -o CMakeFiles/cmTC_53297.dir/CMakeCXXCompilerABI.cpp.o -c /usr/share/cmake/Modules/CMakeCXXCompilerABI.cpp]
-  ignore line: [Linking CXX executable cmTC_53297]
-  ignore line: [/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_53297.dir/link.txt --verbose=1]
-  ignore line: [/usr/bin/c++      -v CMakeFiles/cmTC_53297.dir/CMakeCXXCompilerABI.cpp.o  -o cmTC_53297 ]
+  ignore line: [Building CXX object CMakeFiles/cmTC_db4ca.dir/CMakeCXXCompilerABI.cpp.o]
+  ignore line: [/usr/bin/c++     -o CMakeFiles/cmTC_db4ca.dir/CMakeCXXCompilerABI.cpp.o -c /usr/share/cmake/Modules/CMakeCXXCompilerABI.cpp]
+  ignore line: [Linking CXX executable cmTC_db4ca]
+  ignore line: [/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_db4ca.dir/link.txt --verbose=1]
+  ignore line: [/usr/bin/c++      -v CMakeFiles/cmTC_db4ca.dir/CMakeCXXCompilerABI.cpp.o  -o cmTC_db4ca ]
   ignore line: [Using built-in specs.]
   ignore line: [COLLECT_GCC=/usr/bin/c++]
   ignore line: [COLLECT_LTO_WRAPPER=/usr/lib64/gcc/x86_64-suse-linux/7/lto-wrapper]
@@ -263,13 +263,13 @@ Parsed CXX implicit link information from above output:
   ignore line: [gcc version 7.5.0 (SUSE Linux) ]
   ignore line: [COMPILER_PATH=/usr/lib64/gcc/x86_64-suse-linux/7/:/usr/lib64/gcc/x86_64-suse-linux/7/:/usr/lib64/gcc/x86_64-suse-linux/:/usr/lib64/gcc/x86_64-suse-linux/7/:/usr/lib64/gcc/x86_64-suse-linux/:/usr/lib64/gcc/x86_64-suse-linux/7/../../../../x86_64-suse-linux/bin/]
   ignore line: [LIBRARY_PATH=/usr/lib64/gcc/x86_64-suse-linux/7/:/usr/lib64/gcc/x86_64-suse-linux/7/../../../../lib64/:/lib/../lib64/:/usr/lib/../lib64/:/usr/lib64/gcc/x86_64-suse-linux/7/../../../../x86_64-suse-linux/lib/:/usr/lib64/gcc/x86_64-suse-linux/7/../../../:/lib/:/usr/lib/]
-  ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_53297' '-shared-libgcc' '-mtune=generic' '-march=x86-64']
-  link line: [ /usr/lib64/gcc/x86_64-suse-linux/7/collect2 -plugin /usr/lib64/gcc/x86_64-suse-linux/7/liblto_plugin.so -plugin-opt=/usr/lib64/gcc/x86_64-suse-linux/7/lto-wrapper -plugin-opt=-fresolution=/tmp/ccg6OXpq.res -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc --build-id --eh-frame-hdr -m elf_x86_64 -dynamic-linker /lib64/ld-linux-x86-64.so.2 -o cmTC_53297 /usr/lib64/gcc/x86_64-suse-linux/7/../../../../lib64/crt1.o /usr/lib64/gcc/x86_64-suse-linux/7/../../../../lib64/crti.o /usr/lib64/gcc/x86_64-suse-linux/7/crtbegin.o -L/usr/lib64/gcc/x86_64-suse-linux/7 -L/usr/lib64/gcc/x86_64-suse-linux/7/../../../../lib64 -L/lib/../lib64 -L/usr/lib/../lib64 -L/usr/lib64/gcc/x86_64-suse-linux/7/../../../../x86_64-suse-linux/lib -L/usr/lib64/gcc/x86_64-suse-linux/7/../../.. CMakeFiles/cmTC_53297.dir/CMakeCXXCompilerABI.cpp.o -lstdc++ -lm -lgcc_s -lgcc -lc -lgcc_s -lgcc /usr/lib64/gcc/x86_64-suse-linux/7/crtend.o /usr/lib64/gcc/x86_64-suse-linux/7/../../../../lib64/crtn.o]
+  ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_db4ca' '-shared-libgcc' '-mtune=generic' '-march=x86-64']
+  link line: [ /usr/lib64/gcc/x86_64-suse-linux/7/collect2 -plugin /usr/lib64/gcc/x86_64-suse-linux/7/liblto_plugin.so -plugin-opt=/usr/lib64/gcc/x86_64-suse-linux/7/lto-wrapper -plugin-opt=-fresolution=/tmp/ccHtWn0s.res -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc --build-id --eh-frame-hdr -m elf_x86_64 -dynamic-linker /lib64/ld-linux-x86-64.so.2 -o cmTC_db4ca /usr/lib64/gcc/x86_64-suse-linux/7/../../../../lib64/crt1.o /usr/lib64/gcc/x86_64-suse-linux/7/../../../../lib64/crti.o /usr/lib64/gcc/x86_64-suse-linux/7/crtbegin.o -L/usr/lib64/gcc/x86_64-suse-linux/7 -L/usr/lib64/gcc/x86_64-suse-linux/7/../../../../lib64 -L/lib/../lib64 -L/usr/lib/../lib64 -L/usr/lib64/gcc/x86_64-suse-linux/7/../../../../x86_64-suse-linux/lib -L/usr/lib64/gcc/x86_64-suse-linux/7/../../.. CMakeFiles/cmTC_db4ca.dir/CMakeCXXCompilerABI.cpp.o -lstdc++ -lm -lgcc_s -lgcc -lc -lgcc_s -lgcc /usr/lib64/gcc/x86_64-suse-linux/7/crtend.o /usr/lib64/gcc/x86_64-suse-linux/7/../../../../lib64/crtn.o]
     arg [/usr/lib64/gcc/x86_64-suse-linux/7/collect2] ==> ignore
     arg [-plugin] ==> ignore
     arg [/usr/lib64/gcc/x86_64-suse-linux/7/liblto_plugin.so] ==> ignore
     arg [-plugin-opt=/usr/lib64/gcc/x86_64-suse-linux/7/lto-wrapper] ==> ignore
-    arg [-plugin-opt=-fresolution=/tmp/ccg6OXpq.res] ==> ignore
+    arg [-plugin-opt=-fresolution=/tmp/ccHtWn0s.res] ==> ignore
     arg [-plugin-opt=-pass-through=-lgcc_s] ==> ignore
     arg [-plugin-opt=-pass-through=-lgcc] ==> ignore
     arg [-plugin-opt=-pass-through=-lc] ==> ignore
@@ -282,7 +282,7 @@ Parsed CXX implicit link information from above output:
     arg [-dynamic-linker] ==> ignore
     arg [/lib64/ld-linux-x86-64.so.2] ==> ignore
     arg [-o] ==> ignore
-    arg [cmTC_53297] ==> ignore
+    arg [cmTC_db4ca] ==> ignore
     arg [/usr/lib64/gcc/x86_64-suse-linux/7/../../../../lib64/crt1.o] ==> ignore
     arg [/usr/lib64/gcc/x86_64-suse-linux/7/../../../../lib64/crti.o] ==> ignore
     arg [/usr/lib64/gcc/x86_64-suse-linux/7/crtbegin.o] ==> ignore
@@ -292,7 +292,7 @@ Parsed CXX implicit link information from above output:
     arg [-L/usr/lib/../lib64] ==> dir [/usr/lib/../lib64]
     arg [-L/usr/lib64/gcc/x86_64-suse-linux/7/../../../../x86_64-suse-linux/lib] ==> dir [/usr/lib64/gcc/x86_64-suse-linux/7/../../../../x86_64-suse-linux/lib]
     arg [-L/usr/lib64/gcc/x86_64-suse-linux/7/../../..] ==> dir [/usr/lib64/gcc/x86_64-suse-linux/7/../../..]
-    arg [CMakeFiles/cmTC_53297.dir/CMakeCXXCompilerABI.cpp.o] ==> ignore
+    arg [CMakeFiles/cmTC_db4ca.dir/CMakeCXXCompilerABI.cpp.o] ==> ignore
     arg [-lstdc++] ==> lib [stdc++]
     arg [-lm] ==> lib [m]
     arg [-lgcc_s] ==> lib [gcc_s]
@@ -318,14 +318,14 @@ Parsed CXX implicit link information from above output:
 Detecting CXX [-std=c++1z] compiler features compiled with the following output:
 Change Dir: /home/daniel/Documents/ABPTutorial/c++/abpcpp/cpp-module/build/CMakeFiles/CMakeTmp
 
-Run Build Command:"/usr/bin/gmake" "cmTC_947a5/fast"
-/usr/bin/gmake -f CMakeFiles/cmTC_947a5.dir/build.make CMakeFiles/cmTC_947a5.dir/build
+Run Build Command:"/usr/bin/gmake" "cmTC_4cc90/fast"
+/usr/bin/gmake -f CMakeFiles/cmTC_4cc90.dir/build.make CMakeFiles/cmTC_4cc90.dir/build
 gmake[1]: Entering directory '/home/daniel/Documents/ABPTutorial/c++/abpcpp/cpp-module/build/CMakeFiles/CMakeTmp'
-Building CXX object CMakeFiles/cmTC_947a5.dir/feature_tests.cxx.o
-/usr/bin/c++    -std=c++1z -o CMakeFiles/cmTC_947a5.dir/feature_tests.cxx.o -c /home/daniel/Documents/ABPTutorial/c++/abpcpp/cpp-module/build/CMakeFiles/feature_tests.cxx
-Linking CXX executable cmTC_947a5
-/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_947a5.dir/link.txt --verbose=1
-/usr/bin/c++       CMakeFiles/cmTC_947a5.dir/feature_tests.cxx.o  -o cmTC_947a5 
+Building CXX object CMakeFiles/cmTC_4cc90.dir/feature_tests.cxx.o
+/usr/bin/c++    -std=c++1z -o CMakeFiles/cmTC_4cc90.dir/feature_tests.cxx.o -c /home/daniel/Documents/ABPTutorial/c++/abpcpp/cpp-module/build/CMakeFiles/feature_tests.cxx
+Linking CXX executable cmTC_4cc90
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_4cc90.dir/link.txt --verbose=1
+/usr/bin/c++       CMakeFiles/cmTC_4cc90.dir/feature_tests.cxx.o  -o cmTC_4cc90 
 gmake[1]: Leaving directory '/home/daniel/Documents/ABPTutorial/c++/abpcpp/cpp-module/build/CMakeFiles/CMakeTmp'
 
 
@@ -391,14 +391,14 @@ gmake[1]: Leaving directory '/home/daniel/Documents/ABPTutorial/c++/abpcpp/cpp-m
 Detecting CXX [-std=c++14] compiler features compiled with the following output:
 Change Dir: /home/daniel/Documents/ABPTutorial/c++/abpcpp/cpp-module/build/CMakeFiles/CMakeTmp
 
-Run Build Command:"/usr/bin/gmake" "cmTC_af194/fast"
-/usr/bin/gmake -f CMakeFiles/cmTC_af194.dir/build.make CMakeFiles/cmTC_af194.dir/build
+Run Build Command:"/usr/bin/gmake" "cmTC_daf71/fast"
+/usr/bin/gmake -f CMakeFiles/cmTC_daf71.dir/build.make CMakeFiles/cmTC_daf71.dir/build
 gmake[1]: Entering directory '/home/daniel/Documents/ABPTutorial/c++/abpcpp/cpp-module/build/CMakeFiles/CMakeTmp'
-Building CXX object CMakeFiles/cmTC_af194.dir/feature_tests.cxx.o
-/usr/bin/c++    -std=c++14 -o CMakeFiles/cmTC_af194.dir/feature_tests.cxx.o -c /home/daniel/Documents/ABPTutorial/c++/abpcpp/cpp-module/build/CMakeFiles/feature_tests.cxx
-Linking CXX executable cmTC_af194
-/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_af194.dir/link.txt --verbose=1
-/usr/bin/c++       CMakeFiles/cmTC_af194.dir/feature_tests.cxx.o  -o cmTC_af194 
+Building CXX object CMakeFiles/cmTC_daf71.dir/feature_tests.cxx.o
+/usr/bin/c++    -std=c++14 -o CMakeFiles/cmTC_daf71.dir/feature_tests.cxx.o -c /home/daniel/Documents/ABPTutorial/c++/abpcpp/cpp-module/build/CMakeFiles/feature_tests.cxx
+Linking CXX executable cmTC_daf71
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_daf71.dir/link.txt --verbose=1
+/usr/bin/c++       CMakeFiles/cmTC_daf71.dir/feature_tests.cxx.o  -o cmTC_daf71 
 gmake[1]: Leaving directory '/home/daniel/Documents/ABPTutorial/c++/abpcpp/cpp-module/build/CMakeFiles/CMakeTmp'
 
 
@@ -464,14 +464,14 @@ gmake[1]: Leaving directory '/home/daniel/Documents/ABPTutorial/c++/abpcpp/cpp-m
 Detecting CXX [-std=c++11] compiler features compiled with the following output:
 Change Dir: /home/daniel/Documents/ABPTutorial/c++/abpcpp/cpp-module/build/CMakeFiles/CMakeTmp
 
-Run Build Command:"/usr/bin/gmake" "cmTC_c3e8c/fast"
-/usr/bin/gmake -f CMakeFiles/cmTC_c3e8c.dir/build.make CMakeFiles/cmTC_c3e8c.dir/build
+Run Build Command:"/usr/bin/gmake" "cmTC_370d6/fast"
+/usr/bin/gmake -f CMakeFiles/cmTC_370d6.dir/build.make CMakeFiles/cmTC_370d6.dir/build
 gmake[1]: Entering directory '/home/daniel/Documents/ABPTutorial/c++/abpcpp/cpp-module/build/CMakeFiles/CMakeTmp'
-Building CXX object CMakeFiles/cmTC_c3e8c.dir/feature_tests.cxx.o
-/usr/bin/c++    -std=c++11 -o CMakeFiles/cmTC_c3e8c.dir/feature_tests.cxx.o -c /home/daniel/Documents/ABPTutorial/c++/abpcpp/cpp-module/build/CMakeFiles/feature_tests.cxx
-Linking CXX executable cmTC_c3e8c
-/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_c3e8c.dir/link.txt --verbose=1
-/usr/bin/c++       CMakeFiles/cmTC_c3e8c.dir/feature_tests.cxx.o  -o cmTC_c3e8c 
+Building CXX object CMakeFiles/cmTC_370d6.dir/feature_tests.cxx.o
+/usr/bin/c++    -std=c++11 -o CMakeFiles/cmTC_370d6.dir/feature_tests.cxx.o -c /home/daniel/Documents/ABPTutorial/c++/abpcpp/cpp-module/build/CMakeFiles/feature_tests.cxx
+Linking CXX executable cmTC_370d6
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_370d6.dir/link.txt --verbose=1
+/usr/bin/c++       CMakeFiles/cmTC_370d6.dir/feature_tests.cxx.o  -o cmTC_370d6 
 gmake[1]: Leaving directory '/home/daniel/Documents/ABPTutorial/c++/abpcpp/cpp-module/build/CMakeFiles/CMakeTmp'
 
 
@@ -537,14 +537,14 @@ gmake[1]: Leaving directory '/home/daniel/Documents/ABPTutorial/c++/abpcpp/cpp-m
 Detecting CXX [-std=c++98] compiler features compiled with the following output:
 Change Dir: /home/daniel/Documents/ABPTutorial/c++/abpcpp/cpp-module/build/CMakeFiles/CMakeTmp
 
-Run Build Command:"/usr/bin/gmake" "cmTC_674de/fast"
-/usr/bin/gmake -f CMakeFiles/cmTC_674de.dir/build.make CMakeFiles/cmTC_674de.dir/build
+Run Build Command:"/usr/bin/gmake" "cmTC_109fe/fast"
+/usr/bin/gmake -f CMakeFiles/cmTC_109fe.dir/build.make CMakeFiles/cmTC_109fe.dir/build
 gmake[1]: Entering directory '/home/daniel/Documents/ABPTutorial/c++/abpcpp/cpp-module/build/CMakeFiles/CMakeTmp'
-Building CXX object CMakeFiles/cmTC_674de.dir/feature_tests.cxx.o
-/usr/bin/c++    -std=c++98 -o CMakeFiles/cmTC_674de.dir/feature_tests.cxx.o -c /home/daniel/Documents/ABPTutorial/c++/abpcpp/cpp-module/build/CMakeFiles/feature_tests.cxx
-Linking CXX executable cmTC_674de
-/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_674de.dir/link.txt --verbose=1
-/usr/bin/c++       CMakeFiles/cmTC_674de.dir/feature_tests.cxx.o  -o cmTC_674de 
+Building CXX object CMakeFiles/cmTC_109fe.dir/feature_tests.cxx.o
+/usr/bin/c++    -std=c++98 -o CMakeFiles/cmTC_109fe.dir/feature_tests.cxx.o -c /home/daniel/Documents/ABPTutorial/c++/abpcpp/cpp-module/build/CMakeFiles/feature_tests.cxx
+Linking CXX executable cmTC_109fe
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_109fe.dir/link.txt --verbose=1
+/usr/bin/c++       CMakeFiles/cmTC_109fe.dir/feature_tests.cxx.o  -o cmTC_109fe 
 gmake[1]: Leaving directory '/home/daniel/Documents/ABPTutorial/c++/abpcpp/cpp-module/build/CMakeFiles/CMakeTmp'
 
 
@@ -608,14 +608,14 @@ gmake[1]: Leaving directory '/home/daniel/Documents/ABPTutorial/c++/abpcpp/cpp-m
 Performing C++ SOURCE FILE Test HAS_CPP14_FLAG succeeded with the following output:
 Change Dir: /home/daniel/Documents/ABPTutorial/c++/abpcpp/cpp-module/build/CMakeFiles/CMakeTmp
 
-Run Build Command:"/usr/bin/gmake" "cmTC_94eb1/fast"
-/usr/bin/gmake -f CMakeFiles/cmTC_94eb1.dir/build.make CMakeFiles/cmTC_94eb1.dir/build
+Run Build Command:"/usr/bin/gmake" "cmTC_e1583/fast"
+/usr/bin/gmake -f CMakeFiles/cmTC_e1583.dir/build.make CMakeFiles/cmTC_e1583.dir/build
 gmake[1]: Entering directory '/home/daniel/Documents/ABPTutorial/c++/abpcpp/cpp-module/build/CMakeFiles/CMakeTmp'
-Building CXX object CMakeFiles/cmTC_94eb1.dir/src.cxx.o
-/usr/bin/c++    -DHAS_CPP14_FLAG   -std=c++14 -o CMakeFiles/cmTC_94eb1.dir/src.cxx.o -c /home/daniel/Documents/ABPTutorial/c++/abpcpp/cpp-module/build/CMakeFiles/CMakeTmp/src.cxx
-Linking CXX executable cmTC_94eb1
-/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_94eb1.dir/link.txt --verbose=1
-/usr/bin/c++   -DHAS_CPP14_FLAG    -rdynamic CMakeFiles/cmTC_94eb1.dir/src.cxx.o  -o cmTC_94eb1 
+Building CXX object CMakeFiles/cmTC_e1583.dir/src.cxx.o
+/usr/bin/c++    -DHAS_CPP14_FLAG   -std=c++14 -o CMakeFiles/cmTC_e1583.dir/src.cxx.o -c /home/daniel/Documents/ABPTutorial/c++/abpcpp/cpp-module/build/CMakeFiles/CMakeTmp/src.cxx
+Linking CXX executable cmTC_e1583
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_e1583.dir/link.txt --verbose=1
+/usr/bin/c++   -DHAS_CPP14_FLAG    -rdynamic CMakeFiles/cmTC_e1583.dir/src.cxx.o  -o cmTC_e1583 
 gmake[1]: Leaving directory '/home/daniel/Documents/ABPTutorial/c++/abpcpp/cpp-module/build/CMakeFiles/CMakeTmp'
 
 Source file was:
@@ -623,14 +623,14 @@ int main() { return 0; }
 Performing C++ SOURCE FILE Test HAS_FLTO succeeded with the following output:
 Change Dir: /home/daniel/Documents/ABPTutorial/c++/abpcpp/cpp-module/build/CMakeFiles/CMakeTmp
 
-Run Build Command:"/usr/bin/gmake" "cmTC_b2134/fast"
-/usr/bin/gmake -f CMakeFiles/cmTC_b2134.dir/build.make CMakeFiles/cmTC_b2134.dir/build
+Run Build Command:"/usr/bin/gmake" "cmTC_4c6f8/fast"
+/usr/bin/gmake -f CMakeFiles/cmTC_4c6f8.dir/build.make CMakeFiles/cmTC_4c6f8.dir/build
 gmake[1]: Entering directory '/home/daniel/Documents/ABPTutorial/c++/abpcpp/cpp-module/build/CMakeFiles/CMakeTmp'
-Building CXX object CMakeFiles/cmTC_b2134.dir/src.cxx.o
-/usr/bin/c++    -DHAS_FLTO   -flto -fno-fat-lto-objects -o CMakeFiles/cmTC_b2134.dir/src.cxx.o -c /home/daniel/Documents/ABPTutorial/c++/abpcpp/cpp-module/build/CMakeFiles/CMakeTmp/src.cxx
-Linking CXX executable cmTC_b2134
-/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_b2134.dir/link.txt --verbose=1
-/usr/bin/c++   -DHAS_FLTO    -rdynamic CMakeFiles/cmTC_b2134.dir/src.cxx.o  -o cmTC_b2134 -flto 
+Building CXX object CMakeFiles/cmTC_4c6f8.dir/src.cxx.o
+/usr/bin/c++    -DHAS_FLTO   -flto -fno-fat-lto-objects -o CMakeFiles/cmTC_4c6f8.dir/src.cxx.o -c /home/daniel/Documents/ABPTutorial/c++/abpcpp/cpp-module/build/CMakeFiles/CMakeTmp/src.cxx
+Linking CXX executable cmTC_4c6f8
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_4c6f8.dir/link.txt --verbose=1
+/usr/bin/c++   -DHAS_FLTO    -rdynamic CMakeFiles/cmTC_4c6f8.dir/src.cxx.o  -o cmTC_4c6f8 -flto 
 gmake[1]: Leaving directory '/home/daniel/Documents/ABPTutorial/c++/abpcpp/cpp-module/build/CMakeFiles/CMakeTmp'
 
 Source file was:

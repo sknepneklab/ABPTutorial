@@ -129,9 +129,33 @@ CMakeFiles/abpcpp.dir/src/neighbourlist/neighbourlistclass.cpp.o.provides: CMake
 CMakeFiles/abpcpp.dir/src/neighbourlist/neighbourlistclass.cpp.o.provides.build: CMakeFiles/abpcpp.dir/src/neighbourlist/neighbourlistclass.cpp.o
 
 
+CMakeFiles/abpcpp.dir/src/potentials/computeclass.cpp.o: CMakeFiles/abpcpp.dir/flags.make
+CMakeFiles/abpcpp.dir/src/potentials/computeclass.cpp.o: ../src/potentials/computeclass.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/daniel/Documents/ABPTutorial/c++/abpcpp/cpp-module/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/abpcpp.dir/src/potentials/computeclass.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/abpcpp.dir/src/potentials/computeclass.cpp.o -c /home/daniel/Documents/ABPTutorial/c++/abpcpp/cpp-module/src/potentials/computeclass.cpp
+
+CMakeFiles/abpcpp.dir/src/potentials/computeclass.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/abpcpp.dir/src/potentials/computeclass.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/daniel/Documents/ABPTutorial/c++/abpcpp/cpp-module/src/potentials/computeclass.cpp > CMakeFiles/abpcpp.dir/src/potentials/computeclass.cpp.i
+
+CMakeFiles/abpcpp.dir/src/potentials/computeclass.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/abpcpp.dir/src/potentials/computeclass.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/daniel/Documents/ABPTutorial/c++/abpcpp/cpp-module/src/potentials/computeclass.cpp -o CMakeFiles/abpcpp.dir/src/potentials/computeclass.cpp.s
+
+CMakeFiles/abpcpp.dir/src/potentials/computeclass.cpp.o.requires:
+
+.PHONY : CMakeFiles/abpcpp.dir/src/potentials/computeclass.cpp.o.requires
+
+CMakeFiles/abpcpp.dir/src/potentials/computeclass.cpp.o.provides: CMakeFiles/abpcpp.dir/src/potentials/computeclass.cpp.o.requires
+	$(MAKE) -f CMakeFiles/abpcpp.dir/build.make CMakeFiles/abpcpp.dir/src/potentials/computeclass.cpp.o.provides.build
+.PHONY : CMakeFiles/abpcpp.dir/src/potentials/computeclass.cpp.o.provides
+
+CMakeFiles/abpcpp.dir/src/potentials/computeclass.cpp.o.provides.build: CMakeFiles/abpcpp.dir/src/potentials/computeclass.cpp.o
+
+
 CMakeFiles/abpcpp.dir/src/potentials/harmonicforce.cpp.o: CMakeFiles/abpcpp.dir/flags.make
 CMakeFiles/abpcpp.dir/src/potentials/harmonicforce.cpp.o: ../src/potentials/harmonicforce.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/daniel/Documents/ABPTutorial/c++/abpcpp/cpp-module/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/abpcpp.dir/src/potentials/harmonicforce.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/daniel/Documents/ABPTutorial/c++/abpcpp/cpp-module/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/abpcpp.dir/src/potentials/harmonicforce.cpp.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/abpcpp.dir/src/potentials/harmonicforce.cpp.o -c /home/daniel/Documents/ABPTutorial/c++/abpcpp/cpp-module/src/potentials/harmonicforce.cpp
 
 CMakeFiles/abpcpp.dir/src/potentials/harmonicforce.cpp.i: cmake_force
@@ -155,7 +179,7 @@ CMakeFiles/abpcpp.dir/src/potentials/harmonicforce.cpp.o.provides.build: CMakeFi
 
 CMakeFiles/abpcpp.dir/src/potentials/polar_align.cpp.o: CMakeFiles/abpcpp.dir/flags.make
 CMakeFiles/abpcpp.dir/src/potentials/polar_align.cpp.o: ../src/potentials/polar_align.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/daniel/Documents/ABPTutorial/c++/abpcpp/cpp-module/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/abpcpp.dir/src/potentials/polar_align.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/daniel/Documents/ABPTutorial/c++/abpcpp/cpp-module/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/abpcpp.dir/src/potentials/polar_align.cpp.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/abpcpp.dir/src/potentials/polar_align.cpp.o -c /home/daniel/Documents/ABPTutorial/c++/abpcpp/cpp-module/src/potentials/polar_align.cpp
 
 CMakeFiles/abpcpp.dir/src/potentials/polar_align.cpp.i: cmake_force
@@ -182,6 +206,7 @@ abpcpp_OBJECTS = \
 "CMakeFiles/abpcpp.dir/src/pybindexport.cpp.o" \
 "CMakeFiles/abpcpp.dir/src/neighbourlist/linkedlistclass.cpp.o" \
 "CMakeFiles/abpcpp.dir/src/neighbourlist/neighbourlistclass.cpp.o" \
+"CMakeFiles/abpcpp.dir/src/potentials/computeclass.cpp.o" \
 "CMakeFiles/abpcpp.dir/src/potentials/harmonicforce.cpp.o" \
 "CMakeFiles/abpcpp.dir/src/potentials/polar_align.cpp.o"
 
@@ -191,11 +216,12 @@ abpcpp_EXTERNAL_OBJECTS =
 abpcpp.cpython-37m-x86_64-linux-gnu.so: CMakeFiles/abpcpp.dir/src/pybindexport.cpp.o
 abpcpp.cpython-37m-x86_64-linux-gnu.so: CMakeFiles/abpcpp.dir/src/neighbourlist/linkedlistclass.cpp.o
 abpcpp.cpython-37m-x86_64-linux-gnu.so: CMakeFiles/abpcpp.dir/src/neighbourlist/neighbourlistclass.cpp.o
+abpcpp.cpython-37m-x86_64-linux-gnu.so: CMakeFiles/abpcpp.dir/src/potentials/computeclass.cpp.o
 abpcpp.cpython-37m-x86_64-linux-gnu.so: CMakeFiles/abpcpp.dir/src/potentials/harmonicforce.cpp.o
 abpcpp.cpython-37m-x86_64-linux-gnu.so: CMakeFiles/abpcpp.dir/src/potentials/polar_align.cpp.o
 abpcpp.cpython-37m-x86_64-linux-gnu.so: CMakeFiles/abpcpp.dir/build.make
 abpcpp.cpython-37m-x86_64-linux-gnu.so: CMakeFiles/abpcpp.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/daniel/Documents/ABPTutorial/c++/abpcpp/cpp-module/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Linking CXX shared module abpcpp.cpython-37m-x86_64-linux-gnu.so"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/daniel/Documents/ABPTutorial/c++/abpcpp/cpp-module/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Linking CXX shared module abpcpp.cpython-37m-x86_64-linux-gnu.so"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/abpcpp.dir/link.txt --verbose=$(VERBOSE)
 	/usr/bin/strip /home/daniel/Documents/ABPTutorial/c++/abpcpp/cpp-module/build/abpcpp.cpython-37m-x86_64-linux-gnu.so
 
@@ -207,6 +233,7 @@ CMakeFiles/abpcpp.dir/build: abpcpp.cpython-37m-x86_64-linux-gnu.so
 CMakeFiles/abpcpp.dir/requires: CMakeFiles/abpcpp.dir/src/pybindexport.cpp.o.requires
 CMakeFiles/abpcpp.dir/requires: CMakeFiles/abpcpp.dir/src/neighbourlist/linkedlistclass.cpp.o.requires
 CMakeFiles/abpcpp.dir/requires: CMakeFiles/abpcpp.dir/src/neighbourlist/neighbourlistclass.cpp.o.requires
+CMakeFiles/abpcpp.dir/requires: CMakeFiles/abpcpp.dir/src/potentials/computeclass.cpp.o.requires
 CMakeFiles/abpcpp.dir/requires: CMakeFiles/abpcpp.dir/src/potentials/harmonicforce.cpp.o.requires
 CMakeFiles/abpcpp.dir/requires: CMakeFiles/abpcpp.dir/src/potentials/polar_align.cpp.o.requires
 

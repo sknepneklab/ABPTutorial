@@ -8,7 +8,7 @@
 #include "computetorqueclass.hpp"
 #include "../neighbourlist/neighbourlistclass.hpp"
 
-class PolarAlign : ComputeTorqueClass
+class PolarAlign : public ComputeTorqueClass
 {
 public:
     PolarAlign(SystemClass &system, NeighbourListType &neighbourslist) : _neighbourslist(neighbourslist), ComputeTorqueClass(system)

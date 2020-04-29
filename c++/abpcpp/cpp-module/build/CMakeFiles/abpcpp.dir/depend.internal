@@ -17,6 +17,20 @@ CMakeFiles/abpcpp.dir/src/neighbourlist/neighbourlistclass.cpp.o
  /home/daniel/Documents/ABPTutorial/c++/abpcpp/cpp-module/src/system/particletype.hpp
  /home/daniel/Documents/ABPTutorial/c++/abpcpp/cpp-module/src/system/systemclass.hpp
  /home/daniel/Documents/ABPTutorial/c++/abpcpp/cpp-module/src/types/globaltypes.hpp
+CMakeFiles/abpcpp.dir/src/potentials/computeclass.cpp.o
+ /home/daniel/Documents/ABPTutorial/c++/abpcpp/cpp-module/src/box/box.hpp
+ /home/daniel/Documents/ABPTutorial/c++/abpcpp/cpp-module/src/box/pbc.hpp
+ /home/daniel/Documents/ABPTutorial/c++/abpcpp/cpp-module/src/neighbourlist/linkedlistclass.hpp
+ /home/daniel/Documents/ABPTutorial/c++/abpcpp/cpp-module/src/neighbourlist/neighbourlistclass.hpp
+ /home/daniel/Documents/ABPTutorial/c++/abpcpp/cpp-module/src/potentials/computeclass.cpp
+ /home/daniel/Documents/ABPTutorial/c++/abpcpp/cpp-module/src/potentials/computeclass.hpp
+ /home/daniel/Documents/ABPTutorial/c++/abpcpp/cpp-module/src/potentials/computeforceclass.hpp
+ /home/daniel/Documents/ABPTutorial/c++/abpcpp/cpp-module/src/potentials/computetorqueclass.hpp
+ /home/daniel/Documents/ABPTutorial/c++/abpcpp/cpp-module/src/potentials/harmonicforce.hpp
+ /home/daniel/Documents/ABPTutorial/c++/abpcpp/cpp-module/src/potentials/polar_align.hpp
+ /home/daniel/Documents/ABPTutorial/c++/abpcpp/cpp-module/src/system/particletype.hpp
+ /home/daniel/Documents/ABPTutorial/c++/abpcpp/cpp-module/src/system/systemclass.hpp
+ /home/daniel/Documents/ABPTutorial/c++/abpcpp/cpp-module/src/types/globaltypes.hpp
 CMakeFiles/abpcpp.dir/src/potentials/harmonicforce.cpp.o
  /home/daniel/Documents/ABPTutorial/c++/abpcpp/cpp-module/src/box/box.hpp
  /home/daniel/Documents/ABPTutorial/c++/abpcpp/cpp-module/src/box/pbc.hpp

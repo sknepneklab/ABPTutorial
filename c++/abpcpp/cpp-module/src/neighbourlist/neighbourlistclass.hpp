@@ -5,7 +5,7 @@
 #include "linkedlistclass.hpp"
 #include "../box/pbc.hpp"
 
-struct NeighbourListType : LinkedListType
+struct NeighbourListType : public LinkedListType
 {
     NeighbourListType(SystemClass &system) : LinkedListType(system)
     {
@@ -21,8 +21,10 @@ struct NeighbourListType : LinkedListType
         max_ng_per_particle = 100;
         this->create_linkedlist(rcut);
         neighbourlist.resize(max_ng_per_particle*Numparticles);
+        old_positions.resize(Numparticles);
     }
     void fill_neighbourlist(void);
+    void automatic_update(void);
     host::vector<int> get_neighbourlist(void);
 
     //Variables
