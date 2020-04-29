@@ -1,8 +1,8 @@
 #ifndef __pybind_export_particles_hpp__
 #define __pybind_export_particles_hpp__
 
-#include "particle.hpp"
-#include "particles.hpp"
+#include "particletype.hpp"
+#include "systemclass.hpp"
 
 void export_ParticleType(py::module &m)
 {
@@ -34,5 +34,17 @@ void export_ParticleType_Vector(py::module &m)
         .def("__setitem__", [](std::vector<ParticleType> &v, size_t i, ParticleType &d) { if (i >= v.size()) throw py::index_error(); v[i] = d; });
 }
 
+void export_SytemClass(py::module &m)
+{
+    py::class_<SystemClass>(m, "System")
+        .def(py::init<const BoxType &>())
+        .def(py::init<const host::vector<ParticleType> &, const BoxType &>())
+
+        .def("get_particles", &SystemClass::get)
+        .def("add_particle", &SystemClass::set)
+        .def("add_particle", &SystemClass::add_particle)
+
+        ;
+}
 
 #endif

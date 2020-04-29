@@ -2,6 +2,9 @@
 #define __GLOBALTYPES_HPP__
 
 #include <vector>
+#include <iostream>
+#include <sstream>
+#include <math.h>
 
 /** @} */            
 #define BIG_ENERGY_LIMIT  1e15       //!< Effectively acts as infinity

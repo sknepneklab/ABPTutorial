@@ -8,11 +8,13 @@ namespace py = pybind11;
 //types
 #include "types/pybind_export_types.hpp"
 
-//particles
-#include "particle/pybind_export_particles.hpp"
-
 //box
 #include "box/pybind_export_box.hpp"
+
+//particles
+#include "system/pybind_export_system.hpp"
+
+
 
 PYBIND11_MODULE(abpcpp, m)
 {
@@ -33,7 +35,8 @@ PYBIND11_MODULE(abpcpp, m)
     PYBIND11_NUMPY_DTYPE(real3, x, y, z);
     //export_int3(m);
     //PYBIND11_NUMPY_DTYPE(int3, x, y, z);
+    export_BoxType(m);
     export_ParticleType(m);
     export_ParticleType_Vector(m);
-    export_BoxType(m);
+    export_SytemClass(m);
 }

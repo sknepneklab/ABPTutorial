@@ -35,21 +35,34 @@ file(GLOB types_HDRS ${INCLUDE_DIRS}/types/*.hpp)
 file(GLOB types_SRCS ${INCLUDE_DIRS}/types/*.cpp)
 list(APPEND INCLUDE_DIRS_HDRS ${types_HDRS})
 list(APPEND INCLUDE_DIRS_HDRS ${types_SRCS})
-## particle ##
-file(GLOB particle_HDRS ${INCLUDE_DIRS}/particle/*.hpp)
-file(GLOB particle_SRCS ${INCLUDE_DIRS}/particle/*.cpp)
-list(APPEND INCLUDE_DIRS_HDRS ${particle_HDRS})
-list(APPEND INCLUDE_DIRS_SRCS ${particle_SRCS})
+## system ##
+file(GLOB system_HDRS ${INCLUDE_DIRS}/system/*.hpp)
+file(GLOB system_SRCS ${INCLUDE_DIRS}/system/*.cpp)
+list(APPEND INCLUDE_DIRS_HDRS ${system_HDRS})
+list(APPEND INCLUDE_DIRS_SRCS ${system_SRCS})
 ## box ##
 file(GLOB box_HDRS ${INCLUDE_DIRS}/box/*.hpp)
 file(GLOB box_SRCS ${INCLUDE_DIRS}/box/*.cpp)
 list(APPEND INCLUDE_DIRS_HDRS ${box_HDRS})
 list(APPEND INCLUDE_DIRS_SRCS ${box_SRCS})
+## neighbourlist ##
+file(GLOB neighbourlist_HDRS ${INCLUDE_DIRS}/neighbourlist/*.hpp)
+file(GLOB neighbourlist_SRCS ${INCLUDE_DIRS}/neighbourlist/*.cpp)
+list(APPEND INCLUDE_DIRS_HDRS ${neighbourlist_HDRS})
+list(APPEND INCLUDE_DIRS_SRCS ${neighbourlist_SRCS})
+## potentials ##
+file(GLOB potentials_HDRS ${INCLUDE_DIRS}/potentials/*.hpp)
+file(GLOB potentials_SRCS ${INCLUDE_DIRS}/potentials/*.cpp)
+list(APPEND INCLUDE_DIRS_HDRS ${potentials_HDRS})
+list(APPEND INCLUDE_DIRS_SRCS ${potentials_SRCS})
 ############################################
 
 set_directory_properties( PROPERTIES COMPILE_DEFINITIONS "" )
 
-MESSAGE("C++ DIR: "  ${INCLUDE_DIRS_SRCS}) 
-MESSAGE("CUDA DIR: " ${INCLUDE_DIRS_HDRS})
+MESSAGE("\n") 
+MESSAGE("sources : " ${INCLUDE_DIRS_SRCS}) 
+MESSAGE("\n") 
+MESSAGE("headers : " ${INCLUDE_DIRS_HDRS})
+MESSAGE("\n") 
 
 pybind11_add_module(abpcpp ${INCLUDE_DIRS_SRCS})

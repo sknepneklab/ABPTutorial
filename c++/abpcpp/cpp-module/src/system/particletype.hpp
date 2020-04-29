@@ -1,6 +1,6 @@
 
-#ifndef __PARTICLE_HPP__
-#define __PARTICLE_HPP__
+#ifndef __PARTICLETYPE_HPP__
+#define __PARTICLETYPE_HPP__
 
 #include "../types/globaltypes.hpp"
 
@@ -13,7 +13,7 @@ struct ParticleType
     inth3 ip;         //!< Periodic box image flags (to enable unwrapping of particle coordinates)
     real3 n;          //!< Particle direction vector (not necessarily equal to velocity direction)
     int coordination; //!< Keeps track of the number of neighbours
-    int cellId;       //!< CellId that belongs for neighbours list
+    inth3 cellId;     //!< CellId that belongs for linked list
     real3 v;          //!< Velocity
     real3 forceC;     //!< conservative force
     real3 forceA;     //!< active force
