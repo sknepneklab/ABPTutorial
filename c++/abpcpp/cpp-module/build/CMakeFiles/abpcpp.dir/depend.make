@@ -27,6 +27,7 @@ CMakeFiles/abpcpp.dir/src/potentials/computeclass.cpp.o: ../src/potentials/compu
 CMakeFiles/abpcpp.dir/src/potentials/computeclass.cpp.o: ../src/potentials/computetorqueclass.hpp
 CMakeFiles/abpcpp.dir/src/potentials/computeclass.cpp.o: ../src/potentials/harmonicforce.hpp
 CMakeFiles/abpcpp.dir/src/potentials/computeclass.cpp.o: ../src/potentials/polar_align.hpp
+CMakeFiles/abpcpp.dir/src/potentials/computeclass.cpp.o: ../src/system/particleoperators.hpp
 CMakeFiles/abpcpp.dir/src/potentials/computeclass.cpp.o: ../src/system/particletype.hpp
 CMakeFiles/abpcpp.dir/src/potentials/computeclass.cpp.o: ../src/system/systemclass.hpp
 CMakeFiles/abpcpp.dir/src/potentials/computeclass.cpp.o: ../src/types/globaltypes.hpp

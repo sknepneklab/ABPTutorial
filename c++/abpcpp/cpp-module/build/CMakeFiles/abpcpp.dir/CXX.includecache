@@ -625,6 +625,8 @@ algorithm
 -
 computeclass.hpp
 /home/daniel/Documents/ABPTutorial/c++/abpcpp/cpp-module/src/potentials/computeclass.hpp
+../system/particleoperators.hpp
+/home/daniel/Documents/ABPTutorial/c++/abpcpp/cpp-module/src/system/particleoperators.hpp
 harmonicforce.hpp
 /home/daniel/Documents/ABPTutorial/c++/abpcpp/cpp-module/src/potentials/harmonicforce.hpp
 polar_align.hpp
@@ -719,6 +721,10 @@ box/pybind_export_box.hpp
 /home/daniel/Documents/ABPTutorial/c++/abpcpp/cpp-module/src/box/pybind_export_box.hpp
 system/pybind_export_system.hpp
 /home/daniel/Documents/ABPTutorial/c++/abpcpp/cpp-module/src/system/pybind_export_system.hpp
+
+/home/daniel/Documents/ABPTutorial/c++/abpcpp/cpp-module/src/system/particleoperators.hpp
+particletype.hpp
+/home/daniel/Documents/ABPTutorial/c++/abpcpp/cpp-module/src/system/particletype.hpp
 
 /home/daniel/Documents/ABPTutorial/c++/abpcpp/cpp-module/src/system/particletype.hpp
 ../types/globaltypes.hpp

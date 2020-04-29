@@ -17,7 +17,9 @@ struct ParticleType
     real3 v;          //!< Velocity
     real3 forceC;     //!< conservative force
     real3 forceA;     //!< active force
+    real3 tau;        //!< torque
     real energy;      //!< conservative energy
 };
+
 
 #endif

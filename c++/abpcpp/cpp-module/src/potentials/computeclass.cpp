@@ -1,5 +1,9 @@
 #include <algorithm>
 #include "computeclass.hpp"
+
+//operators over the particles
+#include "../system/particleoperators.hpp"
+
 //here include all the hpp files of the forces
 #include "harmonicforce.hpp"
 //here include all the hpp files of the torques
@@ -73,10 +77,49 @@ void ComputeClass::add_torque(const std::string &name, std::map<std::string, rea
         std::cerr << name << " torque not found" << std::endl;
 }
 //compute
-void ComputeClass::reset_forces(void) {}
-void ComputeClass::compute_forces(void) {}
+void ComputeClass::reset_forces_torques_energy(void)
+{
+    // Note: one of advantages of using classes is that we can treat them as "objects" with define operations
+    // for example here we have subtitude a for loop by a transformation over the particle list.
+    // Check  "particleoperators.hpp"
+    // More complex behaviour can be achieved by overloading operators: https://en.cppreference.com/w/cpp/language/operators
+    std::transform(_system.particles.begin(), _system.particles.end(), _system.particles.begin(), reset_particle_forces_torques_energy());
+}
 
-void ComputeClass::reset_torques(void) {}
-void ComputeClass::compute_torque(void) {}
+void ComputeClass::reset_forces(void)
+{
+    std::transform(_system.particles.begin(), _system.particles.end(), _system.particles.begin(), reset_particle_forces());
+}
 
-void ComputeClass::compute_energy(void) {}
+void ComputeClass::compute_forces(void)
+{
+    neighbourlist->automatic_update();
+    for (auto f : force_list)
+        f.second->compute();
+}
+
+void ComputeClass::reset_torques(void)
+{
+    std::transform(_system.particles.begin(), _system.particles.end(), _system.particles.begin(), reset_particle_torques());
+}
+
+void ComputeClass::compute_torque(void) 
+{
+    neighbourlist->automatic_update();
+    for (auto f : torque_list)
+        f.second->compute();
+}
+
+void ComputeClass::reset_energy(void)
+{
+    std::transform(_system.particles.begin(), _system.particles.end(), _system.particles.begin(), reset_particle_energy());
+}
+
+void ComputeClass::compute_energy(void) 
+{
+    neighbourlist->automatic_update();
+    for (auto f : force_list)
+        f.second->compute_energy();
+    for (auto f : torque_list)
+        f.second->compute_energy();
+}

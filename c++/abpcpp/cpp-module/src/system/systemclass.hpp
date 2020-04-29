@@ -64,7 +64,6 @@ class SystemClass
     private:
     BoxType _box;
 
-    
 
 };
 

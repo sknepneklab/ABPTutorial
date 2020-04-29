@@ -31,12 +31,15 @@ public:
     void add_torque(const std::string &name, std::map<std::string, real> & parameters);
 
     //compute
+    void reset_forces_torques_energy(void);
+    
     void reset_forces(void);
     void compute_forces(void);
 
     void reset_torques(void);
     void compute_torque(void);
 
+    void reset_energy(void);
     void compute_energy(void);
 
 private:
