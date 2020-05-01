@@ -1,8 +1,8 @@
-# KITP ACTIVE20 Tutorial on Simulating Active Brownian Particles
+# Tutorial on Simulating Active Brownian Particles
 
-This is the GitHub repository for a series of three tutorial on implementing a simulation of Active Brownian Particles (ABP) in two dimensions. These tutorial were delivered as a part of the KITP ACTIVE20 virtual programme.
+This is the GitHub repository for a series of three tutorial on implementing a simulation of Active Brownian Particles (ABP) in two dimensions. These tutorial were delivered as a part of the [KITP ACTIVE20](https://www.kitp.ucsb.edu/activities/active20)  virtual programme.
 
-### Layout
+## Layout 
 
 This tutorial consists of three sessions:
 
