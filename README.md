@@ -36,12 +36,12 @@ Open a terminal and lease clone the repository with
 
 This command will create a local copy of the repository on your computer. It will be stored in a directory called *ABPTutorial*. 
 
-The *ABPTutorial* directory has the following structure
+The *ABPTutorial* directory has the following structure:
 
-    *Tutorial*  -  Jupyter notebooks and slides for the tutorial
-    *Python*    -  Python modules that implement a fully-functional ABP simulation in Python (Session 1)
-    *c++*       -  C++ and CUDA codes for Sessions 2 and 3
-    *conda*     -  an example of the working conda environment 
+    Tutorial  -  Jupyter notebooks and slides for the tutorial
+    Python    -  Python modules that implement a fully-functional ABP simulation in Python (Session 1)
+    c++       -  C++ and CUDA codes for Sessions 2 and 3
+    conda     -  an example of a working conda environment 
 
 We recommend using Anaconda and creating a ABP environment. An example of a suitable conda environment can be found in the *conda* directory (file: *ABP.yml*).
 
