@@ -2,7 +2,7 @@
 
 This is the GitHub repository for a series of three tutorial on implementing a simulation of Active Brownian Particles (ABP) in two dimensions. These tutorial were delivered as a part of the KITP ACTIVE20 virtual programme.
 
-## Layout
+### Layout
 
 This tutorial consists of three sessions:
 
@@ -28,7 +28,7 @@ In the final tutorial, we cover basics of GPGPU programming and show how to furt
 
 Please clone the repository by using 
 
-git clone git@github.com:sknepneklab/ABPTutorial.git
+`git clone git@github.com:sknepneklab/ABPTutorial.git`
 
 This creates a local copy of the repository on your computer. It is called ABPTutorial. 
 
@@ -44,5 +44,6 @@ The ABPTutorial directory has the following structure
 
 ## Lecturers
 Rastko Sknepnek, University of Dundee, United Kingdom
+
 Daniel Matoz-Fernandez, Northwestern University, USA
 
