@@ -26,9 +26,9 @@ Accompanied course material can be found in Tutorials/Session_3
 
 ## Getting started
 
-### Creating conda environment 
+### Cloning the code repository
 
-**Note:** For this tutorial we recommend using Unix-like environment (e.g., Linux or Mac OS X)
+**Note:** For this tutorial we recommend using Unix-like environment (e.g., Linux or Mac OS X). You will need to have git installed. 
 
 Open a terminal and lease clone the repository with 
 
@@ -42,6 +42,8 @@ The *ABPTutorial* directory has the following structure:
     Python    -  Python modules that implement a fully-functional ABP simulation in Python (Session 1)
     c++       -  C++ and CUDA codes for Sessions 2 and 3
     conda     -  an example of a working conda environment 
+
+### Creating conda environment 
 
 We recommend using Anaconda and creating a ABP environment. An example of a suitable conda environment can be found in the *conda* directory (file: *ABP.yml*).
 
