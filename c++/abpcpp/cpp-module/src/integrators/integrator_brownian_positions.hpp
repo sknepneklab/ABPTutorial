@@ -32,8 +32,8 @@ public:
   {
     gamma = 1.0;
     mu = 1.0 / gamma;
-    set_temperature(0.0);
-    set_time_step(5e-3);
+    this->set_temperature(0.0);
+    this->set_time_step(5e-3);
     seed = 123456; ///default value
     rng = std::make_shared<RNG>(seed);
   }
@@ -41,22 +41,27 @@ public:
   /** @brief Update the temperature dependent parameters **/
   void update_temperature_parameters()
   {
-    B = sqrt(2.0 * get_temperature() * mu);
+    B = sqrt(2.0 * this->get_temperature() * mu);
   }
   /** @brief Update the temperature dependent parameters **/
   void update_time_step_parameters()
   {
-    sqrt_dt = sqrt(get_time_step());
+    sqrt_dt = sqrt(this->get_time_step());
   }
 
   using IntegratorClass::set_property;
   void set_property(const std::string &prop_name, double &value)
   {
-    if (prop_name.compare("gamma") == 0)
+    if (prop_name.compare("T") == 0)
+    {
+      this->set_temperature(T);
+      this->update_temperature_parameters();
+    }
+    else if (prop_name.compare("gamma") == 0)
     {
       gamma = value;
       mu = 1.0 / gamma;
-      update_temperature_parameters();
+      this->update_temperature_parameters();
     }
     else if (prop_name.compare("seed") == 0)
     {

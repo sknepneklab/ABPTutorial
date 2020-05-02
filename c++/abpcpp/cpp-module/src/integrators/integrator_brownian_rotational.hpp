@@ -30,11 +30,10 @@ public:
 
   void set_defaults_property(void)
   {
-    Ta = 0.0;
     gamma = 1.0;
     mu = 1.0 / gamma;
-    set_temperature(0.0);
-    set_time_step(5e-3);
+    this->set_temperature(0.0);
+    this->set_time_step(5e-3);
     seed = 123456; ///default value
     rng = std::make_shared<RNG>(seed);
   }
@@ -42,27 +41,27 @@ public:
   /** @brief Update the temperature dependent parameters **/
   void update_temperature_parameters()
   {
-    B = sqrt(2.0 * Ta * mu);
+    B = sqrt(2.0 * this->get_temperature() * mu);
   }
   /** @brief Update the temperature dependent parameters **/
   void update_time_step_parameters()
   {
-    sqrt_dt = sqrt(get_time_step());
+    sqrt_dt = sqrt(this->get_time_step());
   }
 
   using IntegratorClass::set_property;
   void set_property(const std::string &prop_name, double &value)
   {
-    if (prop_name.compare("Ta") == 0)
+    if (prop_name.compare("T") == 0)
     {
-      Ta = value;
-      update_temperature_parameters();
+      this->set_temperature(value);
+      this->update_temperature_parameters();
     }
     else if (prop_name.compare("gamma") == 0)
     {
       gamma = value;
       mu = 1.0 / gamma;
-      update_temperature_parameters();
+      this->update_temperature_parameters();
     }
     else if (prop_name.compare("seed") == 0)
     {
@@ -70,7 +69,7 @@ public:
       rng = std::make_shared<RNG>(seed);
     }
     else
-      print_warning_property_name(prop_name);
+      this->print_warning_property_name(prop_name);
   }
 
   /**  @brief Propagate system for a time step */
@@ -81,7 +80,6 @@ public:
 private:
   real gamma;        //!< Friction coefficient
   real mu;           //!< Mobility (1/gamma)
-  real Ta;           //!< active temperature
   real B, sqrt_dt;   //!< useful quantities
   unsigned int seed; //!< random number seed;
   RNG_ptr rng;       //!< Random number generator

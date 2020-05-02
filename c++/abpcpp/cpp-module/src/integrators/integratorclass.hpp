@@ -43,7 +43,7 @@ public:
      * @brief set the integration temperature
      * @param temperature
      */
-  void set_temperature(real _T)
+  void set_temperature(const real& _T)
   {
     T = fabs(_T);
     update_temperature_parameters();
