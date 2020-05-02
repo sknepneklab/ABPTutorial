@@ -55,10 +55,10 @@ __pycache__/
 *.vtu
 
 # vscode
-cpp-module/build/* 
+c++/abpcpp/cpp-module/build/*
 
 # exception to the rule
-!cpp-module/build/.gitkeep 
+!c++/abpcpp/cpp-module/build/.gitkeep 
 
 #ipython
-.ipynb_checkpoints
+*.ipynb_checkpoints
