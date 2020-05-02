@@ -1,5 +1,5 @@
-#ifndef __computeforceclass_HPP__
-#define __computeforceclass_HPP__
+#ifndef __computeforceclass_hpp__
+#define __computeforceclass_hpp__
 
 /** @defgroup computeenergy Compute Vertex Energy
  *  @brief ComputeForceClass abstracts definitions

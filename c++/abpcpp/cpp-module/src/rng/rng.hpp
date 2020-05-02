@@ -1,34 +1,28 @@
-/* ***************************************************************************
- *
- *  Copyright (C) 2017 University of Dundee
- *  All rights reserved. 
- *
- *  This file is part of AJM (Active Junction Model) program.
- *
- *  AJM is free software; you can redistribute it and/or modify
- *  it under the terms of the GNU General Public License as published by
- *  the Free Software Foundation; either version 2 of the License, or
- *  (at your option) any later version.
- *
- *  AJM is distributed in the hope that it will be useful,
- *  but WITHOUT ANY WARRANTY; without even the implied warranty of
- *  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- *  GNU General Public License for more details.
- *
- *  You should have received a copy of the GNU General Public License
- *  along with this program.  If not, see <http://www.gnu.org/licenses/>.
- *
- * ****************************************************************************/
-
-/*!
- * \file rng.hpp
- * \author Rastko Sknepnek, sknepnek@gmail.com
- * \date 24-Oct-2013
- * \brief Class RNG provides wrappers for the GSL random number generate
- */ 
-
-#ifndef __RNG_HPP__
-#define __RNG_HPP__
+/************************************************************************************
+* MIT License                                                                       *
+*                                                                                   *
+* Copyright (c) 2020 Dr. Daniel Alejandro Matoz Fernandez                           *
+*                    Dr. Rastko Sknepnek, University of Dundee                      *
+* Permission is hereby granted, free of charge, to any person obtaining a copy      *
+* of this software and associated documentation files (the "Software"), to deal     *
+* in the Software without restriction, including without limitation the rights      *
+* to use, copy, modify, merge, publish, distribute, sublicense, and/or sell         *
+* copies of the Software, and to permit persons to whom the Software is             *
+* furnished to do so, subject to the following conditions:                          *
+*                                                                                   *
+* The above copyright notice and this permission notice shall be included in all    *
+* copies or substantial portions of the Software.                                   *
+*                                                                                   *
+* THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR        *
+* IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,          *
+* FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE       *
+* AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER            *
+* LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,     *
+* OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE     *
+* SOFTWARE.                                                                         *
+*************************************************************************************/
+#ifndef __rng_hpp__
+#define __rng_hpp__
 
 /** @addgroup utilities Random Number Generator 
  *  @brief Random Number Generator Class 

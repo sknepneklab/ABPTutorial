@@ -6,8 +6,13 @@
 
 //here include all the hpp files of the forces
 #include "../potentials/harmonicforce.hpp"
+
 //here include all the hpp files of the torques
 #include "../potentials/polar_align.hpp"
+
+//here include all the hpp files of the integrators
+#include "../integrators/integrator_brownian_positions.hpp"
+#include "../integrators/integrator_brownian_rotational.hpp"
 
 //neighbour list
 void EvolverClass::alloc_neighbourlist(void)
@@ -93,9 +98,8 @@ void EvolverClass::reset_forces(void)
 
 void EvolverClass::compute_forces(void)
 {
-    neighbourlist->automatic_update();
-    for (auto f : force_list)
-        f.second->compute();
+    for (auto force : force_list)
+        force.second->compute();
 }
 
 void EvolverClass::reset_torques(void)
@@ -103,11 +107,10 @@ void EvolverClass::reset_torques(void)
     std::transform(_system.particles.begin(), _system.particles.end(), _system.particles.begin(), reset_particle_torques());
 }
 
-void EvolverClass::compute_torque(void) 
+void EvolverClass::compute_torques(void)
 {
-    neighbourlist->automatic_update();
-    for (auto f : torque_list)
-        f.second->compute();
+    for (auto torque : torque_list)
+        torque.second->compute();
 }
 
 void EvolverClass::reset_energy(void)
@@ -115,11 +118,61 @@ void EvolverClass::reset_energy(void)
     std::transform(_system.particles.begin(), _system.particles.end(), _system.particles.begin(), reset_particle_energy());
 }
 
-void EvolverClass::compute_energy(void) 
+void EvolverClass::compute_energy(void)
 {
     neighbourlist->automatic_update();
-    for (auto f : force_list)
-        f.second->compute_energy();
-    for (auto f : torque_list)
-        f.second->compute_energy();
+    for (auto force : force_list)
+        force.second->compute_energy();
+    for (auto torque : torque_list)
+        torque.second->compute_energy();
+}
+
+void EvolverClass::add_integrator(const std::string &name, std::map<std::string, real> &parameters)
+{
+    //add the integrator to the list
+    if (name.compare("Brownian Positions") == 0)
+        integrator_list[name] = std::make_shared<IntegratorBrownianParticlesPositions>(_system);
+    else if (name.compare("Brownian Rotation") == 0)
+        integrator_list[name] = std::make_shared<IntegratorBrownianParticlesRotational>(_system);
+    else
+        std::cerr << name << " integrator not found" << std::endl;
+}
+
+void EvolverClass::set_time_step(const real &dt)
+{
+    for (auto integrator : integrator_list)
+        integrator.second->set_time_step(dt);
+}
+
+void EvolverClass::set_global_temperature(const real &T)
+{
+    for (auto integrator : integrator_list)
+        integrator.second->set_temperature(T);
+}
+
+void EvolverClass::evolve(void)
+{
+    // Check is neighbour list needs rebuilding
+    neighbourlist->automatic_update();
+
+    // Perform the preintegration step, i.e., step before forces and torques are computed
+    for (auto integrator : integrator_list)
+        integrator.second->prestep();
+
+    // Apply period boundary conditions
+    _system.apply_periodic();
+
+    // Reset all forces and toques
+    this->reset_forces_torques_energy();
+
+    // Compute all forces and torques
+    this->compute_forces();
+    this->compute_torques();
+
+    // Perform the second step of integration
+    for (auto integrator : integrator_list)
+        integrator.second->poststep();
+
+    // Apply period boundary conditions
+    _system.apply_periodic();
 }
