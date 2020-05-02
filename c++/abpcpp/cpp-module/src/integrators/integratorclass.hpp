@@ -1,7 +1,11 @@
 #ifndef __integratorclass__HPP__
 #define __integratorclass__HPP__
 
-#include "../potentials/computeclass.hpp"
+#include <memory>
+#include <iostream>
+
+#include "../types/globaltypes.hpp"
+#include "../system/systemclass.hpp"
 
 /**
  * @class IntegratorClass
@@ -16,7 +20,7 @@ public:
    * @param potentials pointer to the loaded potentials
    * @param param pointer to the integrator parameters
    */
-  IntegratorClass(SystemClass &system, ComputeClass &potentials) : _system(system), _potentials(potentials)
+  IntegratorClass(SystemClass &system) : _system(system)
   {
   }
   /**
@@ -86,15 +90,12 @@ public:
   std::string get_type(void) { return type; }
 
   virtual void set_defaults_property(void) = 0;
-  virtual void set_property(const std::string&, const double &) { print_warning_calling("double"); }
-  virtual void set_property(const std::string&, const int &) { print_warning_calling("int"); }
-  virtual void set_property(const std::string&, const bool &) { print_warning_calling("bool"); }
+  virtual void set_property(const std::string&, const double &) { this->print_warning_calling("double"); }
   void print_warning_calling(std::string message) { std::cerr << "integrator " << name << "cannot be called with " << message << "\n"; }
   void print_warning_property_name(std::string message) { std::cerr << "parameter " << message << " is not part of " << name << " integrator \n"; }
 
 protected:
   SystemClass &_system;      //!< reference to system class where the box and particles are stored
-  ComputeClass &_potentials; //!< Compute potential pointer
   std::string name;          //!< Integrator name
   std::string type;          //!< integrator type, active, torque, etc
 
@@ -102,6 +103,9 @@ private:
   real T;  //!< Temperature of the system
   real dt; //!< Time Step
 };
+
+typedef std::shared_ptr<IntegratorClass> IntegratorClass_ptr;
+
 
 #endif
 

@@ -60,6 +60,11 @@ file(GLOB integrators_HDRS ${INCLUDE_DIRS}/integrators/*.hpp)
 file(GLOB integrators_SRCS ${INCLUDE_DIRS}/integrators/*.cpp)
 list(APPEND INCLUDE_DIRS_HDRS ${integrators_HDRS})
 list(APPEND INCLUDE_DIRS_SRCS ${integrators_SRCS})
+## evolver ##
+file(GLOB evolver_HDRS ${INCLUDE_DIRS}/evolver/*.hpp)
+file(GLOB evolver_SRCS ${INCLUDE_DIRS}/evolver/*.cpp)
+list(APPEND INCLUDE_DIRS_HDRS ${evolver_HDRS})
+list(APPEND INCLUDE_DIRS_SRCS ${evolver_SRCS})
 ############################################
 
 set_directory_properties( PROPERTIES COMPILE_DEFINITIONS "" )

@@ -19,7 +19,7 @@ class IntegratorBrownianParticlesRotational : public IntegratorClass
 {
 public:
   /** @brief VertexIntegrator Constructor */
-  IntegratorBrownianParticlesRotational(SystemClass &system, ComputeClass &potentials) : IntegratorClass(system, potentials)
+  IntegratorBrownianParticlesRotational(SystemClass &system) : IntegratorClass(system)
   {
     name = "brownian";
     type = "director";
@@ -64,12 +64,7 @@ public:
       mu = 1.0 / gamma;
       update_temperature_parameters();
     }
-    else
-      print_warning_property_name(prop_name);
-  }
-  void set_property(const std::string &prop_name, const int &value)
-  {
-    if (prop_name.compare("seed") == 0)
+    else if (prop_name.compare("seed") == 0)
     {
       seed = uint(value);
       rng = std::make_shared<RNG>(seed);

@@ -1,5 +1,5 @@
-#ifndef __computeclass_HPP__
-#define __computeclass_HPP__
+#ifndef __evolverclass_HPP__
+#define __evolverclass_HPP__
 
 #include <memory>
 #include <map>
@@ -7,18 +7,18 @@
 
 #include "../neighbourlist/neighbourlistclass.hpp"
 #include "../system/systemclass.hpp"
-#include "computeforceclass.hpp"
-#include "computetorqueclass.hpp"
-#include "../neighbourlist/neighbourlistclass.hpp"
+#include "../potentials/computeforceclass.hpp"
+#include "../potentials/computetorqueclass.hpp"
+#include "../integrators/integratorclass.hpp"
 
-class ComputeClass
+class EvolverClass
 {
 public:
-    ComputeClass(SystemClass &system) : _system(system)
+    EvolverClass(SystemClass &system) : _system(system)
     {
         this->alloc_neighbourlist();
     }
-    ~ComputeClass() {}
+    ~EvolverClass() {}
 
     //neighbour list
     void alloc_neighbourlist(void);
@@ -42,12 +42,19 @@ public:
     void reset_energy(void);
     void compute_energy(void);
 
+    //Integrators
+    //void add_integrator():
+        
+
 private:
     SystemClass& _system;                                       //!< reference to system class where the box and particles are stored
     NeighbourListType_ptr neighbourlist;                         //!< neighbour list used for the force/torque calculation
     std::map<std::string, real> rcut_list;                      //!< list of all the rcut defined in the forces and torques
     std::map<std::string, ComputeForceClass_ptr> force_list;    //!< list of all the pointer to the forces
     std::map<std::string, ComputeTorqueClass_ptr> torque_list;  //!< list of all the pointer to the torques
+    std::map<std::string, IntegratorClass_ptr> integrator_list;  //!< list of all the pointer to the torques
+
+
 };
 
 #endif

@@ -19,7 +19,7 @@ class IntegratorBrownianParticlesPositions : public IntegratorClass
 {
 public:
   /** @brief VertexIntegrator Constructor */
-  IntegratorBrownianParticlesPositions(SystemClass &system, ComputeClass &potentials) : IntegratorClass(system, potentials)
+  IntegratorBrownianParticlesPositions(SystemClass &system) : IntegratorClass(system)
   {
     name = "brownian";
     type = "positions";
@@ -31,7 +31,7 @@ public:
   void set_defaults_property(void)
   {
     gamma = 1.0;
-    mu = 1.0/gamma;
+    mu = 1.0 / gamma;
     set_temperature(0.0);
     set_time_step(5e-3);
     seed = 123456; ///default value
@@ -55,15 +55,10 @@ public:
     if (prop_name.compare("gamma") == 0)
     {
       gamma = value;
-      mu = 1.0/gamma;
+      mu = 1.0 / gamma;
       update_temperature_parameters();
     }
-    else
-      print_warning_property_name(prop_name);
-  }
-  void set_property(const std::string &prop_name, const int &value)
-  {
-    if (prop_name.compare("seed") == 0)
+    else if (prop_name.compare("seed") == 0)
     {
       seed = uint(value);
       rng = std::make_shared<RNG>(seed);
@@ -73,7 +68,7 @@ public:
   }
 
   /**  @brief Propagate system for a time step */
-  void prestep(void){ }
+  void prestep(void) {}
 
   void poststep(void);
 

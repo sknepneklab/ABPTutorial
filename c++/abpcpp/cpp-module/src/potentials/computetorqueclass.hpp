@@ -6,7 +6,6 @@
  *  @{
  */
 #include <memory>
-#include <map>
 #include <iostream>
 
 #include "../types/globaltypes.hpp"

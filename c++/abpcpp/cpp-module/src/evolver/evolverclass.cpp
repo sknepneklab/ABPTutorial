@@ -1,29 +1,29 @@
 #include <algorithm>
-#include "computeclass.hpp"
+#include "evolverclass.hpp"
 
 //operators over the particles
 #include "../system/particleoperators.hpp"
 
 //here include all the hpp files of the forces
-#include "harmonicforce.hpp"
+#include "../potentials/harmonicforce.hpp"
 //here include all the hpp files of the torques
-#include "polar_align.hpp"
+#include "../potentials/polar_align.hpp"
 
 //neighbour list
-void ComputeClass::alloc_neighbourlist(void)
+void EvolverClass::alloc_neighbourlist(void)
 {
     neighbourlist = std::make_shared<NeighbourListType>(_system);
 }
-void ComputeClass::create_neighbourlist(const real &rcut)
+void EvolverClass::create_neighbourlist(const real &rcut)
 {
     neighbourlist->create_neighbourlist(rcut);
     this->fill_neighbourlist();
 }
-void ComputeClass::fill_neighbourlist(void)
+void EvolverClass::fill_neighbourlist(void)
 {
     this->fill_neighbourlist();
 }
-void ComputeClass::update_neighbourlist(void)
+void EvolverClass::update_neighbourlist(void)
 {
     //retrieve the rcut from all the forces
     for (auto flist : force_list)
@@ -46,7 +46,7 @@ void ComputeClass::update_neighbourlist(void)
 }
 
 //potentials and torques
-void ComputeClass::add_force(const std::string &name, std::map<std::string, real> &parameters)
+void EvolverClass::add_force(const std::string &name, std::map<std::string, real> &parameters)
 {
     if (name.compare("Harmonic Force") == 0)
     {
@@ -61,7 +61,7 @@ void ComputeClass::add_force(const std::string &name, std::map<std::string, real
     else
         std::cerr << name << " potential not found" << std::endl;
 }
-void ComputeClass::add_torque(const std::string &name, std::map<std::string, real> &parameters)
+void EvolverClass::add_torque(const std::string &name, std::map<std::string, real> &parameters)
 {
     if (name.compare("Polar Align") == 0)
     {
@@ -77,7 +77,7 @@ void ComputeClass::add_torque(const std::string &name, std::map<std::string, rea
         std::cerr << name << " torque not found" << std::endl;
 }
 //compute
-void ComputeClass::reset_forces_torques_energy(void)
+void EvolverClass::reset_forces_torques_energy(void)
 {
     // Note: one of advantages of using classes is that we can treat them as "objects" with define operations
     // for example here we have subtitude a for loop by a transformation over the particle list.
@@ -86,36 +86,36 @@ void ComputeClass::reset_forces_torques_energy(void)
     std::transform(_system.particles.begin(), _system.particles.end(), _system.particles.begin(), reset_particle_forces_torques_energy());
 }
 
-void ComputeClass::reset_forces(void)
+void EvolverClass::reset_forces(void)
 {
     std::transform(_system.particles.begin(), _system.particles.end(), _system.particles.begin(), reset_particle_forces());
 }
 
-void ComputeClass::compute_forces(void)
+void EvolverClass::compute_forces(void)
 {
     neighbourlist->automatic_update();
     for (auto f : force_list)
         f.second->compute();
 }
 
-void ComputeClass::reset_torques(void)
+void EvolverClass::reset_torques(void)
 {
     std::transform(_system.particles.begin(), _system.particles.end(), _system.particles.begin(), reset_particle_torques());
 }
 
-void ComputeClass::compute_torque(void) 
+void EvolverClass::compute_torque(void) 
 {
     neighbourlist->automatic_update();
     for (auto f : torque_list)
         f.second->compute();
 }
 
-void ComputeClass::reset_energy(void)
+void EvolverClass::reset_energy(void)
 {
     std::transform(_system.particles.begin(), _system.particles.end(), _system.particles.begin(), reset_particle_energy());
 }
 
-void ComputeClass::compute_energy(void) 
+void EvolverClass::compute_energy(void) 
 {
     neighbourlist->automatic_update();
     for (auto f : force_list)

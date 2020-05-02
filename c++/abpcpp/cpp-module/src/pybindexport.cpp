@@ -15,7 +15,7 @@ namespace py = pybind11;
 #include "system/pybind_export_system.hpp"
 
 //compute
-#include "potentials/pybind_export_compute.hpp"
+#include "evolver/pybind_export_evoler.hpp"
 
 
 PYBIND11_MODULE(abpcpp, m)
@@ -41,5 +41,5 @@ PYBIND11_MODULE(abpcpp, m)
     export_ParticleType(m);
     export_ParticleType_Vector(m);
     export_SytemClass(m);
-    export_ComputeClass(m);
+    export_EvolverClass(m);
 }
