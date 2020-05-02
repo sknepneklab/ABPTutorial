@@ -123,6 +123,60 @@ abpcpp/fast:
 	$(MAKE) -f CMakeFiles/abpcpp.dir/build.make CMakeFiles/abpcpp.dir/build
 .PHONY : abpcpp/fast
 
+src/integrators/integrator_brownian_positions.o: src/integrators/integrator_brownian_positions.cpp.o
+
+.PHONY : src/integrators/integrator_brownian_positions.o
+
+# target to build an object file
+src/integrators/integrator_brownian_positions.cpp.o:
+	$(MAKE) -f CMakeFiles/abpcpp.dir/build.make CMakeFiles/abpcpp.dir/src/integrators/integrator_brownian_positions.cpp.o
+.PHONY : src/integrators/integrator_brownian_positions.cpp.o
+
+src/integrators/integrator_brownian_positions.i: src/integrators/integrator_brownian_positions.cpp.i
+
+.PHONY : src/integrators/integrator_brownian_positions.i
+
+# target to preprocess a source file
+src/integrators/integrator_brownian_positions.cpp.i:
+	$(MAKE) -f CMakeFiles/abpcpp.dir/build.make CMakeFiles/abpcpp.dir/src/integrators/integrator_brownian_positions.cpp.i
+.PHONY : src/integrators/integrator_brownian_positions.cpp.i
+
+src/integrators/integrator_brownian_positions.s: src/integrators/integrator_brownian_positions.cpp.s
+
+.PHONY : src/integrators/integrator_brownian_positions.s
+
+# target to generate assembly for a file
+src/integrators/integrator_brownian_positions.cpp.s:
+	$(MAKE) -f CMakeFiles/abpcpp.dir/build.make CMakeFiles/abpcpp.dir/src/integrators/integrator_brownian_positions.cpp.s
+.PHONY : src/integrators/integrator_brownian_positions.cpp.s
+
+src/integrators/integrator_brownian_rotational.o: src/integrators/integrator_brownian_rotational.cpp.o
+
+.PHONY : src/integrators/integrator_brownian_rotational.o
+
+# target to build an object file
+src/integrators/integrator_brownian_rotational.cpp.o:
+	$(MAKE) -f CMakeFiles/abpcpp.dir/build.make CMakeFiles/abpcpp.dir/src/integrators/integrator_brownian_rotational.cpp.o
+.PHONY : src/integrators/integrator_brownian_rotational.cpp.o
+
+src/integrators/integrator_brownian_rotational.i: src/integrators/integrator_brownian_rotational.cpp.i
+
+.PHONY : src/integrators/integrator_brownian_rotational.i
+
+# target to preprocess a source file
+src/integrators/integrator_brownian_rotational.cpp.i:
+	$(MAKE) -f CMakeFiles/abpcpp.dir/build.make CMakeFiles/abpcpp.dir/src/integrators/integrator_brownian_rotational.cpp.i
+.PHONY : src/integrators/integrator_brownian_rotational.cpp.i
+
+src/integrators/integrator_brownian_rotational.s: src/integrators/integrator_brownian_rotational.cpp.s
+
+.PHONY : src/integrators/integrator_brownian_rotational.s
+
+# target to generate assembly for a file
+src/integrators/integrator_brownian_rotational.cpp.s:
+	$(MAKE) -f CMakeFiles/abpcpp.dir/build.make CMakeFiles/abpcpp.dir/src/integrators/integrator_brownian_rotational.cpp.s
+.PHONY : src/integrators/integrator_brownian_rotational.cpp.s
+
 src/neighbourlist/linkedlistclass.o: src/neighbourlist/linkedlistclass.cpp.o
 
 .PHONY : src/neighbourlist/linkedlistclass.o
@@ -294,6 +348,12 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... abpcpp"
 	@echo "... edit_cache"
+	@echo "... src/integrators/integrator_brownian_positions.o"
+	@echo "... src/integrators/integrator_brownian_positions.i"
+	@echo "... src/integrators/integrator_brownian_positions.s"
+	@echo "... src/integrators/integrator_brownian_rotational.o"
+	@echo "... src/integrators/integrator_brownian_rotational.i"
+	@echo "... src/integrators/integrator_brownian_rotational.s"
 	@echo "... src/neighbourlist/linkedlistclass.o"
 	@echo "... src/neighbourlist/linkedlistclass.i"
 	@echo "... src/neighbourlist/linkedlistclass.s"

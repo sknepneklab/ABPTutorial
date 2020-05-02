@@ -64,6 +64,51 @@ inline real3 enforce_periodic(const real3 &r,
     return _r;
 }
 
+inline void enforce_periodic(real3 &r,
+                             inth3 &ip,
+                             const BoxType &box)
+{
+    if (box.periodic.x)
+    {
+        if (r.x <= box.Llo.x)
+        {
+            r.x += box.L.x;
+            ip.x--;
+        }
+        else if (r.x > box.Lhi.x)
+        {
+            r.x -= box.L.x;
+            ip.x++;
+        }
+    }
+    if (box.periodic.y)
+    {
+        if (r.y <= box.Llo.y)
+        {
+            r.y += box.L.y;
+            ip.y--;
+        }
+        else if (r.y > box.Lhi.y)
+        {
+            r.y -= box.L.y;
+            ip.y++;
+        }
+    }
+    if (box.periodic.z)
+    {
+        if (r.z <= box.Llo.z)
+        {
+            r.z += box.L.z;
+            ip.z--;
+        }
+        else if (r.z > box.Lhi.z)
+        {
+            r.z -= box.L.z;
+            ip.z++;
+        }
+    }
+}
+
 } // namespace host
 
 #endif

@@ -55,6 +55,11 @@ file(GLOB potentials_HDRS ${INCLUDE_DIRS}/potentials/*.hpp)
 file(GLOB potentials_SRCS ${INCLUDE_DIRS}/potentials/*.cpp)
 list(APPEND INCLUDE_DIRS_HDRS ${potentials_HDRS})
 list(APPEND INCLUDE_DIRS_SRCS ${potentials_SRCS})
+## integrators ##
+file(GLOB integrators_HDRS ${INCLUDE_DIRS}/integrators/*.hpp)
+file(GLOB integrators_SRCS ${INCLUDE_DIRS}/integrators/*.cpp)
+list(APPEND INCLUDE_DIRS_HDRS ${integrators_HDRS})
+list(APPEND INCLUDE_DIRS_SRCS ${integrators_SRCS})
 ############################################
 
 set_directory_properties( PROPERTIES COMPILE_DEFINITIONS "" )
