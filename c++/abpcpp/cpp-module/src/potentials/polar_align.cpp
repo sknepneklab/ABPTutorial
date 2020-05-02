@@ -12,8 +12,8 @@ void PolarAlign::compute_energy(void)
             ParticleType pj = _system.particles[pindex_j];
 
             real3 rij = host::minimum_image(pi.r, pj.r, _system.get_box());
-            real lendr = sqrt(vdot(rij, rij));
-            if (lendr <= a)
+            real lendr = vdot(rij, rij);
+            if (lendr <= a*a)
             {
                 pi.energy+=J*vdot(pi.n, pj.n);
             }
@@ -36,8 +36,8 @@ void PolarAlign::compute(void)
             ParticleType pj = _system.particles[pindex_j];
 
             real3 rij = host::minimum_image(pi.r, pj.r, _system.get_box());
-            real lendr = sqrt(vdot(rij, rij));
-            if (lendr <= a)
+            real lendr = vdot(rij, rij);
+            if (lendr <= a*a)
             {
                 real3 tau;
                 vcross(tau, pi.n, pj.n);
