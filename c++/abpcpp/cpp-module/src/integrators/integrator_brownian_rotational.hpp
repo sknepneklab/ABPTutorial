@@ -30,8 +30,9 @@ public:
 
   void set_defaults_property(void)
   {
+    Ta = 0.0;
     gamma = 1.0;
-    mu = 1.0/gamma;
+    mu = 1.0 / gamma;
     set_temperature(0.0);
     set_time_step(5e-3);
     seed = 123456; ///default value
@@ -41,7 +42,7 @@ public:
   /** @brief Update the temperature dependent parameters **/
   void update_temperature_parameters()
   {
-    B = sqrt(2.0 * get_temperature() * mu);
+    B = sqrt(2.0 * Ta * mu);
   }
   /** @brief Update the temperature dependent parameters **/
   void update_time_step_parameters()
@@ -52,10 +53,15 @@ public:
   using IntegratorClass::set_property;
   void set_property(const std::string &prop_name, double &value)
   {
-    if (prop_name.compare("gamma") == 0)
+    if (prop_name.compare("Ta") == 0)
+    {
+      Ta = value;
+      update_temperature_parameters();
+    }
+    else if (prop_name.compare("gamma") == 0)
     {
       gamma = value;
-      mu = 1.0/gamma;
+      mu = 1.0 / gamma;
       update_temperature_parameters();
     }
     else
@@ -73,13 +79,14 @@ public:
   }
 
   /**  @brief Propagate system for a time step */
-  void prestep(void){ }
+  void prestep(void) {}
 
   void poststep(void);
 
 private:
   real gamma;        //!< Friction coefficient
   real mu;           //!< Mobility (1/gamma)
+  real Ta;           //!< active temperature
   real B, sqrt_dt;   //!< useful quantities
   unsigned int seed; //!< random number seed;
   RNG_ptr rng;       //!< Random number generator
