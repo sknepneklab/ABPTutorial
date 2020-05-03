@@ -16,7 +16,7 @@
 
 # Class handling time evolution of the system
 
-class Evelover:
+class Evolver:
   """
     This class handles time evolution of the system.
   """

@@ -22,7 +22,7 @@ from pymd.md import *
 s = System(rcut = 3.0, pad = 0.5)
 s.read_init('test.json')
 
-e = Evelover(s)
+e = Evolver(s)
 d = Dump(s)
 
 hf = HarmonicForce(s, 10.0, 2.0)
