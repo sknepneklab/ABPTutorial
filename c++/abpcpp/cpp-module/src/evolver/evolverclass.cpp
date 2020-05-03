@@ -6,6 +6,7 @@
 
 //here include all the hpp files of the forces
 #include "../potentials/harmonicforce.hpp"
+#include "../potentials/selfpropulsion.hpp"
 
 //here include all the hpp files of the torques
 #include "../potentials/polar_align.hpp"
@@ -62,6 +63,11 @@ void EvolverClass::add_force(const std::string &name, std::map<std::string, real
             force_list[name]->set_property(param.first, param.second);
         //if this potential change the global rcut the neighbourlist must be updated
         this->update_neighbourlist();
+    }
+    else if("Self Propulsion")
+    {
+        //add the force to the list
+        force_list[name] = std::make_shared<SelfPropulsionForce>(_system, *neighbourlist.get());
     }
     else
         std::cerr << name << " potential not found" << std::endl;
