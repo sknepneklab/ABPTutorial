@@ -13260,7 +13260,7 @@ where $\alpha$ is the magnitude of the self-propulsion force.</p>
 <h4 id="Equations-of-motion">Equations of motion<a class="anchor-link" href="#Equations-of-motion">&#182;</a></h4><p>In the overdamped limit, all inertial effects are neglected and the equations of motion become simply force (and torque) balance equations. For the model defined above we have,
 \begin{eqnarray}
     \dot{\mathbf{r}}_i &amp; = &amp; v_0 \mathbf{n}_i + \frac{1}{\gamma_t}\sum_j \mathbf{F}_{ij} + \boldsymbol{\xi}^{t}_{i}\\
-    \dot{\vartheta}_i &amp; = &amp; -\frac{1}{\tau_r}\sin\left(\vartheta_i-\vartheta_j\right) + \xi_i^r.\label{eq:motion_theta}
+    \dot{\vartheta}_i &amp; = &amp; -\frac{1}{\tau_r}\sum_j\sin\left(\vartheta_i-\vartheta_j\right) + \xi_i^r.\label{eq:motion_theta}
 \end{eqnarray}
 In previous equations we introduced the translational and rotational friction coefficients, $\gamma_t$ and $\gamma_r$, respectively and defined $v_0 = \frac{\alpha}{\gamma_t}$ and $\tau_r = \frac{\gamma_r}{J}$. Note that $v_0$ has units of velocity (hence we interpret it as the self-propulsion speed) while $\tau_r$ has units of time (hence we interpret it as the polarity alignment time scale). $\boldsymbol{\xi}_i^t$ is the white noise, which we here assume to be thermal noise (in general, this assumption is not required for a system out of equilibrium), i.e., $\langle\xi_{i,\alpha}\rangle=0$ and $\langle \xi_{i,\alpha}^t(t)\xi_{j,\beta}^t(t^\prime)\rangle = 2\frac{k_BT}{\gamma_t}\delta_{ij}\delta_{\alpha\beta}\delta(t-t^\prime)$, with $\alpha, \beta \in \{x, y\}$ and $T$ being temperature. Similarly, $\xi_i^r$ is the rotational noise, with $\langle\xi_i^r\rangle = 0$ and $\langle \xi_i^r(t)\xi_j^r(t^\prime)\rangle = 2D_r\delta_{ij}\delta(t-t^\prime)$, where we have introduced the rotational diffusion coefficient $D_r$.</p>
 
@@ -13318,7 +13318,7 @@ Neither $L$ not $a$ have units here. We'll get back to the issue of simulation u
 </div></section></section><section><section>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[1]:</div>
+<div class="prompt input_prompt">In&nbsp;[4]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">pymd.builder</span> <span class="kn">import</span> <span class="o">*</span>
@@ -13458,7 +13458,7 @@ Neither $L$ not $a$ have units here. We'll get back to the issue of simulation u
 </div></section></section><section><section>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[3]:</div>
+<div class="prompt input_prompt">In&nbsp;[5]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">dt</span> <span class="o">=</span> <span class="mf">0.01</span>    <span class="c1"># Simulation time step</span>
@@ -14518,7 +14518,7 @@ To put it rather mundanely, the computer does not care if the units are correct 
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[31]:</div>
+<div class="prompt input_prompt">In&nbsp;[6]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">pymd.md</span> <span class="kn">import</span> <span class="o">*</span>
@@ -14753,7 +14753,7 @@ Two particularly pedagogical texts on the theory behind numerical integration of
 </div></section></section><section><section>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[9]:</div>
+<div class="prompt input_prompt">In&nbsp;[7]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">dt</span> <span class="o">=</span> <span class="mf">0.01</span>    <span class="c1"># Simulation time step</span>
