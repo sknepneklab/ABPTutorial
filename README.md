@@ -51,7 +51,7 @@ To create a conda environment with using provided yml file, from the *ABPTutoria
 
 `conda env create --file conda/ABP.yml`
 
-If you encounter problems with using the provided yml file (some users have reported the "Solving environment: failed" error), you can always create an conda environment, e.g. by typing:
+If you encounter problems with using the provided yml file (some users have reported the "Solving environment: failed" error), you can always create a new conda environment, e.g. by typing:
 
 `conda create -n ABP python=3.7 numpy scipy matplotlib jupyter jupyterlab vtk pip`
 
