@@ -18,7 +18,7 @@
 
 from .box import Box
 from .system import System 
-from .evolver import Evelover
+from .evolver import Evolver
 from .dump import Dump
 
 
