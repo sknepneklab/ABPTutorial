@@ -50,8 +50,6 @@ PYBIND11_MODULE(abpcpp, m)
         .. currentmodule:: abpcpp
         .. autosummary::
            :toctree: _generate
-           compute_volume
-           subtract
     )pbdoc";
     m.attr("__version__") = "1.0a";
     ///redirect std::cout and std::cerr
