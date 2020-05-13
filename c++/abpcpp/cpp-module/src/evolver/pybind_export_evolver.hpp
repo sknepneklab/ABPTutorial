@@ -22,8 +22,8 @@
 * SOFTWARE.                                                                         *
 *************************************************************************************/
 
-#ifndef __pybind_export_evoler_hpp__
-#define __pybind_export_evoler_hpp__
+#ifndef __pybind_export_evolver_hpp__
+#define __pybind_export_evolver_hpp__
 
 #include "evolverclass.hpp"
 
