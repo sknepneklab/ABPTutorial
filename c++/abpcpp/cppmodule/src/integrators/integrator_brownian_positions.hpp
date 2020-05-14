@@ -46,12 +46,12 @@ public:
   {
     name = "brownian";
     type = "positions";
-    this->set_defaults_property();
+    this->set_default_properties();
   }
   /** @brief destructor */
   ~IntegratorBrownianParticlesPositions() {}
 
-  void set_defaults_property(void)
+  void set_default_properties(void)
   {
     gamma = 1.0;
     mu = 1.0 / gamma;

@@ -83,7 +83,7 @@ public:
   /**
      * @brief Set property
     */
-  virtual void set_defaults_property(void) = 0;
+  virtual void set_default_properties(void) = 0;
   virtual void set_property(const std::string &, const double &) { this->print_warning_calling("double "); };
   void print_warning_calling(const std::string &message) { std::cerr << "torque " << name << " cannot be called with " << message << "\n"; }
   void print_warning_property_name(const std::string &message) { std::cerr << "parameter " << message << " is not part of " << name << " potential \n"; }

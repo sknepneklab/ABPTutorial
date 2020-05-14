@@ -38,17 +38,17 @@ public:
     {
         name = "Harmonic Force";
         type = "Conservative/Particle";
-        this->set_defaults_property();
+        this->set_default_properties();
     }
     ~SelfPropulsionForce() {}
 
-    void set_defaults_property(void)
+    void set_default_properties(void) override
     {
         alpha = 1.0;
         rcut = 0.0; //cut off radius to be use in neighbourslist
     }
 
-    void set_property(const std::string &name, const double &value)
+    void set_property(const std::string &name, const double &value) override
     {
         if (name.compare("alpha"))
             alpha = value;
@@ -56,7 +56,7 @@ public:
             this->print_warning_property_name(name);
     }
     
-    void compute(void);
+    void compute(void) override;
 
 private:
     NeighbourListType &_neighbourslist;
