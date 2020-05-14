@@ -58,7 +58,7 @@ public:
     this->set_temperature(0.0);
     this->set_time_step(5e-3);
     seed = 123456; ///default value
-    rng = std::make_shared<RNG>(seed);
+    rng = std::make_unique<RNG>(seed);
   }
 
   /** @brief Update the temperature dependent parameters **/
@@ -89,7 +89,7 @@ public:
     else if (prop_name.compare("seed") == 0)
     {
       seed = uint(value);
-      rng = std::make_shared<RNG>(seed);
+      rng = std::make_unique<RNG>(seed);
     }
     else
       print_warning_property_name(prop_name);

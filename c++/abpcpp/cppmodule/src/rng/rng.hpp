@@ -80,7 +80,7 @@ private:
 /**
  * @brief unique pointer to the RNG class
  */
-typedef std::shared_ptr<RNG> RNG_ptr; 
+typedef std::unique_ptr<RNG> RNG_ptr; 
 
 #endif
 /** @} */ 
