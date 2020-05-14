@@ -32,10 +32,10 @@ void EvolverClass::fill_neighbourlist(void)
 void EvolverClass::update_neighbourlist(void)
 {
     //retrieve the rcut from all the forces
-    for (auto flist : force_list)
+    for (const auto& flist : force_list)
         rcut_list["force " + flist.first] = flist.second->get_rcut();
     //retrieve the rcut from all the torques
-    for (auto tlist : torque_list)
+    for (const auto& tlist : torque_list)
         rcut_list["torques " + tlist.first] = tlist.second->get_rcut();
     //find the maximum rcut
     /* 
@@ -57,7 +57,7 @@ void EvolverClass::add_force(const std::string &name, std::map<std::string, real
     if (name.compare("Harmonic Force") == 0)
     {
         //add the force to the list
-        force_list[name] = std::make_shared<HarmonicForce>(_system, *neighbourlist.get());
+        force_list[name] = std::make_unique<HarmonicForce>(_system, *neighbourlist.get());
         //loop over the parameters and set them up
         for (auto param : parameters)
             force_list[name]->set_property(param.first, param.second);
@@ -67,7 +67,7 @@ void EvolverClass::add_force(const std::string &name, std::map<std::string, real
     else if (name.compare("Self Propulsion") == 0)
     {
         //add the force to the list
-        force_list[name] = std::make_shared<SelfPropulsionForce>(_system, *neighbourlist.get());
+        force_list[name] = std::make_unique<SelfPropulsionForce>(_system, *neighbourlist.get());
     }
     else
         std::cerr << name << " potential not found" << std::endl;
@@ -77,7 +77,7 @@ void EvolverClass::add_torque(const std::string &name, std::map<std::string, rea
     if (name.compare("Polar Align") == 0)
     {
         //add the force to the list
-        torque_list[name] = std::make_shared<PolarAlign>(_system, *neighbourlist.get());
+        torque_list[name] = std::make_unique<PolarAlign>(_system, *neighbourlist.get());
         //loop over the parameters and set them up
         for (auto param : parameters)
             torque_list[name]->set_property(param.first, param.second);
@@ -104,7 +104,7 @@ void EvolverClass::reset_forces(void)
 
 void EvolverClass::compute_forces(void)
 {
-    for (auto force : force_list)
+    for (const auto& force : force_list)
         force.second->compute();
 }
 
@@ -115,7 +115,7 @@ void EvolverClass::reset_torques(void)
 
 void EvolverClass::compute_torques(void)
 {
-    for (auto torque : torque_list)
+    for (const auto& torque : torque_list)
         torque.second->compute();
 }
 
@@ -127,9 +127,9 @@ void EvolverClass::reset_energy(void)
 void EvolverClass::compute_energy(void)
 {
     neighbourlist->automatic_update();
-    for (auto force : force_list)
+    for (const auto& force : force_list)
         force.second->compute_energy();
-    for (auto torque : torque_list)
+    for (const auto& torque : torque_list)
         torque.second->compute_energy();
 }
 

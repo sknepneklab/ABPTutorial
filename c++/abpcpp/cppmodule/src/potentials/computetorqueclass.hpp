@@ -95,7 +95,7 @@ protected:
   real rcut;            //!< maximum cut off radius for a given potential
 };
 
-typedef std::shared_ptr<ComputeTorqueClass> ComputeTorqueClass_ptr;
+typedef std::unique_ptr<ComputeTorqueClass> ComputeTorqueClass_ptr;
 
 #endif
 
