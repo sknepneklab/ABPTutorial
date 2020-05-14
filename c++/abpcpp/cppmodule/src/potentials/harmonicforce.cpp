@@ -1,6 +1,6 @@
 #include "harmonicforce.hpp"
 
-void ComputeHarmonicForce::compute_energy(void)
+void HarmonicForce::compute_energy(void)
 {
     for (int pindex_i = 0; pindex_i < _system.Numparticles; pindex_i ++)
     {
@@ -21,7 +21,7 @@ void ComputeHarmonicForce::compute_energy(void)
     }
 }
 
-void ComputeHarmonicForce::compute(void)
+void HarmonicForce::compute(void)
 {
     for (int pindex_i = 0; pindex_i < _system.Numparticles; pindex_i ++)
     {

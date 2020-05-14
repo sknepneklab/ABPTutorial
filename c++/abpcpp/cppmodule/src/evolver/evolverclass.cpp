@@ -57,14 +57,14 @@ void EvolverClass::add_force(const std::string &name, std::map<std::string, real
     if (name.compare("Harmonic Force") == 0)
     {
         //add the force to the list
-        force_list[name] = std::make_shared<ComputeHarmonicForce>(_system, *neighbourlist.get());
+        force_list[name] = std::make_shared<HarmonicForce>(_system, *neighbourlist.get());
         //loop over the parameters and set them up
         for (auto param : parameters)
             force_list[name]->set_property(param.first, param.second);
         //if this potential change the global rcut the neighbourlist must be updated
         this->update_neighbourlist();
     }
-    else if("Self Propulsion")
+    else if (name.compare("Self Propulsion") == 0)
     {
         //add the force to the list
         force_list[name] = std::make_shared<SelfPropulsionForce>(_system, *neighbourlist.get());

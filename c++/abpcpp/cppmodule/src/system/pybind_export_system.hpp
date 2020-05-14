@@ -66,7 +66,7 @@ void export_SytemClass(py::module &m)
         .def("add", (void (SystemClass::*)(const ParticleType &)) &SystemClass::add_particle)
         .def("add", (void (SystemClass::*)(const host::vector<ParticleType> &)) &SystemClass::add_particle)
         .def("apply_periodic", &SystemClass::apply_periodic)
-        .def_readonly("box", &SystemClass::box)
+        .def("box", &SystemClass::get_box)
         ;
 }
 

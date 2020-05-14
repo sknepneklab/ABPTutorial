@@ -31,16 +31,16 @@
 #include "computeforceclass.hpp"
 #include "../neighbourlist/neighbourlistclass.hpp"
 
-class ComputeHarmonicForce : public ComputeForceClass
+class HarmonicForce : public ComputeForceClass
 {
 public:
-    ComputeHarmonicForce(SystemClass &system, NeighbourListType &neighbourslist) : _neighbourslist(neighbourslist), ComputeForceClass(system)
+    HarmonicForce(SystemClass &system, NeighbourListType &neighbourslist) : _neighbourslist(neighbourslist), ComputeForceClass(system)
     {
         name = "Harmonic Force";
         type = "Conservative/Particle";
         this->set_defaults_property();
     }
-    ~ComputeHarmonicForce() {}
+    ~HarmonicForce() {}
 
     void set_defaults_property(void)
     {
