@@ -1,4 +1,4 @@
-# Copyright 2020 Rastko Sknepnek, University of Dundee, r.skepnek@dundee.ac.uk
+# Copyright 2020 Daniel Matoz Fernandez, Northwestern University fdamatoz@gmail.com
 #
 # Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
 # documentation files (the "Software"), to deal in the Software without restriction, including without limitation 
@@ -15,4 +15,15 @@
 # DEALINGS IN THE SOFTWARE.
 
 # Init file
+from __future__ import absolute_import
 
+import os
+import sys
+
+from collections import defaultdict
+
+#load c++/CUDA code
+cwd = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'build/')
+sys.path.append(cwd)
+
+from cppmodule import *

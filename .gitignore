@@ -1,3 +1,7 @@
+# MIT License                                                                       
+# Copyright (c) 2020 Dr. Daniel Alejandro Matoz Fernandez                           
+#                    Dr. Rastko Sknepnek, University of Dundee                      
+
 #cuda
 *.i
 *.ii
@@ -55,10 +59,17 @@ __pycache__/
 *.vtu
 
 # vscode
+<<<<<<< HEAD
 c++/abpcpp/cppmodule/build/* 
 
 # exception to the rule
 !c++/abpcpp/cppmodule/build/.gitkeep 
+=======
+c++/abpcpp/cpp-module/build/*
+
+# exception to the rule
+!c++/abpcpp/cpp-module/build/.gitkeep 
+>>>>>>> cd7fc1374a2ae6dfb28b27640ed7f92dabaaae8b
 
 #ipython
-.ipynb_checkpoints
+*.ipynb_checkpoints
