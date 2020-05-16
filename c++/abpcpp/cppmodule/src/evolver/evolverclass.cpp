@@ -48,7 +48,6 @@ void EvolverClass::update_neighbourlist(void)
     */
     auto max_it = std::max_element(rcut_list.begin(), rcut_list.end(), [](const std::pair<std::string, real> &p1, const std::pair<std::string, real> &p2) { return p1.second < p2.second; });
     //create/update the neighbour list
-    std::cout<< " max_it->second " << max_it->second << std::endl;
     if (max_it->second > 0.0)
         this->create_neighbourlist(max_it->second);
 }
@@ -170,42 +169,27 @@ void EvolverClass::set_global_temperature(const real &T)
 
 void EvolverClass::evolve(void)
 {
-    //std::cout<< "1 " << std::endl;
-
     // Check is neighbour list needs rebuilding
     neighbourlist->automatic_update();
-
-    //std::cout<< "2 " << std::endl;
 
     // Perform the preintegration step, i.e., step before forces and torques are computed
     for (auto integrator : integrator_list)
         integrator.second->prestep();
 
-    //std::cout<< "3 " << std::endl;
-
     // Apply period boundary conditions
     _system.apply_periodic();
-
-    //std::cout<< "4 " << std::endl;
 
     // Reset all forces and toques
     this->reset_forces_torques_energy();
 
-    //std::cout<< "5 " << std::endl;
-
     // Compute all forces and torques
     this->compute_forces();
-    //std::cout<< "6 " << std::endl;
     this->compute_torques();
-    //std::cout<< "7 " << std::endl;
 
     // Perform the second step of integration
     for (auto integrator : integrator_list)
         integrator.second->poststep();
-    //std::cout<< "8 " << std::endl;
 
     // Apply period boundary conditions
     _system.apply_periodic();
-    //std::cout<< "9 " << std::endl;
-
 }

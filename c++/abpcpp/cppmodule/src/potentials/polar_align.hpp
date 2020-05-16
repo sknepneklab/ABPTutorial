@@ -51,7 +51,6 @@ public:
 
     void set_property(const std::string &prop_name, const double &value) override
     {
-        std::cout << "PolarAlign prop_name " << prop_name << " " << value << std::endl;
         if (prop_name.compare("k") == 0)
             J = value;
         else if (prop_name.compare("a") == 0)
