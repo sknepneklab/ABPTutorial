@@ -23,7 +23,7 @@ def minimum_image(ri, rj, box):
 
 
 phi = 0.4
-L = 50
+L = 100
 a = 1.0
 mm.random_init(phi, L, rcut=a, outfile='init.json')
 particles, box = mm.read_json("init.json")
