@@ -23,7 +23,7 @@ def minimum_image(ri, rj, box):
 
 
 phi = 0.4
-L = 100
+L = 50
 a = 1.0
 mm.random_init(phi, L, rcut=a, outfile='init.json')
 particles, box = mm.read_json("init.json")
@@ -33,7 +33,7 @@ dump = mm.Dump(system)
 dump.dump_vtp("test.vtp")
 
 dump.show()
-#plt.show()
+plt.show()
 
 evolver = mm.Evolver(system)
 
