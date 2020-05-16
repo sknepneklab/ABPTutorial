@@ -73,6 +73,11 @@ public:
     void set_global_temperature(const real&);
     void evolve(void);
 
+    std::vector<int> get_neighbourlist(void)
+    {
+        return(neighbourlist->get_neighbourlist());
+    }
+
 private:
     SystemClass& _system;                                       //!< reference to system class where the box and particles are stored
     NeighbourListType_ptr neighbourlist;                         //!< neighbour list used for the force/torque calculation

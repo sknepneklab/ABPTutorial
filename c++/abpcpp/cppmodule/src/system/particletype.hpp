@@ -34,7 +34,6 @@ struct ParticleType
     real radius;      //!< radius of the particle
     real2 r;          //!< Position in the embedding 3d flat space
     inth2 ip;         //!< Periodic box image flags (to enable unwrapping of particle coordinates)
-    real2 N;          //!< Particle normal vector 
     real2 n;          //!< Particle direction vector (not necessarily equal to velocity direction)
     int coordination; //!< Keeps track of the number of neighbours
     inth2 cellId;     //!< CellId that belongs for linked list

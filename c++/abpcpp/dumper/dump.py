@@ -18,7 +18,9 @@
 
 import json
 import vtk
-
+import matplotlib.pyplot as plt
+import matplotlib.patches as mpatches
+from matplotlib.collections import PatchCollection
 
 class Dump:
   """
@@ -95,26 +97,31 @@ class Dump:
     n = vtk.vtkDoubleArray()
     v = vtk.vtkDoubleArray()
     f = vtk.vtkDoubleArray()
+    radius = vtk.vtkDoubleArray()
     ids.SetNumberOfComponents(1)
     n.SetNumberOfComponents(3)
     v.SetNumberOfComponents(3)
     f.SetNumberOfComponents(3)
+    radius.SetNumberOfComponents(1)
     ids.SetName("id")
     n.SetName("director")
     v.SetName("velocity")
     f.SetName("force")
-    for p in self.sys.particles:
+    radius.SetName("radius")
+    for p in self.sys.get_particles():
       points.InsertNextPoint([p.r.x, p.r.y, 0.0])
       ids.InsertNextValue(p.id)
       n.InsertNextTuple([p.n.x, p.n.y, 0.0])
       v.InsertNextTuple([p.v.x, p.v.y, 0.0])
       f.InsertNextTuple([p.forceC.x, p.forceC.y, 0.0])
+      radius.InsertNextValue(p.radius)
     polyData = vtk.vtkPolyData()
     polyData.SetPoints(points)
     polyData.GetPointData().AddArray(ids)
     polyData.GetPointData().AddArray(n)
     polyData.GetPointData().AddArray(v)
     polyData.GetPointData().AddArray(f)
+    polyData.GetPointData().AddArray(radius)
     writer = vtk.vtkXMLPolyDataWriter()
     writer.SetFileName(outfile)
     if vtk.VTK_MAJOR_VERSION <= 5:
@@ -123,3 +130,14 @@ class Dump:
         writer.SetInputData(polyData)
     writer.SetDataModeToAscii()
     writer.Write()
+
+  def show(self):
+    box = self.sys.box()
+    fig, ax = plt.subplots()
+    ax.add_patch(plt.Rectangle([box.Llo.x, box.Llo.x], box.L.x, box.L.y, fill=False))
+    for p in self.sys.get_particles():
+        ax.quiver(p.r.x, p.r.y, p.n.x, p.n.y,  angles='xy', scale_units='xy', scale=0.8, color='black')
+        ax.add_patch(plt.Circle([p.r.x, p.r.y], p.radius, color='salmon'))
+    plt.axis('equal')
+    plt.axis('off')
+    plt.tight_layout()

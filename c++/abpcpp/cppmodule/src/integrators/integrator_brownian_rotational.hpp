@@ -72,7 +72,7 @@ public:
     sqrt_dt = sqrt(this->get_time_step());
   }
 
-  using IntegratorClass::set_property;
+  //using IntegratorClass::set_property;
   void set_property(const std::string &prop_name, double &value)
   {
     if (prop_name.compare("T") == 0)

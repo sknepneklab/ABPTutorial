@@ -113,8 +113,8 @@ public:
   std::string get_type(void) { return type; }
 
   virtual void set_default_properties(void) = 0;
-  virtual void set_property(const std::string&, const double &) { this->print_warning_calling("double"); }
-  void print_warning_calling(std::string message) { std::cerr << "integrator " << name << "cannot be called with " << message << "\n"; }
+  virtual void set_property(const std::string &prop_name, double &value) { this->print_warning_calling("double"); }
+  void print_warning_calling(std::string message) { std::cerr << "integrator " << name << " cannot be called with " << message << "\n"; }
   void print_warning_property_name(std::string message) { std::cerr << "parameter " << message << " is not part of " << name << " integrator \n"; }
 
 protected:

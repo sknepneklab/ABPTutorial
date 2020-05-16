@@ -55,7 +55,7 @@ def random_init(phi, Lx, Ly = None, rcut = None, outfile = 'test.json', max_atte
       v = [0.0, 0.0]
       f = [0.0, 0.0]
       # Add a particle at position x,y with the director pointing in the random direction
-      particles.append({'id': i, 'r': r, 'n': n, 'v': v, 'f': f})
+      particles.append({'id': i, 'r': r, 'n': n, 'v': v, 'f': f, 'radius': 0.5*rcut})
   else:
     # Here we implement avoidance of overlaps 
     i = 0
@@ -74,7 +74,7 @@ def random_init(phi, Lx, Ly = None, rcut = None, outfile = 'test.json', max_atte
           v = [0.0, 0.0]
           f = [0.0, 0.0]
           # Add a particle at position x,y with the director pointing in the random direction
-          particles.append({'id': i, 'r': r, 'n': n, 'v': v, 'f': f})
+          particles.append({'id': i, 'r': r, 'n': n, 'v': v, 'f': f, 'radius': 0.5*rcut})
           i += 1
           break 
         else:

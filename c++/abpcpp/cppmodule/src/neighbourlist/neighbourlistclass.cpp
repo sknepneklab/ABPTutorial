@@ -1,5 +1,6 @@
 #include "neighbourlistclass.hpp"
 
+
 void NeighbourListType::fill_neighbourlist(void)
 {
     //fill the linked list
@@ -39,7 +40,7 @@ void NeighbourListType::fill_neighbourlist(void)
                 bool flag = (cellId_j.y > (Ncells.y - 1)) || (cellId_j.x > (Ncells.x - 1)) || (cellId_j.y < 0) || (cellId_j.x < 0);
                 if (!flag)
                 {
-                    int cell_index_j = cellId.x + Ncells.x * cellId.y;
+                    int cell_index_j = cellId_j.x + Ncells.x * cellId_j.y;
                     //Now loop over the cell_index_j and add it to the neighbours list of i
                     int pindex_j = cellHead[cell_index_j];
                     while (pindex_j != -1)
@@ -51,7 +52,7 @@ void NeighbourListType::fill_neighbourlist(void)
                             if (rij2 < rcut2)
                             {
                                 int ng_index = _system.particles[pindex_i].coordination + max_ng_per_particle * pindex_i;
-                                neighbourlist[ng_index] = pindex_j;
+                                nglist[ng_index] = pindex_j;
                                 _system.particles[pindex_i].coordination++;
                             }
                         }
@@ -62,6 +63,34 @@ void NeighbourListType::fill_neighbourlist(void)
     }
 }
 
+void NeighbourListType::fill_neighbourlist_brute_force(void)
+{
+    //fill the linked list
+    //this->fill_linkedlist();
+    //loop over all the particles and build the neighbourlist
+    //retrieve the box from system
+    auto box = _system.get_box();
+    for (int pindex_i = 0; pindex_i < Numparticles; pindex_i++)
+    {
+        auto cellId = _system.particles[pindex_i].cellId;
+        _system.particles[pindex_i].coordination = 0; //no neighbours
+        old_positions[pindex_i] = _system.particles[pindex_i].r;
+        for (int pindex_j = 0; pindex_j < _system.particles.size(); pindex_j++)
+        {
+            if (pindex_i != pindex_j)
+            {
+                real2 rij = host::minimum_image(_system.particles[pindex_i].r, _system.particles[pindex_j].r, box);
+                real rij2 = vdot(rij, rij);
+                if (rij2 < rcut2)
+                {
+                    int ng_index = _system.particles[pindex_i].coordination + max_ng_per_particle * pindex_i;
+                    nglist[ng_index] = pindex_j;
+                    _system.particles[pindex_i].coordination++;
+                }
+            }
+        }
+    }
+}
 void NeighbourListType::automatic_update(void)
 {
     //loop over all the particles and check if the neibourlist need to be updated
@@ -80,10 +109,12 @@ void NeighbourListType::automatic_update(void)
         }
     }
     if (need_update)
+    {
+        //std::cout<< "NeighbourList auto update hit"<< std::endl;
         this->fill_neighbourlist();
+    }
 }
 host::vector<int> NeighbourListType::get_neighbourlist(void)
 {
-    host::vector<int> neig;
-    return neig;
+    return nglist;
 }

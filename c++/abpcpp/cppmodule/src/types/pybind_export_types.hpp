@@ -113,4 +113,39 @@ void export_real2(py::module &m)
         ;
 }
 
+void export_int2(py::module &m)
+{
+    py::class_<inth2>(m, "int2")
+        .def(py::init<>())
+        .def("__init__", [](inth2 &instance, int x, int y) {
+            new (&instance) inth2();
+            instance.x = x;
+            instance.y = y;
+        })
+
+        .def("__repr__",[](const inth2 &a) {
+            return( "<int2 x = " + to_string(a.x) + " y = " + to_string(a.y) + " >");
+        })
+        .def_readwrite("x", &inth2::x)
+        .def_readwrite("y", &inth2::y)
+        ;
+}
+
+void export_bool2(py::module &m)
+{
+    py::class_<bool2>(m, "bool2")
+        .def(py::init<>())
+        .def("__init__", [](bool2 &instance, bool x, bool y) {
+            new (&instance) bool2();
+            instance.x = x;
+            instance.y = y;
+        })
+
+        .def("__repr__",[](const bool2 &a) {
+            return( "<bool2 x = " + to_string(a.x) + " y = " + to_string(a.y) + " >");
+        })
+        .def_readwrite("x", &bool2::x)
+        .def_readwrite("y", &bool2::y)
+        ;
+}
 #endif

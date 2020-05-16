@@ -55,7 +55,11 @@ PYBIND11_MODULE(cppmodule, m)
     ///redirect std::cout and std::cerr
     add_ostream_redirect(m, "ostream_redirect");
     export_real2(m);
+    export_int2(m);
+    export_bool2(m);
     PYBIND11_NUMPY_DTYPE(real2, x, y);
+    //PYBIND11_NUMPY_DTYPE(inth2, x, y);
+    PYBIND11_NUMPY_DTYPE(bool2, x, y);
     //export_int3(m);
     //PYBIND11_NUMPY_DTYPE(int3, x, y, z);
     export_BoxType(m);

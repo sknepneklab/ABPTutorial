@@ -29,4 +29,5 @@
 
 from .cppmodule import *
 from .builder import *
+from .reader import *
 from .dumper import *

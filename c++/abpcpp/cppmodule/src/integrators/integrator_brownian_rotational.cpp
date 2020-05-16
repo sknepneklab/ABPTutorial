@@ -8,13 +8,17 @@
 **/
 void IntegratorBrownianParticlesRotational::poststep(void)
 {
+  //std::cout<< " B " << B << "temperature " << this->get_temperature() << "\n";
   for (int pindex = 0; pindex < _system.Numparticles; pindex++)
   {
-    real theta = (this->get_time_step()/mu)*_system.particles[pindex].tau;
+    real theta = (mu*this->get_time_step())*_system.particles[pindex].tau;
+    //std::cout<< " theta " << theta << " ";
     if (this->get_temperature() > 0.0)
     {
-      theta+=B * rng->gauss_rng(0.0,1.0);
+      theta+=B * sqrt_dt* rng->gauss_rng(1.0,0.0);
     }
+    //std::cout<< pindex << " tau= " << _system.particles[pindex].tau << "\n";
+
     /*
       Rotate the vector in plane.
       Parameter

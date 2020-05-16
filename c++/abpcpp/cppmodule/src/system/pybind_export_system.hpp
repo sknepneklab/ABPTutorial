@@ -54,7 +54,8 @@ void export_ParticleType_Vector(py::module &m)
         .def("__len__", [](const std::vector<ParticleType> &v) { return v.size(); })
         .def("__iter__", [](std::vector<ParticleType> &v) { return py::make_iterator(v.begin(), v.end()); }, py::keep_alive<0, 1>())
         .def("__getitem__", [](const std::vector<ParticleType> &v, size_t i) { if (i >= v.size()) throw py::index_error(); return v[i]; })
-        .def("__setitem__", [](std::vector<ParticleType> &v, size_t i, ParticleType &d) { if (i >= v.size()) throw py::index_error(); v[i] = d; });
+        .def("__setitem__", [](std::vector<ParticleType> &v, size_t i, ParticleType &d) { if (i >= v.size()) throw py::index_error(); v[i] = d; })
+        ;
 }
 
 void export_SytemClass(py::module &m)

@@ -37,16 +37,20 @@ struct NeighbourListType : public LinkedListType
     //linkedlist functions
     void create_neighbourlist(real _rcut, real _skin = 0.3, int _max_ng_per_particle = 100)
     {
-        rcut = (1.0+skin)*_rcut;
-        rcut2 = rcut*rcut;
         skin = _skin;
         skin2 = skin*skin;
-        max_ng_per_particle = 100;
+        rcut = (1.0+skin)*_rcut;
+        rcut2 = rcut*rcut;
+        max_ng_per_particle = _max_ng_per_particle;
         this->create_linkedlist(rcut);
-        neighbourlist.resize(max_ng_per_particle*Numparticles);
+        nglist.resize(max_ng_per_particle*Numparticles);
+        std::cout << "neighbourlist.size()=" << nglist.size() << "\n";
+        std::cout << "neighbourlist rcut =" << rcut << "\n";
+        std::cout << "neighbourlist skin =" << skin << "\n";
         old_positions.resize(Numparticles);
     }
     void fill_neighbourlist(void);
+    void fill_neighbourlist_brute_force(void);
     void automatic_update(void);
     host::vector<int> get_neighbourlist(void);
 
@@ -54,7 +58,7 @@ struct NeighbourListType : public LinkedListType
     real rcut, rcut2;
     real skin,skin2;
     int max_ng_per_particle;
-    host::vector<int> neighbourlist;    ///< stores the neibourlist for the cells   
+    host::vector<int> nglist;    ///< stores the neibourlist for the cells   
     host::vector<real2> old_positions;  ///< stores the particle position at the time of neibourlist creation   
 };
 

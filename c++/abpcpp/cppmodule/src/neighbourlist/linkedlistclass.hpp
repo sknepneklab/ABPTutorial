@@ -62,7 +62,6 @@ class LinkedListType
             std::cout << "Ncells=" << Ncells.x << " " << Ncells.y << "\n";
             std::cout << "cellHead.size()=" << cellHead.size() << "\n";
             std::cout << "cellNext.size()=" << cellNext.size() << "\n";
-            std::cout << "cellneighborlist.size()=" << cellneighborlist.size() << "\n";
         }
         else
         {
@@ -81,7 +80,6 @@ public:
     real2 LengthCells;                  ///< length of the cell in each direction < x,y >
     host::vector<int> cellHead;         ///< which stores for each cell the first inserted element id;
     host::vector<int> cellNext;         ///< which stores for each entry the id of the next inserted element in the list.
-    host::vector<int> cellneighborlist; ///< stores the neibourlist for the cells    device::vector<int> neighborlist;
 protected:
     //particle variables
     int Numparticles;

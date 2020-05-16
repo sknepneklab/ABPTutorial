@@ -48,14 +48,14 @@ public:
         rcut = 0.0; //cut off radius to be use in neighbourslist
     }
 
-    void set_property(const std::string &name, const double &value) override
+    void set_property(const std::string &prop_name, const double &value) override
     {
-        if (name.compare("alpha"))
+        if (prop_name.compare("alpha") == 0)
             alpha = value;
         else
-            this->print_warning_property_name(name);
+            this->print_warning_property_name(prop_name);
     }
-    
+
     void compute(void) override;
 
 private:

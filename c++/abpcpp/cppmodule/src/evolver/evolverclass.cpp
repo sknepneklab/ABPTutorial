@@ -19,6 +19,7 @@
 void EvolverClass::alloc_neighbourlist(void)
 {
     neighbourlist = std::make_shared<NeighbourListType>(_system);
+    this->create_neighbourlist(1.0);
 }
 void EvolverClass::create_neighbourlist(const real &rcut)
 {
@@ -27,7 +28,7 @@ void EvolverClass::create_neighbourlist(const real &rcut)
 }
 void EvolverClass::fill_neighbourlist(void)
 {
-    this->fill_neighbourlist();
+    neighbourlist->fill_neighbourlist();
 }
 void EvolverClass::update_neighbourlist(void)
 {
@@ -46,7 +47,8 @@ void EvolverClass::update_neighbourlist(void)
         the result value is a std::map containing the key and value in map values
     */
     auto max_it = std::max_element(rcut_list.begin(), rcut_list.end(), [](const std::pair<std::string, real> &p1, const std::pair<std::string, real> &p2) { return p1.second < p2.second; });
-    //create/update the nriubour list
+    //create/update the neighbour list
+    std::cout<< " max_it->second " << max_it->second << std::endl;
     if (max_it->second > 0.0)
         this->create_neighbourlist(max_it->second);
 }
@@ -68,6 +70,8 @@ void EvolverClass::add_force(const std::string &name, std::map<std::string, real
     {
         //add the force to the list
         force_list[name] = std::make_unique<SelfPropulsionForce>(_system, *neighbourlist.get());
+        for (auto param : parameters)
+            force_list[name]->set_property(param.first, param.second);
     }
     else
         std::cerr << name << " potential not found" << std::endl;
@@ -137,9 +141,17 @@ void EvolverClass::add_integrator(const std::string &name, std::map<std::string,
 {
     //add the integrator to the list
     if (name.compare("Brownian Positions") == 0)
+    {
         integrator_list[name] = std::make_shared<IntegratorBrownianParticlesPositions>(_system);
+        for (auto param : parameters)
+            integrator_list[name]->set_property(param.first, param.second);
+    }
     else if (name.compare("Brownian Rotation") == 0)
+    {
         integrator_list[name] = std::make_shared<IntegratorBrownianParticlesRotational>(_system);
+        for (auto param : parameters)
+            integrator_list[name]->set_property(param.first, param.second);
+    }
     else
         std::cerr << name << " integrator not found" << std::endl;
 }
@@ -158,27 +170,42 @@ void EvolverClass::set_global_temperature(const real &T)
 
 void EvolverClass::evolve(void)
 {
+    //std::cout<< "1 " << std::endl;
+
     // Check is neighbour list needs rebuilding
     neighbourlist->automatic_update();
+
+    //std::cout<< "2 " << std::endl;
 
     // Perform the preintegration step, i.e., step before forces and torques are computed
     for (auto integrator : integrator_list)
         integrator.second->prestep();
 
+    //std::cout<< "3 " << std::endl;
+
     // Apply period boundary conditions
     _system.apply_periodic();
+
+    //std::cout<< "4 " << std::endl;
 
     // Reset all forces and toques
     this->reset_forces_torques_energy();
 
+    //std::cout<< "5 " << std::endl;
+
     // Compute all forces and torques
     this->compute_forces();
+    //std::cout<< "6 " << std::endl;
     this->compute_torques();
+    //std::cout<< "7 " << std::endl;
 
     // Perform the second step of integration
     for (auto integrator : integrator_list)
         integrator.second->poststep();
+    //std::cout<< "8 " << std::endl;
 
     // Apply period boundary conditions
     _system.apply_periodic();
+    //std::cout<< "9 " << std::endl;
+
 }

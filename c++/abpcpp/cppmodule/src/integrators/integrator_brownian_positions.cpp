@@ -1,7 +1,6 @@
 #include "integrator_brownian_positions.hpp"
 #include "../box/pbc.hpp"
 
-
 /*! Integrates equation of motion in the over-damped limit using a first order 
  *  scheme. 
  *  \note This integrator applies only to the particle position and does not implement activity.
@@ -9,14 +8,14 @@
 **/
 void IntegratorBrownianParticlesPositions::poststep(void)
 {
-  for (int pindex = 0; pindex < _system.Numparticles; pindex ++)
+  for (int pindex = 0; pindex < _system.Numparticles; pindex++)
   {
     real2 force_rnd;
     force_rnd.x = force_rnd.y = 0.0;
     if (this->get_temperature() > 0.0)
     {
-      force_rnd.x = B * rng->gauss_rng(0.0,1.0);
-      force_rnd.y = B * rng->gauss_rng(0.0,1.0);
+      force_rnd.x = B * sqrt_dt * rng->gauss_rng(1.0, 0.0);
+      force_rnd.y = B * sqrt_dt * rng->gauss_rng(1.0, 0.0);
     }
     // Update particle position
     _system.particles[pindex].r.x += mu * this->get_time_step() * _system.particles[pindex].forceC.x + sqrt_dt * force_rnd.x;

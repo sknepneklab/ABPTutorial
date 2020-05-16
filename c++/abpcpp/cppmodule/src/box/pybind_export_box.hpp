@@ -28,7 +28,7 @@
 
 void export_BoxType(py::module &m)
 {
-    py::class_<BoxType>(m, "box")
+    py::class_<BoxType>(m, "Box")
         .def(py::init<>())
         .def("__init__", [](BoxType &self,
                             double Lx,
