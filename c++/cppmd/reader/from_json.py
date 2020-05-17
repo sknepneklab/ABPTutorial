@@ -1,13 +1,4 @@
-
-import os
-import sys
-
-#load c++/CUDA code
-cwd = os.path.join(os.path.dirname(os.path.abspath(__file__)), '../')
-sys.path.append(cwd)
-
-
-from cppmodule import *
+from cppmd.md import *
 import json
 from random import uniform
 from math import pi, sin, cos

@@ -16,7 +16,7 @@
 
 # Init file
 # Init file
-#from __future__ import absolute_import
+from __future__ import absolute_import
 
 #import os
 #import sys

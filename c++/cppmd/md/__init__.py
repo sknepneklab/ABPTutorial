@@ -15,15 +15,4 @@
 # DEALINGS IN THE SOFTWARE.
 
 # Init file
-from __future__ import absolute_import
-
-import os
-import sys
-
-from collections import defaultdict
-
-#load c++/CUDA code
-cwd = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'build/')
-sys.path.append(cwd)
-
-from cppmodule import *
+from .cppmodule import *
