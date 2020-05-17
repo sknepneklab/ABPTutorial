@@ -14,7 +14,7 @@ In the existent environment (ABP) install these additional packages:
 
 
 
-and then install the following extension for **JupyterLab**:
+and then install the following extensions for **JupyterLab**:
 
 
 
