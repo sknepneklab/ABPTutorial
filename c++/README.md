@@ -1,6 +1,6 @@
 ### Creating conda environment 
 
-Here, we assume that you have working c++ compiler and that it supports **C++14** or newer standard. In the existent environment (ABP) install these additional packages:
+Here, we assume that you have a working C/C++ compiler and that it supports the **C++14** or newer standard. In the existing conda environment (ABP) please install these additional packages:
 
 * cmake
 * ipympl
@@ -14,7 +14,7 @@ Here, we assume that you have working c++ compiler and that it supports **C++14*
 
 
 
-and then install the following extensions for **JupyterLab**:
+Please also install the following extensions for **JupyterLab**:
 
 
 
@@ -24,7 +24,7 @@ and then install the following extensions for **JupyterLab**:
 
 ##  Installing cppmd module
 
-In order to make the Python modules visible, please install the cpmd module. From the **``ABPTutorial/c++``**  directory type:
+In order to make the Python modules visible, please install the cppmd module. From the **``ABPTutorial/c++``**  directory type:
 
 ``python setup.py install``
 
@@ -36,7 +36,7 @@ In order to test the installation, you can type
 
 
 
-If the cppmd module has been properly installed, the output of the previous line should looks like:
+If the cppmd module has been properly installed, the output of the previous line should look like:
 
 ```python
 <box Lx = 10 Ly = 10 
