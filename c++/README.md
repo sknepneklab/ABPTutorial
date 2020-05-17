@@ -1,6 +1,6 @@
 ### Creating conda environment 
 
-Here, we assume that you have working c++ compiler installs and that it supports **C++14** or newer. In the existent environment (ABP) install these additional packages:
+Here, we assume that you have working c++ compiler installs and that it supports **C++14** or newer standard. In the existent environment (ABP) install these additional packages:
 
 * cmake
 * ipympl
