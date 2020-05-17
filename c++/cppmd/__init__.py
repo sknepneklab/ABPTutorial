@@ -27,7 +27,7 @@
 #cwd = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'cppmodule/build/')
 #sys.path.append(cwd)
 
-from .cppmodule import *
+from .md import *
 from .builder import *
 from .reader import *
 from .dumper import *
