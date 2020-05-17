@@ -74,6 +74,10 @@ In order to test the installation, you can type
 
 If the pymd module has been properly installed, the output of the previous line should be 5.0.
 
+### Installing cppmd module (for Session 2)
+
+Please see the [**README.md**](./c++/README.md) file in the c++ directory.
+
 ### Additional software 
 
 We also recommend installing [Paraview](https://www.paraview.org/download/) for visualisation.
