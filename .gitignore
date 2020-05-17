@@ -60,15 +60,15 @@ __pycache__/
 
 # vscode
 <<<<<<< HEAD
-c++/cppmd/cppmodule/build/* 
+c++/cppmd/md/build/* 
 
 # exception to the rule
-!c++/cppmd/cppmodule/build/.gitkeep 
+!c++/cppmd/md/build/.gitkeep 
 =======
-c++/cppmd/cpp-module/build/*
+c++/cppmd/md/build/*
 
 # exception to the rule
-!c++/cppmd/cpp-module/build/.gitkeep 
+!c++/cppmd/md/build/.gitkeep 
 >>>>>>> cd7fc1374a2ae6dfb28b27640ed7f92dabaaae8b
 
 #ipython
