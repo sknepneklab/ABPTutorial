@@ -44,7 +44,7 @@
 
 # vscode
 .vscode/
-c++/abpcpp/cppmodule/.vscode/
+c++/cppmd/md/.vscode/
 
 # vscode
 .history/
@@ -59,17 +59,10 @@ __pycache__/
 *.vtu
 
 # vscode
-<<<<<<< HEAD
-c++/cppmd/md/build/* 
-
-# exception to the rule
-!c++/cppmd/md/build/.gitkeep 
-=======
 c++/cppmd/md/build/*
 
 # exception to the rule
 !c++/cppmd/md/build/.gitkeep 
->>>>>>> cd7fc1374a2ae6dfb28b27640ed7f92dabaaae8b
 
 #ipython
 *.ipynb_checkpoints
