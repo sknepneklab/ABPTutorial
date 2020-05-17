@@ -13309,7 +13309,7 @@ Depending on the approach and the problem at hand, sometimes these three steps a
 <h4 id="Creating-the-initial-configuration">Creating the initial configuration<a class="anchor-link" href="#Creating-the-initial-configuration">&#182;</a></h4><p>In the first step, we need to generate the system we would like to study, i.e. we need to create the initial configuration for our simulation. Sometimes, as it is the case here, this is a fairly simple task. However, creating a proper initial configuration can also be a challenging task in its own right that requires a set of sophisticated tools to do. A good example would be setting up a simulation of several complex biomolecules.</p>
 <p>Regardless of the complexity, typically the result of this step is one (or several) text (sometimes binary) files that contain information such as the size of the simulation box, initial positions and velocities of all particles, particle connectivities, etc.</p>
 <p>In this tutorial, we will use a set of simple Python scripts (located in <em>Python/pymd/builder</em> directory) to create the initial configuration that will be saved as a single JSON file.</p>
-<p>For example, let us build the initial configuration with a square simulation box of size $L=50$ with the particle number density $\phi=\frac{N}{L^2}=0.4$. We also make sure that centers of no two particles less than $a=1$ apart.</p>
+<p>For example, let us build the initial configuration with a square simulation box of size $L=50$ with the particle number density $\phi=\frac{N}{L^2}=0.4$. We also make sure that centers of no two particles less than $a=1$ apart. Note that below we will assume that particles have unit radius. This means that our initial configuration builder allowed for significant overlaps between particles. In practice this is not a problem since we will be using soft-core potential and even large overlaps do not lead to excessive force. If one is to consider a system where particles interact via a potential with a strong repulsive component (e.g., the Lennard-Jones potential) the initial configuration would have to be constructed more carefully.</p>
 <div class="alert alert-block alert-warning">
 Neither $L$ not $a$ have units here. We'll get back to the issue of simulation units below.
 </div>
@@ -14621,7 +14621,7 @@ In this tutorial, we use so-called cell lists to improve the speed of neighbor l
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>The <em>Evolver</em> class is the workhorse of our toy simulation. It's central member function is <em>evolve</em> which performs the one step of the simulation. It's task is to:</p>
+<p>The <em>Evolver</em> class is the workhorse of our toy simulation. It's central member function is <em>evolve</em> which performs the one step of the simulation. Its task is to:</p>
 <ol>
 <li>Ensure that the neighbor list is up to date;</li>
 <li>Perform the integration pre-step;</li>
