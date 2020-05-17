@@ -31,7 +31,7 @@ class InstallLocalPackage(install):
     def run(self):
         print()
         install.run(self)
-        subprocess.call("cd cppmd/md/build && cmake .. && make -j2 && cp #.so ../", shell=True)
+        subprocess.call("cd cppmd/md/build && cmake .. && make -j2 && cp cppmodule.so ../", shell=True)
 
 with open("README.md", "r") as fh:
     long_description = fh.read()
@@ -47,7 +47,7 @@ setuptools.setup(
     url="https://github.com/sknepneklab/ABPTutorial",
     cmdclass=dict(install=InstallLocalPackage), 
     packages=setuptools.find_packages(),
-    package_data={'': ['#.so']},
+    package_data={'': ['cppmodule.so']},
     classifiers=[
         "Programming Language :: Python :: 3",
         "License :: OSI Approved :: MIT License",

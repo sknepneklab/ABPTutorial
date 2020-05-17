@@ -101,3 +101,4 @@ MESSAGE("\n")
 
 ########### LINK THE LIBRARIES  ###############
 pybind11_add_module(cppmodule ${INCLUDE_DIRS_SRCS})
+set_target_properties(cppmodule PROPERTIES OUTPUT_NAME cppmodule.so SUFFIX "")
