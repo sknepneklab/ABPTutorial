@@ -53,7 +53,7 @@ SetActiveView(renderView1)
 t0 = 0
 tf = 1000
 step = 10
-folder = '/home/alfios/Documents/codes/ABPTutorial/c++/'
+folder = ''
 file_name_prefix = "test_"
 filenames_vec = [folder+file_name_prefix+'{:05d}.vtp'.format(t) for t in range(t0, tf, step)]
 print(filenames_vec)
