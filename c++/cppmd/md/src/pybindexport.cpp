@@ -65,6 +65,6 @@ PYBIND11_MODULE(cppmodule, m)
     export_BoxType(m);
     export_ParticleType(m);
     export_ParticleType_Vector(m);
-    export_SytemClass(m);
+    export_SystemClass(m);
     export_EvolverClass(m);
 }
