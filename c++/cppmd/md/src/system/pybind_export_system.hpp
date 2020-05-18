@@ -58,7 +58,7 @@ void export_ParticleType_Vector(py::module &m)
         ;
 }
 
-void export_SytemClass(py::module &m)
+void export_SystemClass(py::module &m)
 {
     py::class_<SystemClass>(m, "System")
         .def(py::init<const BoxType &>())
