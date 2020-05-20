@@ -31,7 +31,7 @@ class InstallLocalPackage(install):
     def run(self):
         print()
         install.run(self)
-        subprocess.call("cd cppmd/md/build && cmake .. && make -j2 && cp cppmodule.so ../", shell=True)
+        subprocess.call("cd cppmd/md/build && cmake .. && make -j2 && cp nvccmodule.so ../", shell=True)
 
 with open("README.md", "r") as fh:
     long_description = fh.read()
@@ -41,13 +41,13 @@ setuptools.setup(
     version="1.0",
     author="Daniel Matoz Fernandez",
     author_email="fdamatoz@gmail.com",
-    description="A simple 2D simulation of Active Brownian particles with c++ interface",
+    description="A simple 2D simulation of Active Brownian particles with cuda and c++ interface",
     long_description=long_description,
     long_description_content_type="text/markdown",
     url="https://github.com/sknepneklab/ABPTutorial",
     cmdclass=dict(install=InstallLocalPackage), 
     packages=setuptools.find_packages(),
-    package_data={'': ['cppmodule.so']},
+    package_data={'': ['nvccmodule.so']},
     classifiers=[
         "Programming Language :: Python :: 3",
         "License :: OSI Approved :: MIT License",

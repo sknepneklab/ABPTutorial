@@ -1,4 +1,4 @@
-# Install script for directory: /home/alfios/Documents/codes/ABPTutorial/c++/cppmd/md/external/pybind11
+# Install script for directory: /home/alfios/Documents/codes/ABPTutorial/cuda/gpumd/md/external/pybind11
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)

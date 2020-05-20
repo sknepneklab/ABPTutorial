@@ -24,7 +24,6 @@
 #ifndef __globaltypes_hpp__
 #define __globaltypes_hpp__
 
-#include <vector>
 #include <iostream>
 #include <sstream>
 #include <math.h>
@@ -67,20 +66,8 @@ using bool2 = xyType<bool>;
             (v.x = (a)*v.x),             \
             (v.y = (a)*v.y)             \
            
-
-namespace host
-{
-    using namespace std;
-    template <typename T>
-    using vector = std::vector<T>;
-
-    template <typename T>
-    const std::vector<T> copy(std::vector<T>& vec){return vec;}
-} // namespace host
-
 /**
  * @brief to_string_scientific converts any number to scientific notation
- * 
  * @tparam T 
  * @param a_value value to be converted to
  * @return std::string string scientific notation formated

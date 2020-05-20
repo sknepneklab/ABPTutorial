@@ -21,54 +21,20 @@
 * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE     *
 * SOFTWARE.                                                                         *
 *************************************************************************************/
-#include <pybind11/stl.h>
-#include <pybind11/numpy.h>
-#include <pybind11/iostream.h>
-#include <pybind11/functional.h>
+#ifndef __hostvector_hpp__
+#define __hostvector_hpp__
 
-namespace py = pybind11;
+#include <vector>
 
-//types
-#include "types/pybind_export_types.hpp"
-
-//box
-#include "box/pybind_export_box.hpp"
-
-//system
-#include "system/pybind_export_system.hpp"
-
-//compute
-//#include "evolver/pybind_export_evolver.hpp"
-
-//
-#include "configuration/pybind_export_gpu_configuration.hpp"
-
-PYBIND11_MODULE(nvccmodule, m)
+namespace host
 {
-    ///Documentation
-    m.doc() = R"pbdoc(
-        KITP20 Tutorials
-        -----------------------
-        .. currentmodule:: abpcpp
-        .. autosummary::
-           :toctree: _generate
-    )pbdoc";
-    m.attr("__version__") = "1.0a";
-    ///redirect std::cout and std::cerr
-    add_ostream_redirect(m, "ostream_redirect");
-    export_real2(m);
-    export_int2(m);
-    export_bool2(m);
-    PYBIND11_NUMPY_DTYPE(real2, x, y);
-    //PYBIND11_NUMPY_DTYPE(inth2, x, y);
-    PYBIND11_NUMPY_DTYPE(bool2, x, y);
-    //export_int3(m);
-    //PYBIND11_NUMPY_DTYPE(int3, x, y, z);
-    export_BoxType(m);
-    export_ParticleType(m);
-    export_ParticleType_Vector(m);
-    export_SystemClass(m);
-    //export_EvolverClass(m);
-    //gpu
-    export_ExecutionPolicyGPU(m);
-}
+    using namespace std;
+    template <typename T>
+    using vector = std::vector<T>;
+
+    template <typename T>
+    const std::vector<T> copy(std::vector<T>& vec){return vec;}
+} // namespace host
+
+
+#endif

@@ -24,9 +24,11 @@
 #ifndef __systemclass_hpp__
 #define __systemclass_hpp__
 
-#include "particletype.hpp"
+#include "../types/hostvector.hpp"
+#include "../types/devicevector.hpp"
 #include "../box/box.hpp"
 #include "../box/pbc.hpp"
+#include "particletype.hpp"
 
 class SystemClass
 {
@@ -57,8 +59,10 @@ class SystemClass
      * @param void 
      * @return host::vector<ParticleType> 
      */
-    host::vector<ParticleType> get(void) { return (particles); }
-
+    host::vector<ParticleType> get(void) 
+    { 
+        return (device::copy(particles)); 
+    }
     /**
      * @brief get the particles loaded in the system
      * @param const host::vector<ParticleType>& _particles 
@@ -76,20 +80,25 @@ class SystemClass
      */
     void add_particle(const ParticleType &_particle)
     {
-        particles.push_back(_particle);
-        particles[Numparticles].id = Numparticles;
-        Numparticles = particles.size();
+        //particles.push_back(_particle);
+        //particles[Numparticles].id = Numparticles;
+        //Numparticles = particles.size();
     }
 
     void apply_periodic(void)
     {
+        /* in order of not to make the code more readable, here we copy particles 
+        into a temporary vector in the host(i.e, cpu) and enforce_periodic. Then, we copy
+        back the temporary vector back to the divice(gpu)
+        */
+       auto hparticles = device::copy(particles); //<- copy from the device to the host
         for (int pindex = 0; pindex < Numparticles; pindex++)
-            host::enforce_periodic(particles[pindex].r, particles[pindex].ip, _box);
+            host::enforce_periodic(hparticles[pindex].r, hparticles[pindex].ip, _box);
+        particles = host::copy(hparticles);
     }
-
     /** Variables **/
-    host::vector<ParticleType> particles; //!< Particle list
-    int Numparticles;                     //!< Number of particles
+    device::vector<ParticleType> particles; //!< Particle list
+    int Numparticles;                       //!< Number of particles
 
     private:
     BoxType _box;

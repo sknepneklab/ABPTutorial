@@ -48,10 +48,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/alfios/Documents/codes/ABPTutorial/c++/cppmd/md
+CMAKE_SOURCE_DIR = /home/alfios/Documents/codes/ABPTutorial/cuda/gpumd/md
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/alfios/Documents/codes/ABPTutorial/c++/cppmd/md/build
+CMAKE_BINARY_DIR = /home/alfios/Documents/codes/ABPTutorial/cuda/gpumd/md/build
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -80,9 +80,9 @@ edit_cache/fast: edit_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/alfios/Documents/codes/ABPTutorial/c++/cppmd/md/build/CMakeFiles /home/alfios/Documents/codes/ABPTutorial/c++/cppmd/md/build/CMakeFiles/progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/alfios/Documents/codes/ABPTutorial/cuda/gpumd/md/build/CMakeFiles /home/alfios/Documents/codes/ABPTutorial/cuda/gpumd/md/build/CMakeFiles/progress.marks
 	$(MAKE) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/alfios/Documents/codes/ABPTutorial/c++/cppmd/md/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/alfios/Documents/codes/ABPTutorial/cuda/gpumd/md/build/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
@@ -111,233 +111,17 @@ depend:
 .PHONY : depend
 
 #=============================================================================
-# Target rules for targets named cppmodule
+# Target rules for targets named nvccmodule
 
 # Build rule for target.
-cppmodule: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 cppmodule
-.PHONY : cppmodule
+nvccmodule: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 nvccmodule
+.PHONY : nvccmodule
 
 # fast build rule for target.
-cppmodule/fast:
-	$(MAKE) -f CMakeFiles/cppmodule.dir/build.make CMakeFiles/cppmodule.dir/build
-.PHONY : cppmodule/fast
-
-src/evolver/evolverclass.o: src/evolver/evolverclass.cpp.o
-
-.PHONY : src/evolver/evolverclass.o
-
-# target to build an object file
-src/evolver/evolverclass.cpp.o:
-	$(MAKE) -f CMakeFiles/cppmodule.dir/build.make CMakeFiles/cppmodule.dir/src/evolver/evolverclass.cpp.o
-.PHONY : src/evolver/evolverclass.cpp.o
-
-src/evolver/evolverclass.i: src/evolver/evolverclass.cpp.i
-
-.PHONY : src/evolver/evolverclass.i
-
-# target to preprocess a source file
-src/evolver/evolverclass.cpp.i:
-	$(MAKE) -f CMakeFiles/cppmodule.dir/build.make CMakeFiles/cppmodule.dir/src/evolver/evolverclass.cpp.i
-.PHONY : src/evolver/evolverclass.cpp.i
-
-src/evolver/evolverclass.s: src/evolver/evolverclass.cpp.s
-
-.PHONY : src/evolver/evolverclass.s
-
-# target to generate assembly for a file
-src/evolver/evolverclass.cpp.s:
-	$(MAKE) -f CMakeFiles/cppmodule.dir/build.make CMakeFiles/cppmodule.dir/src/evolver/evolverclass.cpp.s
-.PHONY : src/evolver/evolverclass.cpp.s
-
-src/integrators/integrator_brownian_positions.o: src/integrators/integrator_brownian_positions.cpp.o
-
-.PHONY : src/integrators/integrator_brownian_positions.o
-
-# target to build an object file
-src/integrators/integrator_brownian_positions.cpp.o:
-	$(MAKE) -f CMakeFiles/cppmodule.dir/build.make CMakeFiles/cppmodule.dir/src/integrators/integrator_brownian_positions.cpp.o
-.PHONY : src/integrators/integrator_brownian_positions.cpp.o
-
-src/integrators/integrator_brownian_positions.i: src/integrators/integrator_brownian_positions.cpp.i
-
-.PHONY : src/integrators/integrator_brownian_positions.i
-
-# target to preprocess a source file
-src/integrators/integrator_brownian_positions.cpp.i:
-	$(MAKE) -f CMakeFiles/cppmodule.dir/build.make CMakeFiles/cppmodule.dir/src/integrators/integrator_brownian_positions.cpp.i
-.PHONY : src/integrators/integrator_brownian_positions.cpp.i
-
-src/integrators/integrator_brownian_positions.s: src/integrators/integrator_brownian_positions.cpp.s
-
-.PHONY : src/integrators/integrator_brownian_positions.s
-
-# target to generate assembly for a file
-src/integrators/integrator_brownian_positions.cpp.s:
-	$(MAKE) -f CMakeFiles/cppmodule.dir/build.make CMakeFiles/cppmodule.dir/src/integrators/integrator_brownian_positions.cpp.s
-.PHONY : src/integrators/integrator_brownian_positions.cpp.s
-
-src/integrators/integrator_brownian_rotational.o: src/integrators/integrator_brownian_rotational.cpp.o
-
-.PHONY : src/integrators/integrator_brownian_rotational.o
-
-# target to build an object file
-src/integrators/integrator_brownian_rotational.cpp.o:
-	$(MAKE) -f CMakeFiles/cppmodule.dir/build.make CMakeFiles/cppmodule.dir/src/integrators/integrator_brownian_rotational.cpp.o
-.PHONY : src/integrators/integrator_brownian_rotational.cpp.o
-
-src/integrators/integrator_brownian_rotational.i: src/integrators/integrator_brownian_rotational.cpp.i
-
-.PHONY : src/integrators/integrator_brownian_rotational.i
-
-# target to preprocess a source file
-src/integrators/integrator_brownian_rotational.cpp.i:
-	$(MAKE) -f CMakeFiles/cppmodule.dir/build.make CMakeFiles/cppmodule.dir/src/integrators/integrator_brownian_rotational.cpp.i
-.PHONY : src/integrators/integrator_brownian_rotational.cpp.i
-
-src/integrators/integrator_brownian_rotational.s: src/integrators/integrator_brownian_rotational.cpp.s
-
-.PHONY : src/integrators/integrator_brownian_rotational.s
-
-# target to generate assembly for a file
-src/integrators/integrator_brownian_rotational.cpp.s:
-	$(MAKE) -f CMakeFiles/cppmodule.dir/build.make CMakeFiles/cppmodule.dir/src/integrators/integrator_brownian_rotational.cpp.s
-.PHONY : src/integrators/integrator_brownian_rotational.cpp.s
-
-src/neighbourlist/linkedlistclass.o: src/neighbourlist/linkedlistclass.cpp.o
-
-.PHONY : src/neighbourlist/linkedlistclass.o
-
-# target to build an object file
-src/neighbourlist/linkedlistclass.cpp.o:
-	$(MAKE) -f CMakeFiles/cppmodule.dir/build.make CMakeFiles/cppmodule.dir/src/neighbourlist/linkedlistclass.cpp.o
-.PHONY : src/neighbourlist/linkedlistclass.cpp.o
-
-src/neighbourlist/linkedlistclass.i: src/neighbourlist/linkedlistclass.cpp.i
-
-.PHONY : src/neighbourlist/linkedlistclass.i
-
-# target to preprocess a source file
-src/neighbourlist/linkedlistclass.cpp.i:
-	$(MAKE) -f CMakeFiles/cppmodule.dir/build.make CMakeFiles/cppmodule.dir/src/neighbourlist/linkedlistclass.cpp.i
-.PHONY : src/neighbourlist/linkedlistclass.cpp.i
-
-src/neighbourlist/linkedlistclass.s: src/neighbourlist/linkedlistclass.cpp.s
-
-.PHONY : src/neighbourlist/linkedlistclass.s
-
-# target to generate assembly for a file
-src/neighbourlist/linkedlistclass.cpp.s:
-	$(MAKE) -f CMakeFiles/cppmodule.dir/build.make CMakeFiles/cppmodule.dir/src/neighbourlist/linkedlistclass.cpp.s
-.PHONY : src/neighbourlist/linkedlistclass.cpp.s
-
-src/neighbourlist/neighbourlistclass.o: src/neighbourlist/neighbourlistclass.cpp.o
-
-.PHONY : src/neighbourlist/neighbourlistclass.o
-
-# target to build an object file
-src/neighbourlist/neighbourlistclass.cpp.o:
-	$(MAKE) -f CMakeFiles/cppmodule.dir/build.make CMakeFiles/cppmodule.dir/src/neighbourlist/neighbourlistclass.cpp.o
-.PHONY : src/neighbourlist/neighbourlistclass.cpp.o
-
-src/neighbourlist/neighbourlistclass.i: src/neighbourlist/neighbourlistclass.cpp.i
-
-.PHONY : src/neighbourlist/neighbourlistclass.i
-
-# target to preprocess a source file
-src/neighbourlist/neighbourlistclass.cpp.i:
-	$(MAKE) -f CMakeFiles/cppmodule.dir/build.make CMakeFiles/cppmodule.dir/src/neighbourlist/neighbourlistclass.cpp.i
-.PHONY : src/neighbourlist/neighbourlistclass.cpp.i
-
-src/neighbourlist/neighbourlistclass.s: src/neighbourlist/neighbourlistclass.cpp.s
-
-.PHONY : src/neighbourlist/neighbourlistclass.s
-
-# target to generate assembly for a file
-src/neighbourlist/neighbourlistclass.cpp.s:
-	$(MAKE) -f CMakeFiles/cppmodule.dir/build.make CMakeFiles/cppmodule.dir/src/neighbourlist/neighbourlistclass.cpp.s
-.PHONY : src/neighbourlist/neighbourlistclass.cpp.s
-
-src/potentials/harmonicforce.o: src/potentials/harmonicforce.cpp.o
-
-.PHONY : src/potentials/harmonicforce.o
-
-# target to build an object file
-src/potentials/harmonicforce.cpp.o:
-	$(MAKE) -f CMakeFiles/cppmodule.dir/build.make CMakeFiles/cppmodule.dir/src/potentials/harmonicforce.cpp.o
-.PHONY : src/potentials/harmonicforce.cpp.o
-
-src/potentials/harmonicforce.i: src/potentials/harmonicforce.cpp.i
-
-.PHONY : src/potentials/harmonicforce.i
-
-# target to preprocess a source file
-src/potentials/harmonicforce.cpp.i:
-	$(MAKE) -f CMakeFiles/cppmodule.dir/build.make CMakeFiles/cppmodule.dir/src/potentials/harmonicforce.cpp.i
-.PHONY : src/potentials/harmonicforce.cpp.i
-
-src/potentials/harmonicforce.s: src/potentials/harmonicforce.cpp.s
-
-.PHONY : src/potentials/harmonicforce.s
-
-# target to generate assembly for a file
-src/potentials/harmonicforce.cpp.s:
-	$(MAKE) -f CMakeFiles/cppmodule.dir/build.make CMakeFiles/cppmodule.dir/src/potentials/harmonicforce.cpp.s
-.PHONY : src/potentials/harmonicforce.cpp.s
-
-src/potentials/polar_align.o: src/potentials/polar_align.cpp.o
-
-.PHONY : src/potentials/polar_align.o
-
-# target to build an object file
-src/potentials/polar_align.cpp.o:
-	$(MAKE) -f CMakeFiles/cppmodule.dir/build.make CMakeFiles/cppmodule.dir/src/potentials/polar_align.cpp.o
-.PHONY : src/potentials/polar_align.cpp.o
-
-src/potentials/polar_align.i: src/potentials/polar_align.cpp.i
-
-.PHONY : src/potentials/polar_align.i
-
-# target to preprocess a source file
-src/potentials/polar_align.cpp.i:
-	$(MAKE) -f CMakeFiles/cppmodule.dir/build.make CMakeFiles/cppmodule.dir/src/potentials/polar_align.cpp.i
-.PHONY : src/potentials/polar_align.cpp.i
-
-src/potentials/polar_align.s: src/potentials/polar_align.cpp.s
-
-.PHONY : src/potentials/polar_align.s
-
-# target to generate assembly for a file
-src/potentials/polar_align.cpp.s:
-	$(MAKE) -f CMakeFiles/cppmodule.dir/build.make CMakeFiles/cppmodule.dir/src/potentials/polar_align.cpp.s
-.PHONY : src/potentials/polar_align.cpp.s
-
-src/potentials/selfpropulsion.o: src/potentials/selfpropulsion.cpp.o
-
-.PHONY : src/potentials/selfpropulsion.o
-
-# target to build an object file
-src/potentials/selfpropulsion.cpp.o:
-	$(MAKE) -f CMakeFiles/cppmodule.dir/build.make CMakeFiles/cppmodule.dir/src/potentials/selfpropulsion.cpp.o
-.PHONY : src/potentials/selfpropulsion.cpp.o
-
-src/potentials/selfpropulsion.i: src/potentials/selfpropulsion.cpp.i
-
-.PHONY : src/potentials/selfpropulsion.i
-
-# target to preprocess a source file
-src/potentials/selfpropulsion.cpp.i:
-	$(MAKE) -f CMakeFiles/cppmodule.dir/build.make CMakeFiles/cppmodule.dir/src/potentials/selfpropulsion.cpp.i
-.PHONY : src/potentials/selfpropulsion.cpp.i
-
-src/potentials/selfpropulsion.s: src/potentials/selfpropulsion.cpp.s
-
-.PHONY : src/potentials/selfpropulsion.s
-
-# target to generate assembly for a file
-src/potentials/selfpropulsion.cpp.s:
-	$(MAKE) -f CMakeFiles/cppmodule.dir/build.make CMakeFiles/cppmodule.dir/src/potentials/selfpropulsion.cpp.s
-.PHONY : src/potentials/selfpropulsion.cpp.s
+nvccmodule/fast:
+	$(MAKE) -f CMakeFiles/nvccmodule.dir/build.make CMakeFiles/nvccmodule.dir/build
+.PHONY : nvccmodule/fast
 
 src/pybindexport.o: src/pybindexport.cpp.o
 
@@ -345,7 +129,7 @@ src/pybindexport.o: src/pybindexport.cpp.o
 
 # target to build an object file
 src/pybindexport.cpp.o:
-	$(MAKE) -f CMakeFiles/cppmodule.dir/build.make CMakeFiles/cppmodule.dir/src/pybindexport.cpp.o
+	$(MAKE) -f CMakeFiles/nvccmodule.dir/build.make CMakeFiles/nvccmodule.dir/src/pybindexport.cpp.o
 .PHONY : src/pybindexport.cpp.o
 
 src/pybindexport.i: src/pybindexport.cpp.i
@@ -354,7 +138,7 @@ src/pybindexport.i: src/pybindexport.cpp.i
 
 # target to preprocess a source file
 src/pybindexport.cpp.i:
-	$(MAKE) -f CMakeFiles/cppmodule.dir/build.make CMakeFiles/cppmodule.dir/src/pybindexport.cpp.i
+	$(MAKE) -f CMakeFiles/nvccmodule.dir/build.make CMakeFiles/nvccmodule.dir/src/pybindexport.cpp.i
 .PHONY : src/pybindexport.cpp.i
 
 src/pybindexport.s: src/pybindexport.cpp.s
@@ -363,7 +147,7 @@ src/pybindexport.s: src/pybindexport.cpp.s
 
 # target to generate assembly for a file
 src/pybindexport.cpp.s:
-	$(MAKE) -f CMakeFiles/cppmodule.dir/build.make CMakeFiles/cppmodule.dir/src/pybindexport.cpp.s
+	$(MAKE) -f CMakeFiles/nvccmodule.dir/build.make CMakeFiles/nvccmodule.dir/src/pybindexport.cpp.s
 .PHONY : src/pybindexport.cpp.s
 
 # Help Target
@@ -374,31 +158,7 @@ help:
 	@echo "... depend"
 	@echo "... rebuild_cache"
 	@echo "... edit_cache"
-	@echo "... cppmodule"
-	@echo "... src/evolver/evolverclass.o"
-	@echo "... src/evolver/evolverclass.i"
-	@echo "... src/evolver/evolverclass.s"
-	@echo "... src/integrators/integrator_brownian_positions.o"
-	@echo "... src/integrators/integrator_brownian_positions.i"
-	@echo "... src/integrators/integrator_brownian_positions.s"
-	@echo "... src/integrators/integrator_brownian_rotational.o"
-	@echo "... src/integrators/integrator_brownian_rotational.i"
-	@echo "... src/integrators/integrator_brownian_rotational.s"
-	@echo "... src/neighbourlist/linkedlistclass.o"
-	@echo "... src/neighbourlist/linkedlistclass.i"
-	@echo "... src/neighbourlist/linkedlistclass.s"
-	@echo "... src/neighbourlist/neighbourlistclass.o"
-	@echo "... src/neighbourlist/neighbourlistclass.i"
-	@echo "... src/neighbourlist/neighbourlistclass.s"
-	@echo "... src/potentials/harmonicforce.o"
-	@echo "... src/potentials/harmonicforce.i"
-	@echo "... src/potentials/harmonicforce.s"
-	@echo "... src/potentials/polar_align.o"
-	@echo "... src/potentials/polar_align.i"
-	@echo "... src/potentials/polar_align.s"
-	@echo "... src/potentials/selfpropulsion.o"
-	@echo "... src/potentials/selfpropulsion.i"
-	@echo "... src/potentials/selfpropulsion.s"
+	@echo "... nvccmodule"
 	@echo "... src/pybindexport.o"
 	@echo "... src/pybindexport.i"
 	@echo "... src/pybindexport.s"
