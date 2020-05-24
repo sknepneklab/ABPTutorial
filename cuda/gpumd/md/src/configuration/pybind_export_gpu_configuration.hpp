@@ -5,7 +5,7 @@
 
 void export_ExecutionPolicyGPU(py::module& m)
 {
-    py::class_<ExecutionPolicy>(m, "GPUSystem")
+    py::class_<ExecutionPolicy>(m, "GPUExecutionPolicy")
         .def(py::init<>(), 
         "Fully automatic: The default device is 0, the number of blocks is set to 10*(Streaming Multiprocessors) and the number of Threads to 256")
         .def("getConfigState", &ExecutionPolicy::getConfigState)

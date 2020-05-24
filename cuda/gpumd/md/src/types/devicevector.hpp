@@ -25,6 +25,13 @@
 #define __devicevector_hpp__
 
 #include "../configuration/dev_types.hpp"
+#include "hostvector.hpp"
+
+//std
+#include <vector>
+#include <algorithm>
+#include <map>
+
 
 #if defined(__CUDA_ENABLE__)
 //thurst
@@ -37,22 +44,14 @@
 #include <thrust/fill.h>
 #include <thrust/extrema.h>
 
-//std
-#include <vector>
-#include <algorithm>
-#include <map>
-
 // definitions
-
 namespace device
 {
     using namespace thrust;
     template <typename T>
     using vector = device_vector<T>;
-}
-namespace device
-{
-    /**@brief copy to std::vector */
+
+    /**@brief copy to std::vector **/
     template <typename T>
     inline std::vector<T> copy(device::vector<T> &dev_vec)
     {
@@ -63,13 +62,9 @@ namespace device
     }
 }
 #else
+// definitions
 namespace device
 {
-    //std
-    #include <vector>
-    #include <algorithm>
-    #include <map>
-
     using namespace std;
     template <typename T>
     using vector = std::vector<T>;

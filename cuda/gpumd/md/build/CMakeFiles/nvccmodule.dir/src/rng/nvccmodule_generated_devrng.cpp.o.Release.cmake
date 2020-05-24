@@ -58,18 +58,18 @@ endif()
 
 # Set these up as variables to make reading the generated file easier
 set(CMAKE_COMMAND "/usr/bin/cmake") # path
-set(source_file "/home/alfios/Documents/codes/ABPTutorial/cuda/gpumd/md/src/rng/devrng.cpp") # path
-set(NVCC_generated_dependency_file "/home/alfios/Documents/codes/ABPTutorial/cuda/gpumd/md/build/CMakeFiles/nvccmodule.dir/src/rng/nvccmodule_generated_devrng.cpp.o.NVCC-depend") # path
-set(cmake_dependency_file "/home/alfios/Documents/codes/ABPTutorial/cuda/gpumd/md/build/CMakeFiles/nvccmodule.dir/src/rng/nvccmodule_generated_devrng.cpp.o.depend") # path
+set(source_file "/home/alfios/Documents/codes/active2/cuda/gpumd/md/src/rng/devrng.cpp") # path
+set(NVCC_generated_dependency_file "/home/alfios/Documents/codes/active2/cuda/gpumd/md/build/CMakeFiles/nvccmodule.dir/src/rng/nvccmodule_generated_devrng.cpp.o.NVCC-depend") # path
+set(cmake_dependency_file "/home/alfios/Documents/codes/active2/cuda/gpumd/md/build/CMakeFiles/nvccmodule.dir/src/rng/nvccmodule_generated_devrng.cpp.o.depend") # path
 set(CUDA_make2cmake "/usr/share/cmake-3.16/Modules/FindCUDA/make2cmake.cmake") # path
 set(CUDA_parse_cubin "/usr/share/cmake-3.16/Modules/FindCUDA/parse_cubin.cmake") # path
 set(build_cubin OFF) # bool
 set(CUDA_HOST_COMPILER "/usr/bin/gcc-8") # path
 # We won't actually use these variables for now, but we need to set this, in
 # order to force this file to be run again if it changes.
-set(generated_file_path "/home/alfios/Documents/codes/ABPTutorial/cuda/gpumd/md/build/CMakeFiles/nvccmodule.dir/src/rng/.") # path
-set(generated_file_internal "/home/alfios/Documents/codes/ABPTutorial/cuda/gpumd/md/build/CMakeFiles/nvccmodule.dir/src/rng/./nvccmodule_generated_devrng.cpp.o") # path
-set(generated_cubin_file_internal "/home/alfios/Documents/codes/ABPTutorial/cuda/gpumd/md/build/CMakeFiles/nvccmodule.dir/src/rng/./nvccmodule_generated_devrng.cpp.o.cubin.txt") # path
+set(generated_file_path "/home/alfios/Documents/codes/active2/cuda/gpumd/md/build/CMakeFiles/nvccmodule.dir/src/rng/.") # path
+set(generated_file_internal "/home/alfios/Documents/codes/active2/cuda/gpumd/md/build/CMakeFiles/nvccmodule.dir/src/rng/./nvccmodule_generated_devrng.cpp.o") # path
+set(generated_cubin_file_internal "/home/alfios/Documents/codes/active2/cuda/gpumd/md/build/CMakeFiles/nvccmodule.dir/src/rng/./nvccmodule_generated_devrng.cpp.o.cubin.txt") # path
 
 set(CUDA_NVCC_EXECUTABLE "/usr/lib/cuda/bin/nvcc") # path
 set(CUDA_NVCC_FLAGS --compiler-options;-fno-strict-aliasing;-lineinfo;-use_fast_math;-Xptxas;-dlcm=cg;--expt-extended-lambda;-std=c++14;-gencode=arch=compute_30,code=compute_30;-gencode=arch=compute_52,code=sm_52 ;; ) # list
@@ -79,7 +79,7 @@ set(CUDA_NVCC_FLAGS_DEBUG  ; )
 set(CUDA_NVCC_FLAGS_MINSIZEREL  ; )
 set(CUDA_NVCC_FLAGS_RELWITHDEBINFO  ; )
 set(nvcc_flags -m64;-Dnvccmodule_EXPORTS) # list
-set(CUDA_NVCC_INCLUDE_DIRS [==[/usr/lib/cuda/include;/usr/lib/cuda/include;/home/alfios/Documents/codes/ABPTutorial/cuda/gpumd/md/src;/home/alfios/Documents/codes/ABPTutorial/cuda/gpumd/md/external/pybind11/include;/home/alfios/.miniconda3/envs/py37/include/python3.7m]==]) # list (needs to be in lua quotes to address backslashes)
+set(CUDA_NVCC_INCLUDE_DIRS [==[/usr/lib/cuda/include;/usr/lib/cuda/include;/home/alfios/Documents/codes/active2/cuda/gpumd/md/src;/home/alfios/Documents/codes/active2/cuda/gpumd/md/external/pybind11/include;/home/alfios/.miniconda3/envs/py37/include/python3.7m]==]) # list (needs to be in lua quotes to address backslashes)
 string(REPLACE "\\" "/" CUDA_NVCC_INCLUDE_DIRS "${CUDA_NVCC_INCLUDE_DIRS}")
 set(CUDA_NVCC_COMPILE_DEFINITIONS [==[]==]) # list (needs to be in lua quotes see #16510 ).
 set(format_flag "-c") # string

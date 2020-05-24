@@ -113,7 +113,7 @@ void export_real2(py::module &m)
         ;
 }
 
-void export_int2(py::module &m)
+void export_inth2(py::module &m)
 {
     py::class_<inth2>(m, "int2")
         .def(py::init<>())

@@ -6,5 +6,5 @@ CXX_FLAGS = -O3 -funroll-loops -ffast-math -DNDEBUG -std=c++14 -fvisibility=hidd
 
 CXX_DEFINES = -Dnvccmodule_EXPORTS
 
-CXX_INCLUDES = -I/usr/lib/cuda/include -I/home/alfios/Documents/codes/ABPTutorial/cuda/gpumd/md/src -I/home/alfios/Documents/codes/ABPTutorial/cuda/gpumd/md/external/pybind11/include -I/home/alfios/.miniconda3/envs/py37/include/python3.7m 
+CXX_INCLUDES = -I/usr/lib/cuda/include -I/home/alfios/Documents/codes/active2/cuda/gpumd/md/src -I/home/alfios/Documents/codes/active2/cuda/gpumd/md/external/pybind11/include -I/home/alfios/.miniconda3/envs/py37/include/python3.7m 
 

@@ -38,8 +38,7 @@ namespace py = pybind11;
 #include "system/pybind_export_system.hpp"
 
 //compute
-//#include "evolver/pybind_export_evolver.hpp"
-
+#include "evolver/pybind_export_evolver.hpp"
 //
 #include "configuration/pybind_export_gpu_configuration.hpp"
 
@@ -49,7 +48,7 @@ PYBIND11_MODULE(nvccmodule, m)
     m.doc() = R"pbdoc(
         KITP20 Tutorials
         -----------------------
-        .. currentmodule:: abpcpp
+        .. currentmodule:: nvccmodule
         .. autosummary::
            :toctree: _generate
     )pbdoc";
@@ -57,18 +56,17 @@ PYBIND11_MODULE(nvccmodule, m)
     ///redirect std::cout and std::cerr
     add_ostream_redirect(m, "ostream_redirect");
     export_real2(m);
-    export_int2(m);
+    export_inth2(m);
     export_bool2(m);
     PYBIND11_NUMPY_DTYPE(real2, x, y);
-    //PYBIND11_NUMPY_DTYPE(inth2, x, y);
+    PYBIND11_NUMPY_DTYPE(inth2, x, y);
     PYBIND11_NUMPY_DTYPE(bool2, x, y);
-    //export_int3(m);
-    //PYBIND11_NUMPY_DTYPE(int3, x, y, z);
+    //gpu
+    export_ExecutionPolicyGPU(m);
+    //md
     export_BoxType(m);
     export_ParticleType(m);
     export_ParticleType_Vector(m);
     export_SystemClass(m);
     //export_EvolverClass(m);
-    //gpu
-    export_ExecutionPolicyGPU(m);
 }
