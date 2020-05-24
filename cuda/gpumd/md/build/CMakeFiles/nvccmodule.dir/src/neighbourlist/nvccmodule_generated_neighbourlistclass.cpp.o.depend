@@ -3,6 +3,7 @@ SET(CUDA_NVCC_DEPEND
   "/home/alfios/Documents/codes/active2/cuda/gpumd/md/src/box/box.hpp"
  "/home/alfios/Documents/codes/active2/cuda/gpumd/md/src/box/pbc.hpp"
  "/home/alfios/Documents/codes/active2/cuda/gpumd/md/src/box/pbc_device.hpp"
+ "/home/alfios/Documents/codes/active2/cuda/gpumd/md/src/configuration/atomic_exch_double.hpp"
  "/home/alfios/Documents/codes/active2/cuda/gpumd/md/src/configuration/dev_types.hpp"
  "/home/alfios/Documents/codes/active2/cuda/gpumd/md/src/configuration/device_policy.hpp"
  "/home/alfios/Documents/codes/active2/cuda/gpumd/md/src/configuration/execution_policy.hpp"

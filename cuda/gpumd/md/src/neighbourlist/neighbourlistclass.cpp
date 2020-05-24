@@ -119,7 +119,7 @@ void automatic_update_kernel(const int Numparticles,
         real rij2 = vdot(rij, rij);
         if (rij2 >= 0.25 * skin2)
         {
-            real lastStartElement = device::atomicExch(&old_positions[Numparticles].x, -1.0);
+            real lastStartElement = device::double_atomicExch(&old_positions[Numparticles].x, -1.0);
         }
     }
 }

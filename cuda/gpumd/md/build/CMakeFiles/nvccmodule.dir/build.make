@@ -1209,6 +1209,7 @@ CMakeFiles/nvccmodule.dir/src/neighbourlist/nvccmodule_generated_linkedlistclass
 CMakeFiles/nvccmodule.dir/src/neighbourlist/nvccmodule_generated_neighbourlistclass.cpp.o: ../src/box/box.hpp
 CMakeFiles/nvccmodule.dir/src/neighbourlist/nvccmodule_generated_neighbourlistclass.cpp.o: ../src/box/pbc.hpp
 CMakeFiles/nvccmodule.dir/src/neighbourlist/nvccmodule_generated_neighbourlistclass.cpp.o: ../src/box/pbc_device.hpp
+CMakeFiles/nvccmodule.dir/src/neighbourlist/nvccmodule_generated_neighbourlistclass.cpp.o: ../src/configuration/atomic_exch_double.hpp
 CMakeFiles/nvccmodule.dir/src/neighbourlist/nvccmodule_generated_neighbourlistclass.cpp.o: ../src/configuration/dev_types.hpp
 CMakeFiles/nvccmodule.dir/src/neighbourlist/nvccmodule_generated_neighbourlistclass.cpp.o: ../src/configuration/device_policy.hpp
 CMakeFiles/nvccmodule.dir/src/neighbourlist/nvccmodule_generated_neighbourlistclass.cpp.o: ../src/configuration/execution_policy.hpp

@@ -109,9 +109,15 @@ private:
             { 0x35, 192}, // Kepler Generation (SM 3.5) GK11x class
             { 0x37, 192}, // Kepler Generation (SM 3.7) GK21x class
             { 0x50, 128}, // Maxwell Generation (SM 5.0) GM10x class
-            { 0x60, 128},
-            { 0x61, 128}
-        };
+	       {0x52, 128},
+	      {0x53, 128},
+	      {0x60,  64},
+	      {0x61, 128},
+	      {0x62, 128},
+	      {0x70,  64},
+	      {0x72,  64},
+	      {0x75,  64},
+	      {-1, -1}};
 
         int index = 0;
 

@@ -7,7 +7,7 @@
 namespace device
 {
     DEV_INLINE_LAMBDA
-    double atomicExch(double *address, double val)
+    double double_atomicExch(double *address, double val)
     {
         unsigned long long int *address_as_ull = (unsigned long long int *)address;
 // Make these ranges usable inside CUDA C++ device code
