@@ -556,7 +556,9 @@ evolver.set_time_step(1e-2) # Set the time step for all the integrators
 
     Canvas(toolbar=Toolbar(toolitems=[('Home', 'Reset original view', 'home', 'home'), ('Back', 'Back to previous …
 
-
+<div align="center">
+<img src="./s2out_1.png" style="width: 800px;"/>
+</div>
 
 ```python
 for t in range(1000):
@@ -578,6 +580,9 @@ dump.show()                     # Plot the particles with matplotlib
 
     Canvas(toolbar=Toolbar(toolitems=[('Home', 'Reset original view', 'home', 'home'), ('Back', 'Back to previous …
 
+<div align="center">
+<img src="./s2out_2.png" style="width: 800px;"/>
+</div>
 
 ## Visualizing results
 
