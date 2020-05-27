@@ -14,8 +14,7 @@ void HarmonicForce_kernel(const int Numparticles,
                           const BoxType _box,
                           const real k,
                           const real a,
-                          const real a2,
-                          const bool COMPUTE_ENERGY)
+                          const real a2)
 
 {
     int pindex_i = blockIdx.x*blockDim.x + threadIdx.x;
