@@ -13124,7 +13124,7 @@ div#notebook {
 <div class="text_cell_render border-box-sizing rendered_html">
 <h2 id="GPUs-computing:-Heterogeneous-Architecture">GPUs computing: Heterogeneous Architecture<a class="anchor-link" href="#GPUs-computing:-Heterogeneous-Architecture">&#182;</a></h2><p>Nowadays, a high-end workstation or a typical compute node in a high-performance computer cluster contains several multi-core central processing unit (<strong>CPU</strong>) sockets and one or more GPUs. The GPU acts a co-processor to a CPU operating through a <strong>PCI-Express BUS</strong>. GPUs are designed to fulfill specialized task, in particular, for producing high-resolution graphics in real time. A modern GPU consists of several thousands compute cores.</p>
 <div align="center">
-<img src="./GPU-transistor2.png" style="width: 500px;"/>
+<img src="./GPU-transistor2.png" style="width: 700px;"/>
 </div><p>In terms of its purpose, a CPU core is designed to optimize the execution of sequential programs. In contrast, a GPU core (much simpler in design than a CPU core) is optimized for data-parallel tasks focusing on the large throughput. Since the GPUs function as a "co-processor", the CPU is called the <code>host</code> and the GPU is called the <code>device</code>.</p>
 <p>Because of this <code>host-device</code> relationship, any GPU-based application consist of two parts:</p>
 <ul>
@@ -13149,7 +13149,7 @@ div#notebook {
 <span class="c1">// host code start</span>
 <span class="kt">void</span> <span class="nf">call_hello_world_kernel</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
 <span class="p">{</span>
-    <span class="n">hello_kernel</span><span class="o">&lt;&lt;&lt;</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="o">&gt;&gt;&gt;</span><span class="p">();</span>
+    <span class="n">hello_world_kernel</span><span class="o">&lt;&lt;&lt;</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="o">&gt;&gt;&gt;</span><span class="p">();</span>
     <span class="n">cudaDeviceSynchronize</span> <span class="p">();</span> <span class="c1">//Wait for compute device to finish.</span>
                               <span class="c1">//forcing printf to flush</span>
 <span class="p">}</span>
@@ -13204,7 +13204,7 @@ div#notebook {
     <span class="n">uint</span> <span class="n">thread_of_blocks</span> <span class="o">=</span> <span class="mi">4</span><span class="p">;</span>
     <span class="n">uint</span> <span class="n">threads_in_block</span> <span class="o">=</span> <span class="mi">8</span><span class="p">;</span>
 
-    <span class="n">hello_kernel</span><span class="o">&lt;&lt;&lt;</span><span class="n">thread_of_blocks</span><span class="p">,</span><span class="n">threads_in_block</span><span class="o">&gt;&gt;&gt;</span><span class="p">();</span>
+    <span class="n">hello_world_kernel</span><span class="o">&lt;&lt;&lt;</span><span class="n">thread_of_blocks</span><span class="p">,</span><span class="n">threads_in_block</span><span class="o">&gt;&gt;&gt;</span><span class="p">();</span>
     <span class="n">cudaDeviceSynchronize</span> <span class="p">();</span> <span class="c1">//    Wait for compute device to finish.</span>
     <span class="c1">//here hello will be printed $thread_of_blocks \times threads_in_block = 32$</span>
 <span class="p">}</span>
@@ -13227,6 +13227,9 @@ div#notebook {
 
 <span class="c1">// Global memory statically in device code using the qualifier __device__</span>
 <span class="n">__device__</span> <span class="kt">int</span> <span class="n">my_static_variable</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span>
+
+<span class="n">__device__</span> <span class="kt">int</span> <span class="n">my_static_variable_vec</span><span class="p">[</span><span class="mi">10</span><span class="p">];</span>
+
 
 <span class="c1">// Constant memory statically in device code using the qualifier __constant__</span>
 <span class="n">__constant__</span> <span class="kt">int</span> <span class="n">my_const_static_variable</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span><span class="p">;</span>
@@ -13261,7 +13264,7 @@ div#notebook {
 
     <span class="c1">// allocate the device vector</span>
     <span class="kt">int</span> <span class="o">*</span><span class="n">vector_of_int_dev</span><span class="p">;</span>
-    <span class="n">cudaMalloc</span><span class="p">((</span><span class="kt">float</span> <span class="o">**</span><span class="p">)</span><span class="o">&amp;</span><span class="n">vector_of_int</span><span class="p">,</span> <span class="n">nbytes</span><span class="p">);</span>
+    <span class="n">cudaMalloc</span><span class="p">((</span><span class="kt">int</span> <span class="o">**</span><span class="p">)</span><span class="o">&amp;</span><span class="n">vector_of_int</span><span class="p">,</span> <span class="n">nbytes</span><span class="p">);</span>
 
     <span class="c1">// initialize the host vector</span>
     <span class="k">for</span><span class="p">(</span><span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="n">i</span><span class="o">&lt;</span><span class="n">Num</span><span class="p">;</span><span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="n">vector_of_int_host</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
@@ -13362,14 +13365,14 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[1]:</div>
+<div class="prompt input_prompt">In&nbsp;[4]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="o">%</span><span class="k">matplotlib</span> widget
 <span class="kn">import</span> <span class="nn">gpumd</span> <span class="k">as</span> <span class="nn">md</span>
 <span class="kn">import</span> <span class="nn">time</span>
 
-<span class="n">json_reader</span> <span class="o">=</span> <span class="n">md</span><span class="o">.</span><span class="n">fast_read_json</span><span class="p">(</span><span class="s2">&quot;initphi=0.4L=300.json&quot;</span><span class="p">)</span> <span class="c1">#here we read the json file in python</span>
+<span class="n">json_reader</span> <span class="o">=</span> <span class="n">md</span><span class="o">.</span><span class="n">fast_read_json</span><span class="p">(</span><span class="s2">&quot;initphi=0.4L=300.json&quot;</span><span class="p">)</span> <span class="c1">#here we read the json file in C++</span>
 <span class="n">system</span> <span class="o">=</span> <span class="n">md</span><span class="o">.</span><span class="n">System</span><span class="p">(</span><span class="n">json_reader</span><span class="o">.</span><span class="n">particles</span><span class="p">,</span> <span class="n">json_reader</span><span class="o">.</span><span class="n">box</span><span class="p">)</span>
 
 <span class="c1">#get the GPU hardware properties</span>
@@ -13416,7 +13419,7 @@ GridSize= 160 BlockSize= 256
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[2]:</div>
+<div class="prompt input_prompt">In&nbsp;[5]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">dump</span> <span class="o">=</span> <span class="n">md</span><span class="o">.</span><span class="n">Dump</span><span class="p">(</span><span class="n">system</span><span class="p">)</span>          <span class="c1"># Create a dump object</span>
@@ -13480,7 +13483,7 @@ GridSize= 160 BlockSize= 256
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[8]:</div>
+<div class="prompt input_prompt">In&nbsp;[6]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">start_clock</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
@@ -13508,7 +13511,7 @@ GridSize= 160 BlockSize= 256
 
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>36000 particles - 10000 steps execution time 8.85[s]
+<pre>36000 particles - 10000 steps execution time 10.80[s]
 t=10000
 </pre>
 </div>
