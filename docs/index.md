@@ -2,7 +2,7 @@
 layout: default
 ---
 <div align="center">
-<img src="./logo.png" style="width: 800px;"/>
+<img src="./logo.png" style="width: 300px;"/>
 </div>
 
 # Tutorial on Simulating Active Brownian Particles
