@@ -1,3 +1,10 @@
+---
+layout: default
+mathjax: true
+title:  "Implementing a 2D simulation of Active Brownian Particles (ABP) in GPUs"
+date:   2020-05-27
+---
+
 # Session 3
 
 ## Implementing a 2D simulation of Active Brownian Particles (ABP) in GPUs

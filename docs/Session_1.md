@@ -1,3 +1,10 @@
+---
+layout: default
+mathjax: true
+title:  "Implementing a 2D simulation of Active Brownian Particles (ABP) in Python"
+date:   2020-05-27
+---
+
 # Session 1
 ## Implementing a 2D simulation of Active Brownian Particles (ABP) in Python.
 
