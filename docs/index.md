@@ -18,7 +18,7 @@ This tutorial consists of three sessions:
 
 In the first session, we cover the key components of a particle-based simulation. We then implement in Python a simple 2D simulation of self-propelled soft particles subject to polar alignment. 
 
-Accompanied course material can be found in [Session 1](Session_1.html).
+Accompanied course material can be found in [Session 1](Session_1.md).
 
 ### Session 2: Improving performance by mixing C++ and Python
 
@@ -30,7 +30,7 @@ Accompanied course material can be found in [Session 2](Session_2.md).
 
 In the final tutorial, we cover basics of GPGPU programming and show how to further improve the performance of the code by utilising the immense computational power of modern GPUs.
 
-Accompanied course material can be found in [Session 3](Session_3.html).
+Accompanied course material can be found in [Session 3](Session_3.md).
 
 ## Getting started
 
