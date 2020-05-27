@@ -2,6 +2,7 @@
 layout: default
 mathjax: true
 date:   2020-05-27
+title: "Installing gpumd module (for Session 3)"
 ---
 
 ### Creating conda environment 

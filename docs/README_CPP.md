@@ -2,6 +2,7 @@
 layout: default
 mathjax: true
 date:   2020-05-27
+title: "Installing cppmd module (for Session 2)"
 ---
 
 ### Creating conda environment 
