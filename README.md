@@ -78,6 +78,10 @@ If the pymd module has been properly installed, the output of the previous line 
 
 Please see the [**README.md**](./c++/README.md) file in the c++ directory.
 
+### Installing gpumd module (for Session 3)
+
+Please see the [**README.md**](./cuda/README.md) file in the cuda directory.
+
 ### Additional software 
 
 We also recommend installing [Paraview](https://www.paraview.org/download/) for visualisation.
