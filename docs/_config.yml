@@ -1,3 +1,4 @@
 show_downloads: true
 theme: jekyll-theme-dinky
 logo: L=300_close.0001.png
+description: "This is the GitHub repository for a series of three tutorial on implementing a simulation of Active Brownian Particles (ABP) in two dimensions. These tutorial were delivered as a part of the [KITP ACTIVE20](https://www.kitp.ucsb.edu/activities/active20)  virtual programme."
