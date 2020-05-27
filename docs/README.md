@@ -1,3 +1,9 @@
+---
+layout: default
+mathjax: true
+date:   2020-05-27
+---
+
 ### Cloning the code repository
 
 **Note:** For this tutorial we recommend using Unix-like environment (e.g., Linux or Mac OS X). You will need to have git installed. 
