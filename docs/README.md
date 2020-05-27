@@ -54,11 +54,11 @@ If the pymd module has been properly installed, the output of the previous line 
 
 ### Installing cppmd module (for Session 2)
 
-Please see the [**README.md**](./c++/README.md) file in the c++ directory.
+Please follow [**this**](./README_CPP.md) instructions.
 
 ### Installing gpumd module (for Session 3)
 
-Please see the [**README.md**](./cuda/README.md) file in the cuda directory.
+Please follow [**this**](./README_CUDA.md) instructions.
 
 ### Additional software 
 
