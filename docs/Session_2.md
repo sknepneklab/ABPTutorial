@@ -1,3 +1,10 @@
+---
+layout: default
+mathjax: true
+title:  "Implementing a 2D simulation of Active Brownian Particles (ABP) in C++"
+date:   2020-05-27
+---
+
 # Session 2
 
 ## Implementing a 2D simulation of Active Brownian Particles (ABP) in C++
@@ -476,7 +483,7 @@ Our simulation workflow consists of three steps:
 2. Executing the simulation; 
 3. Analyzing the results.
 
-Where, the step 1 feeds into step 2, which, in turn feeds into step 3. The step 1 generate the system configuration for our simulation as a single JSON file (see **``Python/pymd/builder``** or **``ABPTutorial/c++/abpcpp/builder``**).
+Where, the step 1 feeds into step 2, which, in turn feeds into step 3. The step 1 generate the system configuration for our simulation as a single JSON file (see **``Python/pymd/builder``** or **``ABPTutorial/c++/cppmd/builder``**).
 
 <div class="alert alert-block alert-warning">
     <b>Reminder:</b>    

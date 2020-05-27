@@ -24,7 +24,7 @@ Accompanied course material can be found in [Session 1](Session_1.html).
 
 In this tutorial, we cover how to significantly improve performance of the ABP simulation we developed in Session 1 by implementing the computation-heavy parts of the code in C++. We also show how to use pybind11 library to expose the low-level C++ code to Python, without loosing the convenience of working with Python.
 
-Accompanied course material can be found in [Session 2](Session_2.html).
+Accompanied course material can be found in [Session 2](Session_2.md).
 
 ### Session 3: Porting the code to GPUs
 
