@@ -1,6 +1,6 @@
 ### Creating conda environment 
 
-Here, we assume that you have a working C/C++ compiler and that it supports the **C++14** or newer standard. In the existing conda environment (ABP) please install these additional packages:
+Here, we assume that you have a working C/C++ compiler that it supports the **C++14** or newer standard, and GPU capable to run **cuda9.x** or above. In the existing conda environment (ABP) please install these additional packages:
 
 * cmake
 * ipympl
@@ -32,7 +32,7 @@ In order to test the installation, you can type
 
 
 
-``python -c 'from cppmd.md import *; b = Box(10.0, 10.0); print(b)'`` 
+``python -c 'from gpumd.md import *; b = Box(10.0, 10.0); print(b)'`` 
 
 
 
