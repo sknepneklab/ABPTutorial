@@ -1,3 +1,11 @@
+---
+layout: default
+title:  "Implementing a 2D simulation of Active Brownian Particles (ABP) in CUDA"
+date:   2020-05-27
+---
+# Harmonic Force implementation in CUDA
+
+```c++
 __global__
 void HarmonicForce_kernel(const int Numparticles,
                           ParticleType *particles,
@@ -45,3 +53,4 @@ void HarmonicForce::compute_energy(void)
                                                                     a,
                                                                     a2);
 }
+```

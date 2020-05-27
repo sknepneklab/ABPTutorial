@@ -1,3 +1,11 @@
+---
+layout: default
+title:  "Implementing a 2D simulation of Active Brownian Particles (ABP) in C++"
+date:   2020-05-27
+---
+# Harmonic Force implementation in C++
+
+```c++
 void HarmonicForce::compute(void)
 {
     for (int pindex_i = 0; pindex_i < _system.Numparticles; pindex_i ++)
@@ -22,3 +30,4 @@ void HarmonicForce::compute(void)
     }
     /**/
 }
+```
