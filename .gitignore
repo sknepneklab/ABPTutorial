@@ -64,5 +64,11 @@ c++/cppmd/md/build/*
 # exception to the rule
 !c++/cppmd/md/build/.gitkeep 
 
+# vscode
+cuda/gpumd/md/build/*
+
+# exception to the rule
+!cuda/gpumd/md/build/.gitkeep 
+
 #ipython
 *.ipynb_checkpoints
