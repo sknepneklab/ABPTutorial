@@ -142,7 +142,7 @@ private:
 /**
  * @brief unique pointer to the RNGDEV class
  */
-typedef std::shared_ptr<RNGDEV> RNGDEV_ptr; //!<make_unique is an upcoming C++14 feature
+typedef std::unique_ptr<RNGDEV> RNGDEV_ptr; //!<make_unique is an upcoming C++14 feature
 
 
 #endif

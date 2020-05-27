@@ -12,9 +12,9 @@ void PolarAlign_kernel(const int Numparticles,
                        const bool COMPUTE_ENERGY)
 
 {
-    for (int pindex_i = globalThreadIndex();
+    for (int pindex_i = blockIdx.x * blockDim.x + threadIdx.x;
          pindex_i < Numparticles;
-         pindex_i += globalThreadCount())
+         pindex_i += blockDim.x * gridDim.x)
     {
         ParticleType pi = particles[pindex_i];
         //loop over the neighbours particles
@@ -23,8 +23,8 @@ void PolarAlign_kernel(const int Numparticles,
             int pindex_j = nglist[c + max_ng_per_particle * pindex_i];
             const ParticleType pj = particles[pindex_j];
             real2 rij = device::minimum_image(pi.r, pj.r, _box);
-            real lendr = vdot(rij, rij);
-            if (lendr <= a2)
+            real lendr2 = vdot(rij, rij);
+            if (lendr2 <= a2)
             {
                 if (!COMPUTE_ENERGY)
                 {
@@ -52,6 +52,7 @@ void PolarAlign::compute_energy(void)
 
 void PolarAlign::compute(void)
 {
+    
     PolarAlign_kernel<<<_system._ep.getGridSize(), _system._ep.getBlockSize()>>>(_system.Numparticles,
                                                                                  device::raw_pointer_cast(&_system.particles[0]),
                                                                                  _neighbourslist.max_ng_per_particle,

@@ -16,9 +16,9 @@ void fill_linkedlist_kernel(const int Numparticles,
                             int *cellNext)
 {
     //loop over particles assign the cellID
-    for (int pindex = globalThreadIndex();
+    for (int pindex = blockIdx.x * blockDim.x + threadIdx.x;
          pindex < Numparticles;
-         pindex += globalThreadCount())
+         pindex += blockDim.x * gridDim.x)
     {
         inth2 cellId;
         cellId.x = ((int)((particles[pindex].r.x + 0.5 * box.L.x) / LengthCells.x));

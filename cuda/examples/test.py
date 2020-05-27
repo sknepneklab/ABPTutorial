@@ -24,10 +24,10 @@
 # SOFTWARE.                                                                         #
 #####################################################################################
 import matplotlib.pyplot as plt
-import cppmd as md
+import gpumd as md
 
-particles, box = md.read_json("initphi=0.4L=100.json")
-system = md.System(particles, box)
+reader = md.fast_read_json("initphi=0.4L=50.json")
+system = md.System(reader.particles, reader.box)
 
 dump = md.Dump(system)          # Create a dump object
 dump.show()                     # Plot the particles with matplotlib

@@ -63,10 +63,14 @@ public:
             cellHead.resize(NumCells);
             cellNext.resize(_system.Numparticles);*/
             this->reset_linkedlist();
+            std::cout << " ********************************************\n";
+            std::cout << " Linkded list\n";
             std::cout << "Numpoints=" << _system.Numparticles << "\n";
             std::cout << "Ncells=" << Ncells.x << " " << Ncells.y << "\n";
+            std::cout << "LengthCells=" << LengthCells.x << " " << LengthCells.y << "\n";
             std::cout << "cellHead.size()=" << cellHead.size() << "\n";
             std::cout << "cellNext.size()=" << cellNext.size() << "\n";
+            std::cout << " ********************************************\n";
         }
         else
         {

@@ -11,9 +11,9 @@ void IntegratorBrownianParticlesRotational_kernel(const int Numparticles,
                                                   const real sqrt_dt,
                                                   const real dt)
 {
-  for (int pindex = globalThreadIndex();
+  for (int pindex = blockIdx.x * blockDim.x + threadIdx.x;
        pindex < Numparticles;
-       pindex += globalThreadCount())
+       pindex += blockDim.x * gridDim.x)
   {
     real theta = mu * dt * particles[pindex].tau;
     if (temp > 0.0)
@@ -23,6 +23,8 @@ void IntegratorBrownianParticlesRotational_kernel(const int Numparticles,
       ///< Generate pseudo-random
       double2 rnd_gausian = curand_normal2_double(&localState);
       theta += B * sqrt_dt * rnd_gausian.x;
+      ///< Copy state back to global memory
+      rnd_state[pindex] = localState;
     }
     /*
       Rotate the vector in plane.
@@ -30,11 +32,11 @@ void IntegratorBrownianParticlesRotational_kernel(const int Numparticles,
       ---------
         theta : rotaton angle
     */
-    float c = cosf(theta);
-    float s = sinf(theta);
-    float nx = c * particles[pindex].n.x - s * particles[pindex].n.y;
-    float ny = s * particles[pindex].n.x + c * particles[pindex].n.y;
-    float len = sqrtf(nx * nx + ny * ny);
+    real c = cos(theta);
+    real s = sin(theta);
+    real nx = c * particles[pindex].n.x - s * particles[pindex].n.y;
+    real ny = s * particles[pindex].n.x + c * particles[pindex].n.y;
+    real len = sqrt(nx * nx + ny * ny);
     // Update particle director (normalize it along the way to collect for any numerical drift that may have occurred)
     particles[pindex].n.x = nx / len;
     particles[pindex].n.y = ny / len;

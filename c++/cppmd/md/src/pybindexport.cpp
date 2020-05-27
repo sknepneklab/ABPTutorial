@@ -40,6 +40,8 @@ namespace py = pybind11;
 //compute
 #include "evolver/pybind_export_evolver.hpp"
 
+// Json Reader
+#include "pybind_export_from_json.hpp"
 
 PYBIND11_MODULE(cppmodule, m)
 {
@@ -67,4 +69,6 @@ PYBIND11_MODULE(cppmodule, m)
     export_ParticleType_Vector(m);
     export_SystemClass(m);
     export_EvolverClass(m);
+    //json reader
+    export_FastJsonReader(m);
 }

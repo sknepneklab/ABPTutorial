@@ -15,4 +15,4 @@
 # DEALINGS IN THE SOFTWARE.
 
 # Init file
-from .cppmodule import *
+from .nvccmodule import *

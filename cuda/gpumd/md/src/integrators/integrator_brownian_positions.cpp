@@ -13,9 +13,9 @@ void IntegratorBrownianParticlesPositions_kernel(const int Numparticles,
                                                  const real dt)
 
 {
-  for (int pindex = globalThreadIndex();
+  for (int pindex = blockIdx.x * blockDim.x + threadIdx.x;
        pindex < Numparticles;
-       pindex += globalThreadCount())
+       pindex += blockDim.x * gridDim.x)
   {
     real2 force_rnd;
     force_rnd.x = force_rnd.y = 0.0;
@@ -27,6 +27,8 @@ void IntegratorBrownianParticlesPositions_kernel(const int Numparticles,
       double2 rnd_gausian = curand_normal2_double(&localState);
       force_rnd.x = B * sqrt_dt * rnd_gausian.x;
       force_rnd.y = B * sqrt_dt * rnd_gausian.y;
+      ///< Copy state back to global memory
+      rnd_state[pindex] = localState;
     }
     // Update particle position
     particles[pindex].r.x += mu * dt * particles[pindex].forceC.x + sqrt_dt * force_rnd.x;

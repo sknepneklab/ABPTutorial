@@ -5,9 +5,9 @@ void SelfPropulsionForce_kernel(const int Numparticles,
                                 ParticleType *particles,
                                 const real alpha)
 {
-    for (int pindex_i = globalThreadIndex();
+    for (int pindex_i = blockIdx.x * blockDim.x + threadIdx.x;
          pindex_i < Numparticles;
-         pindex_i += globalThreadCount())    
+         pindex_i += blockDim.x * gridDim.x)  
     {
         ParticleType pi = particles[pindex_i];
         pi.forceC.x+=alpha*pi.n.x;

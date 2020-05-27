@@ -42,6 +42,9 @@ namespace py = pybind11;
 //
 #include "configuration/pybind_export_gpu_configuration.hpp"
 
+// Json Reader
+#include "pybind_export_from_json.hpp"
+
 PYBIND11_MODULE(nvccmodule, m)
 {
     ///Documentation
@@ -68,5 +71,7 @@ PYBIND11_MODULE(nvccmodule, m)
     export_ParticleType(m);
     export_ParticleType_Vector(m);
     export_SystemClass(m);
-    //export_EvolverClass(m);
+    export_EvolverClass(m);
+    //json reader
+    export_FastJsonReader(m);
 }

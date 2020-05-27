@@ -5,17 +5,16 @@ DEV_LAUNCHABLE
 void HarmonicForce_kernel(const int Numparticles,
                           ParticleType *particles,
                           const int max_ng_per_particle,
-                          const int * __restrict__ nglist,
+                          const int *__restrict__ nglist,
                           const BoxType _box,
                           const real k,
                           const real a,
-                          const real a2,
                           const bool COMPUTE_ENERGY)
 
 {
-    for (int pindex_i = globalThreadIndex();
+    for (int pindex_i = blockIdx.x * blockDim.x + threadIdx.x;
          pindex_i < Numparticles;
-         pindex_i += globalThreadCount())
+         pindex_i += blockDim.x * gridDim.x)
     {
         ParticleType pi = particles[pindex_i];
         //loop over the neighbours particles
@@ -24,8 +23,9 @@ void HarmonicForce_kernel(const int Numparticles,
             int pindex_j = nglist[c + max_ng_per_particle * pindex_i];
             const ParticleType pj = particles[pindex_j];
             real2 rij = device::minimum_image(pi.r, pj.r, _box);
-            real lendr = vdot(rij, rij);
-            if (lendr <= a2)
+            real lendr = sqrt(vdot(rij, rij));
+            //real lendr = norm3d(rij.x, rij.y, 0.0);
+            if (lendr <= a)
             {
                 if (!COMPUTE_ENERGY)
                 {
@@ -50,7 +50,6 @@ void HarmonicForce::compute_energy(void)
                                                                                     _system.get_box(),
                                                                                     k,
                                                                                     a,
-                                                                                    a2,
                                                                                     true);
 }
 
@@ -63,6 +62,5 @@ void HarmonicForce::compute(void)
                                                                                     _system.get_box(),
                                                                                     k,
                                                                                     a,
-                                                                                    a2,
                                                                                     false);
 }

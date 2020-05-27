@@ -31,7 +31,7 @@ class InstallLocalPackage(install):
     def run(self):
         print()
         install.run(self)
-        subprocess.call("cd cppmd/md/build && cmake .. && make -j2 && cp nvccmodule.so ../", shell=True)
+        subprocess.call("cd gpumd/md/build && cmake .. && make -j2 && cp nvccmodule.so ../", shell=True)
 
 with open("README.md", "r") as fh:
     long_description = fh.read()

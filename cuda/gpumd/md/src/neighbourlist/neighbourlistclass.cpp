@@ -2,7 +2,6 @@
 #include "../box/pbc_device.hpp"
 #include "../configuration/atomic_exch_double.hpp"
 
-
 DEV_LAUNCHABLE
 void fill_neighbourlist_kernel(const int Numparticles,
                                ParticleType *particles,
@@ -16,9 +15,9 @@ void fill_neighbourlist_kernel(const int Numparticles,
                                int *nglist)
 {
     //loop over all the particles and build the neighbourlist
-    for (int pindex_i = globalThreadIndex();
+    for (int pindex_i = blockIdx.x * blockDim.x + threadIdx.x;
          pindex_i < Numparticles;
-         pindex_i += globalThreadCount())
+         pindex_i += blockDim.x * gridDim.x)
     {
         auto cellId = particles[pindex_i].cellId;
         int coordination = 0; //no neighbours
@@ -77,13 +76,51 @@ void fill_neighbourlist_kernel(const int Numparticles,
     }
 }
 
+DEV_LAUNCHABLE
+void fill_neighbourlist_brute_kernel(const int Numparticles,
+                               ParticleType *particles,
+                               real2 *old_positions,
+                               const BoxType box,
+                               const int max_ng_per_particle,
+                               const real rcut2,
+                               int *nglist)
+
+{
+    //loop over all the particles and build the neighbourlist
+    for (int pindex_i = blockIdx.x * blockDim.x + threadIdx.x;
+         pindex_i < Numparticles;
+         pindex_i += blockDim.x * gridDim.x)
+    {
+        int coordination = 0; //no neighbours
+        old_positions[pindex_i] = particles[pindex_i].r;
+        for(int pindex_j = 0; pindex_j<Numparticles; pindex_j++)
+        {
+            if (pindex_i != pindex_j)
+            {
+                real2 rij = device::minimum_image(particles[pindex_i].r, particles[pindex_j].r, box);
+                real rij2 = vdot(rij, rij);
+                if (rij2 < rcut2)
+                {
+                    int ng_index = coordination + max_ng_per_particle * pindex_i;
+                    nglist[ng_index] = pindex_j;
+                    coordination++;
+                }
+            }
+        }
+        particles[pindex_i].coordination = coordination;
+    }
+
+}                               
+
+
 void NeighbourListType::fill_neighbourlist(void)
 {
+
     //fill the linked list
     this->fill_linkedlist();
     //retrieve the box from system
     auto box = _system.get_box();
-    fill_neighbourlist_kernel<<<_system._ep.getGridSize(), _system._ep.getBlockSize()>>>(_system.Numparticles,
+   fill_neighbourlist_kernel<<<_system._ep.getGridSize(), _system._ep.getBlockSize()>>>(_system.Numparticles,
                                                                                          device::raw_pointer_cast(&_system.particles[0]),
                                                                                          device::raw_pointer_cast(&old_positions[0]),
                                                                                          _system.get_box(),
@@ -93,6 +130,15 @@ void NeighbourListType::fill_neighbourlist(void)
                                                                                          max_ng_per_particle,
                                                                                          rcut2,
                                                                                          device::raw_pointer_cast(&nglist[0]));
+    
+     /*fill_neighbourlist_brute_kernel<<<_system._ep.getGridSize(), _system._ep.getBlockSize()>>>(_system.Numparticles,
+                                                                                         device::raw_pointer_cast(&_system.particles[0]),
+                                                                                         device::raw_pointer_cast(&old_positions[0]),
+                                                                                         _system.get_box(),
+                                                                                         max_ng_per_particle,
+                                                                                         rcut2,
+                                                                                         device::raw_pointer_cast(&nglist[0]));*/
+    
     real2 value;
     value.x = value.y = 0.0;
     old_positions[_system.Numparticles] = value;
@@ -111,9 +157,9 @@ void automatic_update_kernel(const int Numparticles,
                              const real skin2)
 {
     //loop over all the particles and build the neighbourlist
-    for (int pindex_i = globalThreadIndex();
+    for (int pindex_i = blockIdx.x * blockDim.x + threadIdx.x;
          pindex_i < Numparticles;
-         pindex_i += globalThreadCount())
+         pindex_i += blockDim.x * gridDim.x)
     {
         real2 rij = device::minimum_image(particles[pindex_i].r, old_positions[pindex_i], box);
         real rij2 = vdot(rij, rij);
@@ -126,19 +172,29 @@ void automatic_update_kernel(const int Numparticles,
 
 void NeighbourListType::automatic_update(void)
 {
+    //this->fill_neighbourlist();
+
     automatic_update_kernel<<<_system._ep.getGridSize(), _system._ep.getBlockSize()>>>(_system.Numparticles,
                                                                                        device::raw_pointer_cast(&_system.particles[0]),
                                                                                        device::raw_pointer_cast(&old_positions[0]),
                                                                                        _system.get_box(),
                                                                                        skin2);
+
+
     real2 value = old_positions[_system.Numparticles];
     if (value.x < 0)
     {
         //std::cout<< "NeighbourList auto update hit"<< std::endl;
         this->fill_neighbourlist();
     }
+    
 }
-host::vector<int> NeighbourListType::get_neighbourlist(void)
+
+std::map<std::string, host::vector<int>> NeighbourListType::get_neighbourlist(void)
 {
-    return (device::copy(nglist));
+    std::map<std::string, std::vector<int>> cellHeadNext_map;
+    cellHeadNext_map["Head"] = device::copy(cellHead);
+    cellHeadNext_map["Next"] = device::copy(cellNext);
+    cellHeadNext_map["List"] = device::copy(nglist);
+    return cellHeadNext_map;
 }

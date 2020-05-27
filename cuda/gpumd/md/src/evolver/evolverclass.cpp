@@ -2,7 +2,7 @@
 #include "evolverclass.hpp"
 
 //operators over the particles
-#include "../system/particleoperators.hpp"
+#include "../system/particleoperators_dev.hpp"
 
 //here include all the hpp files of the forces
 #include "../potentials/harmonicforce.hpp"
@@ -16,7 +16,7 @@
 #include "../integrators/integrator_brownian_rotational.hpp"
 
 //neighbour list
-std::vector<int> EvolverClass::get_neighbourlist(void)
+std::map<std::string, host::vector<int>> EvolverClass::get_neighbourlist(void)
 {
     return(neighbourlist->get_neighbourlist());
 }
@@ -102,12 +102,12 @@ void EvolverClass::reset_forces_torques_energy(void)
     // for example here we have subtitude a for loop by a transformation over the particle list.
     // Check  "particleoperators.hpp"
     // More complex behaviour can be achieved by overloading operators: https://en.cppreference.com/w/cpp/language/operators
-    std::transform(_system.particles.begin(), _system.particles.end(), _system.particles.begin(), reset_particle_forces_torques_energy());
+    thrust::transform(_system.particles.begin(), _system.particles.end(), _system.particles.begin(), device::reset_particle_forces_torques_energy());
 }
 
 void EvolverClass::reset_forces(void)
 {
-    std::transform(_system.particles.begin(), _system.particles.end(), _system.particles.begin(), reset_particle_forces());
+    thrust::transform(_system.particles.begin(), _system.particles.end(), _system.particles.begin(), device::reset_particle_forces());
 }
 
 void EvolverClass::compute_forces(void)
@@ -118,7 +118,7 @@ void EvolverClass::compute_forces(void)
 
 void EvolverClass::reset_torques(void)
 {
-    std::transform(_system.particles.begin(), _system.particles.end(), _system.particles.begin(), reset_particle_torques());
+    thrust::transform(_system.particles.begin(), _system.particles.end(), _system.particles.begin(), device::reset_particle_torques());
 }
 
 void EvolverClass::compute_torques(void)
@@ -129,7 +129,7 @@ void EvolverClass::compute_torques(void)
 
 void EvolverClass::reset_energy(void)
 {
-    std::transform(_system.particles.begin(), _system.particles.end(), _system.particles.begin(), reset_particle_energy());
+    thrust::transform(_system.particles.begin(), _system.particles.end(), _system.particles.begin(), device::reset_particle_energy());
 }
 
 void EvolverClass::compute_energy(void)

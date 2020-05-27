@@ -131,7 +131,7 @@ class Dump:
     writer.SetDataModeToAscii()
     writer.Write()
 
-  def show(self):
+  def show(self, notebook=False):
     box = self.sys.box()
     fig, ax = plt.subplots()
     ax.add_patch(plt.Rectangle([box.Llo.x, box.Llo.x], box.L.x, box.L.y, fill=False))
@@ -141,5 +141,8 @@ class Dump:
     plt.axis('equal')
     plt.axis('off')
     plt.tight_layout()
-    fig.canvas.layout.width = '150%'
-    fig.canvas.layout.height = '150%'
+    if notebook:
+      fig.canvas.layout.width = '150%'
+      fig.canvas.layout.height = '150%'
+    else:
+      plt.show()

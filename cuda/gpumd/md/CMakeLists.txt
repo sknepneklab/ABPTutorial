@@ -51,8 +51,8 @@ set(CUDA_SEPARABLE_COMPILATION OFF)
 list( APPEND CUDA_NVCC_FLAGS --compiler-options -fno-strict-aliasing -lineinfo -use_fast_math -Xptxas -dlcm=cg)
 list( APPEND CUDA_NVCC_FLAGS --expt-extended-lambda )
 list( APPEND CUDA_NVCC_FLAGS -std=c++14 )
-list( APPEND CUDA_NVCC_FLAGS -gencode=arch=compute_30,code=compute_30 )
-list( APPEND CUDA_NVCC_FLAGS -gencode=arch=compute_52,code=sm_52 )
+#list( APPEND CUDA_NVCC_FLAGS -gencode=arch=compute_30,code=compute_30 )
+#list( APPEND CUDA_NVCC_FLAGS -gencode=arch=compute_52,code=sm_52 )
 ############################################
 
 

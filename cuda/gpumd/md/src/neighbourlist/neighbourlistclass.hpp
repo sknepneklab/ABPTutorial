@@ -43,20 +43,26 @@ struct NeighbourListType : public LinkedListType
         rcut2 = rcut*rcut;
         max_ng_per_particle = _max_ng_per_particle;
         this->create_linkedlist(rcut);
-        host::vector<int> _nglist(max_ng_per_particle*_system.Numparticles, -1);
+        host::vector<int> _nglist(max_ng_per_particle*_system.Numparticles);
         nglist = _nglist;
         host::vector<real2> _old_positions(_system.Numparticles+1);
+        real2 value;
+        value.x = value.y = 0.0;
+        _old_positions[_system.Numparticles] = value;
         old_positions = _old_positions;
-        //old_positions.resize(_system.Numparticles);
+        //old_positions.resize(_system.Numparticles+1);
         //nglist.resize(max_ng_per_particle*_system.Numparticles);
+        std::cout << " ********************************************\n";
+        std::cout << " Neighbourlist list\n";
         std::cout << "neighbourlist.size()=" << nglist.size() << "\n";
         std::cout << "neighbourlist rcut =" << rcut << "\n";
         std::cout << "neighbourlist skin =" << skin << "\n";
+        std::cout << " ********************************************\n";
     }
     void fill_neighbourlist(void);
     void fill_neighbourlist_brute_force(void);
     void automatic_update(void);
-    host::vector<int> get_neighbourlist(void);
+    std::map<std::string, std::vector<int>> get_neighbourlist(void);
 
     //Variables
     real rcut, rcut2;
@@ -64,6 +70,7 @@ struct NeighbourListType : public LinkedListType
     int max_ng_per_particle;
     device::vector<int> nglist;    ///< stores the neibourlist for the cells   
     device::vector<real2> old_positions;  ///< stores the particle position at the time of neibourlist creation
+
 };
 
 typedef std::shared_ptr<NeighbourListType> NeighbourListType_ptr;

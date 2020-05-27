@@ -1,4 +1,4 @@
-from cppmd.md import *
+from gpumd.md import *
 import json
 from random import uniform
 from math import pi, sin, cos

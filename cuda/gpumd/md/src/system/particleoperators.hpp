@@ -26,57 +26,54 @@
 #define __PARTICLEOPERATORS_hpp__
 
 #include "particletype.hpp"
-
-struct reset_particle_forces
+namespace host
 {
-    inline 
-    ParticleType operator()(const ParticleType& particle)
+    struct reset_particle_forces
     {
-        ParticleType v = particle;
-        v.forceC.x = 0.0;
-        v.forceC.y = 0.0;
-        v.forceA.x = 0.0;
-        v.forceA.y = 0.0;
-        return v;
-    }
-};
+        inline ParticleType operator()(const ParticleType &particle)
+        {
+            ParticleType v = particle;
+            v.forceC.x = 0.0;
+            v.forceC.y = 0.0;
+            v.forceA.x = 0.0;
+            v.forceA.y = 0.0;
+            return v;
+        }
+    };
 
-struct reset_particle_torques
-{
-    inline
-    ParticleType operator()(const ParticleType& particle)
+    struct reset_particle_torques
     {
-        ParticleType v = particle;
-        v.tau = 0.0;
-        return v;
-    }
-};
+        inline ParticleType operator()(const ParticleType &particle)
+        {
+            ParticleType v = particle;
+            v.tau = 0.0;
+            return v;
+        }
+    };
 
-struct reset_particle_energy
-{
-    inline
-    ParticleType operator()(const ParticleType& particle)
+    struct reset_particle_energy
     {
-        ParticleType v = particle;
-        v.energy = 0.0;
-        return v;
-    }
-};
+        inline ParticleType operator()(const ParticleType &particle)
+        {
+            ParticleType v = particle;
+            v.energy = 0.0;
+            return v;
+        }
+    };
 
-
-struct reset_particle_forces_torques_energy
-{
-    inline
-    ParticleType operator()(const ParticleType& particle)
+    struct reset_particle_forces_torques_energy
     {
-        ParticleType v = particle;
-        v.energy = 0.0;
-        v.forceC.x = 0.0;
-        v.forceC.y = 0.0;
-        v.forceA.x = 0.0;
-        v.forceA.y = 0.0;
-        v.tau = 0.0;
-        return v;
-    }
-};
+        inline ParticleType operator()(const ParticleType &particle)
+        {
+            ParticleType v = particle;
+            v.energy = 0.0;
+            v.forceC.x = 0.0;
+            v.forceC.y = 0.0;
+            v.forceA.x = 0.0;
+            v.forceA.y = 0.0;
+            v.tau = 0.0;
+            return v;
+        }
+    };
+} // namespace host
 #endif
