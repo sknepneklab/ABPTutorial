@@ -34,7 +34,7 @@ Accompanied course material can be found in [Session 3](Session_3.html).
 
 ## Getting started
 
-Please follow the instructions detailed [here](README.md).
+Please follow the instructions detailed [here](Instructions.md).
 
 
 
