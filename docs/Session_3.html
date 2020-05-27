@@ -13125,7 +13125,7 @@ div#notebook {
 <h2 id="GPUs-computing:-Heterogeneous-Architecture">GPUs computing: Heterogeneous Architecture<a class="anchor-link" href="#GPUs-computing:-Heterogeneous-Architecture">&#182;</a></h2><p>Nowadays, a high-end workstation or a typical compute node in a high-performance computer cluster contains several multi-core central processing unit (<strong>CPU</strong>) sockets and one or more GPUs. The GPU acts a co-processor to a CPU operating through a <strong>PCI-Express BUS</strong>. GPUs are designed to fulfill specialized task, in particular, for producing high-resolution graphics in real time. A modern GPU consists of several thousands compute cores.</p>
 <div align="center">
 <img src="./GPU-transistor2.png" style="width: 500px;"/>
-</div><p>In terms of its purpose, a CPU core is designed to optimize the execution of sequential programs. In contrast, a GPU core (much simpler in design than a CPU code) is optimized for data-parallel tasks focusing on the large throughput. Since the GPUs function as a "co-processor", the CPU is called the <code>host</code> and the GPU is called the <code>device</code>.</p>
+</div><p>In terms of its purpose, a CPU core is designed to optimize the execution of sequential programs. In contrast, a GPU core (much simpler in design than a CPU core) is optimized for data-parallel tasks focusing on the large throughput. Since the GPUs function as a "co-processor", the CPU is called the <code>host</code> and the GPU is called the <code>device</code>.</p>
 <p>Because of this <code>host-device</code> relationship, any GPU-based application consist of two parts:</p>
 <ul>
 <li>Host code</li>
@@ -13150,6 +13150,8 @@ div#notebook {
 <span class="kt">void</span> <span class="nf">call_hello_world_kernel</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
 <span class="p">{</span>
     <span class="n">hello_kernel</span><span class="o">&lt;&lt;&lt;</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="o">&gt;&gt;&gt;</span><span class="p">();</span>
+    <span class="n">cudaDeviceSynchronize</span> <span class="p">();</span> <span class="c1">//Wait for compute device to finish.</span>
+                              <span class="c1">//forcing printf to flush</span>
 <span class="p">}</span>
 <span class="c1">// host code end</span>
 
@@ -13191,7 +13193,8 @@ div#notebook {
 <span class="c1">// device code start</span>
 <span class="n">__global__</span> <span class="kt">void</span> <span class="nf">hello_world_kernel</span><span class="p">()</span>
 <span class="p">{</span>
-    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;hello&quot;</span><span class="p">);</span> 
+    <span class="kt">int</span> <span class="n">tid</span> <span class="o">=</span> <span class="n">blockIdx</span><span class="p">.</span><span class="n">x</span><span class="o">*</span><span class="n">blockDim</span><span class="p">.</span><span class="n">x</span> <span class="o">+</span> <span class="n">threadIdx</span><span class="p">.</span><span class="n">x</span><span class="p">;</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;hello &lt;global&gt; thread id=%i block id=%i &lt;local&gt; thread id=%i&quot;</span><span class="p">,</span> <span class="n">tid</span><span class="p">,</span> <span class="n">blockIdx</span><span class="p">.</span><span class="n">x</span><span class="p">,</span> <span class="n">threadIdx</span><span class="p">.</span><span class="n">x</span><span class="p">);</span> 
 <span class="p">}</span>
 <span class="c1">// device code end</span>
 
@@ -13202,6 +13205,7 @@ div#notebook {
     <span class="n">uint</span> <span class="n">threads_in_block</span> <span class="o">=</span> <span class="mi">8</span><span class="p">;</span>
 
     <span class="n">hello_kernel</span><span class="o">&lt;&lt;&lt;</span><span class="n">thread_of_blocks</span><span class="p">,</span><span class="n">threads_in_block</span><span class="o">&gt;&gt;&gt;</span><span class="p">();</span>
+    <span class="n">cudaDeviceSynchronize</span> <span class="p">();</span> <span class="c1">//    Wait for compute device to finish.</span>
     <span class="c1">//here hello will be printed $thread_of_blocks \times threads_in_block = 32$</span>
 <span class="p">}</span>
 <span class="c1">// host code end</span>
@@ -13218,6 +13222,7 @@ div#notebook {
 <li><p><strong>Constant memory</strong> As the name may indicate, we use constant memory for data that will not change over the course of a kernel execution.</p>
 </li>
 </ul>
+<p>Example: $v_{i}=i\,a+b$</p>
 <div class="highlight"><pre><span></span><span class="c1">//@file: hello_world.hpp</span>
 
 <span class="c1">// Global memory statically in device code using the qualifier __device__</span>
@@ -13235,12 +13240,12 @@ div#notebook {
 <span class="c1">// device code start</span>
 <span class="n">__global__</span> <span class="kt">void</span> <span class="nf">hello_world_sum_kernel</span><span class="p">(</span><span class="n">__constant__</span> <span class="kt">int</span> <span class="n">Num</span><span class="p">,</span> <span class="kt">int</span><span class="o">*</span> <span class="n">vector_of_int_dev</span><span class="p">)</span>
 <span class="p">{</span>
-    <span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="n">blockIdx</span><span class="p">.</span><span class="n">x</span><span class="o">*</span><span class="n">blockDim</span><span class="p">.</span><span class="n">x</span> <span class="o">+</span> <span class="n">threadIdx</span><span class="p">.</span><span class="n">x</span><span class="p">;</span>
+    <span class="kt">int</span> <span class="n">tid</span> <span class="o">=</span> <span class="n">blockIdx</span><span class="p">.</span><span class="n">x</span><span class="o">*</span><span class="n">blockDim</span><span class="p">.</span><span class="n">x</span> <span class="o">+</span> <span class="n">threadIdx</span><span class="p">.</span><span class="n">x</span><span class="p">;</span>
     <span class="c1">//For cases where the number of elements in the arrays is not evenly divisible by the thread block size</span>
     <span class="c1">//the kernel code must check for out-of-bounds memory accesses    </span>
-    <span class="k">if</span><span class="p">(</span><span class="n">i</span><span class="o">&lt;</span><span class="n">Num</span><span class="p">)</span>
+    <span class="k">if</span><span class="p">(</span><span class="n">tid</span><span class="o">&lt;</span><span class="n">Num</span><span class="p">)</span>
     <span class="p">{</span>
-        <span class="n">vector_of_int_dev</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">i</span><span class="o">*</span><span class="n">my_static_variable</span> <span class="o">+</span> <span class="n">my_const_static_variable</span><span class="p">;</span>
+        <span class="n">vector_of_int_dev</span><span class="p">[</span><span class="n">tid</span><span class="p">]</span> <span class="o">=</span> <span class="n">tid</span><span class="o">*</span><span class="n">my_static_variable</span> <span class="o">+</span> <span class="n">my_const_static_variable</span><span class="p">;</span>
     <span class="p">}</span>
     <span class="c1">//..</span>
 <span class="p">}</span>
@@ -13327,9 +13332,9 @@ div#notebook {
 </li>
 </ol>
 <p>That's all! The rest of the code remains unchanged!</p>
-<h2 id="Conclusion">Conclusion<a class="anchor-link" href="#Conclusion">&#182;</a></h2><p>The code presented here is not highly optimized for run in GPUs. For example, the <code>HarmonicForce_kernel</code> have several irregular access pattern where different threads <strong>read</strong> the same memory bank, i.e., each particle have more than one neighbor and those neighbor need the particle <em>j</em> information for calculating the force producing <em>serialization</em> during reading. To fix this one should make use <strong>Memory hierarchy</strong> (<code>shared</code> memory would do the trick in this case!) which is out of scope on this tutorial.</p>
-<p>One of the drawbacks of parallel computation is that hardware and software deployment are deeply intertwined. This mean that to optimize the code we first need to have a deep understanding of how hardware operate at least at the basic level, like in <strong>Memory hierarchy</strong> case. Nevertheless, even with the basic parallel application implementation we can gain significant speed-ups.</p>
-<h3 id="Code-optimization">Code optimization<a class="anchor-link" href="#Code-optimization">&#182;</a></h3><p>Follow common sense! Let's say that a given application is 5x faster compared to the serial code and after "deep" optimization that makes the code "harder" to maintain you only gain 7x respect the serial code, then is not worthy.</p>
+<h2 id="Conclusion">Conclusion<a class="anchor-link" href="#Conclusion">&#182;</a></h2><p>Note that the code presented here could be further optimized for running on GPUs. For example, the <code>HarmonicForce_kernel</code> have several irregular memory access pattern where different threads <strong>read</strong> the same memory bank, e.g., each particle has more than one neighbor and each of those neighbors needs the information stored in particle <em>j</em> to calculate the force. This results in <em>serialization</em> during reading, which affect the performance. To fix this, one should make use <strong>Memory hierarchy</strong> (<code>shared</code> memory would do the trick in this case!) which is out of scope on this tutorial.</p>
+<p>One of the drawbacks of parallel computation is that hardware and software deployment are deeply intertwined. This means that in order to optimize the code we first need to have a deep understanding of how hardware operates, like in <strong>Memory hierarchy</strong> case. Nevertheless, even with the basic parallel application implementation we can gain significant speed-ups.</p>
+<h3 id="Code-optimization">Code optimization<a class="anchor-link" href="#Code-optimization">&#182;</a></h3><p>Follow common sense! Let's say that a given application is 5x faster compared to the serial code and after "deep" optimization that would take weeks to implement and  make the code "harder" to maintain you only gained 7x speedup with respect to the serial code, then the effort is not worth it.</p>
 <h4 id="Assess,-Parallelize,-Optimize,-Deploy-(APOD)">Assess, Parallelize, Optimize, Deploy (APOD)<a class="anchor-link" href="#Assess,-Parallelize,-Optimize,-Deploy-(APOD)">&#182;</a></h4><p>APOD is a cyclical process: initial speedups can be achieved, tested, and deployed with only minimal initial investment of time, at which point the cycle can begin again by identifying further optimization opportunities, seeing additional speedups, and then deploying the even faster versions of the application into production.</p>
 <div align="center">
 <img src="./apod-cycle.png" style="width: 1000x;"/>
@@ -13340,7 +13345,7 @@ div#notebook {
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Working-Example">Working Example<a class="anchor-link" href="#Working-Example">&#182;</a></h2><p>Now that we have all key ingredients in place, we can proceed to test our CUDA simulation and its Python interface. Before we do this, let us briefly recapitulate the key steps in performing any particle-based simulation.</p>
+<h2 id="Working-Example">Working Example<a class="anchor-link" href="#Working-Example">&#182;</a></h2><p>Now that we have all key ingredients in place, we can proceed to test our CUDA implementation and its Python interface. Before we do this, let us briefly recapitulate the key steps in performing any particle-based simulation.</p>
 <h3 id="Review-on-particle-based-simulation">Review on particle-based simulation<a class="anchor-link" href="#Review-on-particle-based-simulation">&#182;</a></h3><p>Our simulation workflow consists of three steps:</p>
 <ol>
 <li>Creating the initial configuration; </li>
@@ -13361,11 +13366,59 @@ div#notebook {
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="o">%</span><span class="k">matplotlib</span> widget
 <span class="kn">import</span> <span class="nn">gpumd</span> <span class="k">as</span> <span class="nn">md</span>
+<span class="kn">import</span> <span class="nn">time</span>
 
 <span class="n">json_reader</span> <span class="o">=</span> <span class="n">md</span><span class="o">.</span><span class="n">fast_read_json</span><span class="p">(</span><span class="s2">&quot;initphi=0.4L=300.json&quot;</span><span class="p">)</span> <span class="c1">#here we read the json file in python</span>
 <span class="n">system</span> <span class="o">=</span> <span class="n">md</span><span class="o">.</span><span class="n">System</span><span class="p">(</span><span class="n">json_reader</span><span class="o">.</span><span class="n">particles</span><span class="p">,</span> <span class="n">json_reader</span><span class="o">.</span><span class="n">box</span><span class="p">)</span>
 
-<span class="n">dump</span> <span class="o">=</span> <span class="n">md</span><span class="o">.</span><span class="n">Dump</span><span class="p">(</span><span class="n">system</span><span class="p">)</span>          <span class="c1"># Create a dump object</span>
+<span class="c1">#get the GPU hardware properties</span>
+<span class="n">cuda_info</span> <span class="o">=</span> <span class="n">system</span><span class="o">.</span><span class="n">get_execution_policies</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;** Device parameters **&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">cuda_info</span><span class="o">.</span><span class="n">getDeviceProperty</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;** Lunch parameters **&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;GridSize=&quot;</span><span class="p">,</span> <span class="n">cuda_info</span><span class="o">.</span><span class="n">getGridSize</span><span class="p">(),</span> <span class="s2">&quot;BlockSize=&quot;</span><span class="p">,</span> <span class="n">cuda_info</span><span class="o">.</span><span class="n">getBlockSize</span><span class="p">())</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>** Device parameters **
+
+Device 0 GeForce RTX 2060
+CUDA Driver Version / Runtime Version 10.2/10.2
+CUDA Capability Major/Minor version number: 7.5
+Total amount of global memory 5 GB
+30 Multiprocessors 64 CUDA Cores/MP 1920 CUDA Cores 
+GPU Clock rate 1.710000 GHz 
+
+
+** Lunch parameters **
+GridSize= 160 BlockSize= 256
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[2]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">dump</span> <span class="o">=</span> <span class="n">md</span><span class="o">.</span><span class="n">Dump</span><span class="p">(</span><span class="n">system</span><span class="p">)</span>          <span class="c1"># Create a dump object</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;t=0&quot;</span><span class="p">)</span>
 <span class="c1">#dump.show(notebook=True)        # Plot the particles with matplotlib</span>
 
@@ -13426,14 +13479,16 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[2]:</div>
+<div class="prompt input_prompt">In&nbsp;[8]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10000</span><span class="p">):</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">start_clock</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+<span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10000</span><span class="p">):</span>
     <span class="c1">#print(&quot;Time step : &quot;, t)</span>
     <span class="n">evolver</span><span class="o">.</span><span class="n">evolve</span><span class="p">()</span>    <span class="c1"># Evolve the system by one time step</span>
     <span class="c1">#if t % 10 == 0:     # Produce snapshot of the simulation once every 10 time steps</span>
     <span class="c1">#    dump.dump_vtp(&#39;test_{:05d}.vtp&#39;.format(t))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;36000 particles - 10000 steps execution time </span><span class="si">{:.2f}</span><span class="s1">[s]&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span> <span class="o">-</span> <span class="n">start_clock</span><span class="p">))</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;t=10000&quot;</span><span class="p">)</span>
 <span class="c1">#dump.show(notebook=True)              # Plot the particles with matplotlib    </span>
 </pre></div>
@@ -13452,7 +13507,8 @@ div#notebook {
 
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>t=10000
+<pre>36000 particles - 10000 steps execution time 8.85[s]
+t=10000
 </pre>
 </div>
 </div>
