@@ -25,8 +25,8 @@ void IntegratorBrownianParticlesPositions_kernel(const int Numparticles,
       curandStatePhilox4_32_10_t localState = rnd_state[pindex];
       ///< Generate pseudo-random
       double2 rnd_gausian = curand_normal2_double(&localState);
-      force_rnd.x = B * sqrt_dt * rnd_gausian.x;
-      force_rnd.y = B * sqrt_dt * rnd_gausian.y;
+      force_rnd.x = B * rnd_gausian.x;
+      force_rnd.y = B * rnd_gausian.y;
       ///< Copy state back to global memory
       rnd_state[pindex] = localState;
     }

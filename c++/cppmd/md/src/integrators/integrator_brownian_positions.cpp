@@ -14,8 +14,8 @@ void IntegratorBrownianParticlesPositions::poststep(void)
     force_rnd.x = force_rnd.y = 0.0;
     if (this->get_temperature() > 0.0)
     {
-      force_rnd.x = B * sqrt_dt * rng->gauss_rng(1.0, 0.0);
-      force_rnd.y = B * sqrt_dt * rng->gauss_rng(1.0, 0.0);
+      force_rnd.x = B * rng->gauss_rng(1.0, 0.0);
+      force_rnd.y = B * rng->gauss_rng(1.0, 0.0);
     }
     // Update particle position
     _system.particles[pindex].r.x += mu * this->get_time_step() * _system.particles[pindex].forceC.x + sqrt_dt * force_rnd.x;
