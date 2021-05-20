@@ -2,6 +2,11 @@
 
 This is the GitHub repository for a series of three tutorial on implementing a simulation of Active Brownian Particles (ABP) in two dimensions. These tutorial were delivered as a part of the [KITP ACTIVE20](https://www.kitp.ucsb.edu/activities/active20)  virtual programme.
 
+## Lecturers
+Rastko Sknepnek, University of Dundee, United Kingdom
+
+Daniel Matoz-Fernandez, Northwestern University, USA
+
 ## Layout 
 
 This tutorial consists of three sessions:
@@ -88,8 +93,5 @@ We also recommend installing [Paraview](https://www.paraview.org/download/) for 
 
 **Note:** It is also possible to install Paraview via the conda-forge channel. However, this has not been tested and one may encounter a number of package dependency issues if trying to install Paraview in the ABP conda environment provided above. 
 
-## Lecturers
-Rastko Sknepnek, University of Dundee, United Kingdom
 
-Daniel Matoz-Fernandez, Northwestern University, USA
 
