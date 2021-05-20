@@ -11,9 +11,9 @@ Daniel Matoz-Fernandez, Northwestern University, USA
 
 This tutorial consists of three sessions:
 
-https://online.kitp.ucsb.edu/online/active20/tutorial1/
-https://online.kitp.ucsb.edu/online/active20/tutorial2/
-https://online.kitp.ucsb.edu/online/active20/tutorial3/
+1. https://online.kitp.ucsb.edu/online/active20/tutorial1/
+2. https://online.kitp.ucsb.edu/online/active20/tutorial2/
+3. https://online.kitp.ucsb.edu/online/active20/tutorial3/
 
 ### Session 1: Overview of particle-based simulations and implementation of ABP in Python
 
