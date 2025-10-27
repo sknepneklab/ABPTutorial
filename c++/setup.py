@@ -1,43 +1,58 @@
-#####################################################################################
-# MIT License                                                                       #
-#                                                                                   #
-# Copyright (c) 2020 Dr. Daniel Alejandro Matoz Fernandez                           #
-#               fdamatoz@gmail.com                                                  #
-#                    Dr. Rastko Sknepnek                                            #
-#               r.sknepnek@dundee.ac.uk                                             #
-# Permission is hereby granted, free of charge, to any person obtaining a copy      #
-# of this software and associated documentation files (the "Software"), to deal     #
-# in the Software without restriction, including without limitation the rights      #
-# to use, copy, modify, merge, publish, distribute, sublicense, and/or sell         #
-# copies of the Software, and to permit persons to whom the Software is             #
-# furnished to do so, subject to the following conditions:                          #
-#                                                                                   #
-# The above copyright notice and this permission notice shall be included in all    #
-# copies or substantial portions of the Software.                                   #
-#                                                                                   #
-# THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR        #
-# IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,          #
-# FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE       #
-# AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER            #
-# LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,     #
-# OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE     #
-# SOFTWARE.                                                                         #
-#####################################################################################
+# setup.py
+import os
+import shutil
 import subprocess
-import setuptools
-from setuptools.command.install import install
+import sysconfig
+from setuptools import setup, find_packages
+from setuptools.command.build_py import build_py as _build_py
 
-class InstallLocalPackage(install):
+class build_py(_build_py):
     def run(self):
-        print()
-        install.run(self)
-        subprocess.call("cd cppmd/md/build && cmake .. && make -j2 && cp cppmodule.so ../", shell=True)
+        # Build pure-Python bits first so self.build_lib exists
+        super().run()
 
-with open("README.md", "r") as fh:
+        build_dir = os.path.join("cppmd", "md", "build")
+        src_dir = os.path.join("cppmd", "md")
+        os.makedirs(build_dir, exist_ok=True)
+
+        # Configure & build with CMake
+        subprocess.check_call(["cmake", "-S", src_dir, "-B", build_dir])
+        subprocess.check_call(["cmake", "--build", build_dir, "-j", "2"])
+
+        # Figure out the platform-specific extension suffix (e.g. .so, .cpython-311-darwin.so, .pyd)
+        ext_suffix = sysconfig.get_config_var("EXT_SUFFIX") or ".so"
+
+        # If your CMake target produces exactly "cppmodule<ext_suffix>", this will work.
+        # Adjust the name if your CMake target is different.
+        built_name = "cppmodule" + ext_suffix
+        src_path = os.path.join(build_dir, built_name)
+
+        if not os.path.exists(src_path):
+            # Fallbacks that sometimes occur depending on CMake configs
+            # Try plain ".so" on mac even if EXT_SUFFIX has ABI tags, or try ".dylib"
+            alt_candidates = [
+                os.path.join(build_dir, "cppmodule.so"),
+                os.path.join(build_dir, "cppmodule.dylib"),
+            ]
+            for cand in alt_candidates:
+                if os.path.exists(cand):
+                    src_path = cand
+                    break
+            else:
+                raise FileNotFoundError(
+                    f"Could not find built extension: tried {src_path} and {alt_candidates}"
+                )
+
+        dst_dir = os.path.join(self.build_lib, "cppmd", "md")
+        os.makedirs(dst_dir, exist_ok=True)
+        dst_path = os.path.join(dst_dir, os.path.basename(src_path))
+        shutil.copy2(src_path, dst_path)
+
+with open("README.md", "r", encoding="utf-8") as fh:
     long_description = fh.read()
 
-setuptools.setup(
-    name="cppmd", 
+setup(
+    name="cppmd",
     version="1.0",
     author="Daniel Matoz Fernandez",
     author_email="fdamatoz@gmail.com",
@@ -45,13 +60,16 @@ setuptools.setup(
     long_description=long_description,
     long_description_content_type="text/markdown",
     url="https://github.com/sknepneklab/ABPTutorial",
-    cmdclass=dict(install=InstallLocalPackage), 
-    packages=setuptools.find_packages(),
-    package_data={'': ['cppmodule.so']},
+    packages=find_packages(),
+    include_package_data=True,
+    # IMPORTANT: key must be the *package path* that contains the file
+    package_data={"cppmd.md": ["cppmodule*"]},  # glob to catch .so/.pyd with ABI tags
+    cmdclass={"build_py": build_py},
     classifiers=[
         "Programming Language :: Python :: 3",
         "License :: OSI Approved :: MIT License",
         "Operating System :: OS Independent",
     ],
-    python_requires='>=3.7',
+    python_requires=">=3.7",
 )
+
